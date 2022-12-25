@@ -17,6 +17,10 @@
 		C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7127295843C300C0FA24 /* DetailViewController.swift */; };
 		C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = C8DE712A295845DA00C0FA24 /* SideMenu */; };
 		C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE712C295845E900C0FA24 /* SideMenuViewController.swift */; };
+		C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE712E2958465300C0FA24 /* MemoCell.swift */; };
+		C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */; };
+		C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */; };
+		C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE713429584B5400C0FA24 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		C8DE711D295842DE00C0FA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8DE7127295843C300C0FA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C8DE712C295845E900C0FA24 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		C8DE712E2958465300C0FA24 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C8DE713429584B5400C0FA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,9 @@
 		C8DE7124295842FF00C0FA24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */,
+				C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */,
+				C8DE713429584B5400C0FA24 /* CoreDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,6 +107,7 @@
 			children = (
 				C8DE711A295842DE00C0FA24 /* LaunchScreen.storyboard */,
 				C8DE7112295842DD00C0FA24 /* Main.storyboard */,
+				C8DE712E2958465300C0FA24 /* MemoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,11 +200,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
+				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
+				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
+				C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */,
+				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="133" id="zq6-C9-9hI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="133" id="zq6-C9-9hI" customClass="MemoCell" customModule="PhotoMemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zq6-C9-9hI" id="pM6-To-NA8">
@@ -63,6 +63,9 @@
                                                     <rect key="frame" x="292.33333333333331" y="31" width="47.666666666666686" height="71"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="updateButtonPressed:" destination="zq6-C9-9hI" eventType="touchUpInside" id="iOM-qF-3Lu"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -74,6 +77,13 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="EUP-lB-3GM" secondAttribute="trailing" constant="30" id="XyB-XB-7fn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bgView" destination="pM6-To-NA8" id="YEh-d0-hHf"/>
+                                            <outlet property="dateTextLabel" destination="Fef-fW-cFN" id="rFX-CT-5KR"/>
+                                            <outlet property="thumbnailImage" destination="rmY-EB-R3p" id="o2y-7e-tIf"/>
+                                            <outlet property="titleTextLabel" destination="D7i-eG-MWb" id="mWn-6H-aEc"/>
+                                            <outlet property="updateButton" destination="EUP-lB-3GM" id="Pn4-uY-iET"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -102,7 +112,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="4sI-qa-uvs" id="Wro-tI-wIO"/>
                         <segue destination="SiJ-mO-s7N" kind="show" identifier="editDiary" id="o2H-3N-3oz"/>
                     </connections>
                 </viewController>
