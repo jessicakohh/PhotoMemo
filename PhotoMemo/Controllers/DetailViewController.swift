@@ -43,10 +43,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
         // 기존 데이터가 있을 때
         if let diaryData = self.diaryData {
-            guard let text = diaryData.memoText, let image = diaryData.memoImage else { return }
+            guard let text = diaryData.titleText else { return }
             titleView.text = text
+            guard let text = diaryData.memoText else { return }
             memoView.text = text
-            //   thumbnailImage.image = UIImage(data: (diaryData?.memoImage)!)
+            guard let image = diaryData.memoImage else { return }
             imageView.image = UIImage(data: image)
             
             // 기존 데이터가 없을 때
@@ -55,14 +56,17 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 
+    // MARK: - 뒤로가기
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - 사진 버튼
     @IBAction func pickImageButton(_ sender: UIButton) {
         openImagePicker()
     }
     
+    // MARK: - 공유 버튼
     @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
         var sharedObject = [Any]()
         sharedObject.append(imageView)
@@ -72,35 +76,39 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         self.present(vc, animated: true)
     }
     
+    // MARK: - 저장 버튼
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         // 기존 데이터가 있을 때 -> 기존 데이터 업데이트
         if let diaryData = self.diaryData {
             // 텍스트뷰에 저장되어있는 메시지
             diaryData.titleText = titleView.text
             diaryData.memoText = memoView.text
-            imageView.image = UIImage(data: (diaryData.memoImage)!)
+            diaryData.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
             
+            diaryManager.updateDiary(newDiaryData: diaryData) {
+                print("업데이트 완료")
+                self.navigationController?.popViewController(animated: true)
+            }
             // 기존 데이터가 없을 때 -> 새로운 데이터 생성
         } else {
             let titleText = titleView.text
             let memoText = memoView.text
-            let thumbnailImage = imageView.image
-            // if let imageData = UIImagePNGRepresentation(image.pngData()) {
-//            diaryManager.saveDiaryData(titleText: titleText, memoText: memoText, thumbnailImage: thumbnailImage) {
+            let memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
+            diaryManager.saveDiaryData(titleText: titleText, memoText: memoText, thumbnailImage: memoImage) {
                 print("저장완료")
                 // 다시 전화면으로 돌아가기
                 self.navigationController?.popViewController(animated: true)
             }
         }
+    }
     
+    // MARK: - 삭제 버튼
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
     }
     
     }
     
-
-// MARK: - 이미지
-
+// MARK: - 이미지 할당
 extension DetailViewController: UIImagePickerControllerDelegate {
     func openImagePicker() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -112,6 +120,7 @@ extension DetailViewController: UIImagePickerControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         dismiss(animated: true, completion: nil)
         if let img = info[.originalImage] as? UIImage {
             self.imageView.image = img

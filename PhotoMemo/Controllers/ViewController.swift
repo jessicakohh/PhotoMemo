@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
     }
     
     // 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -34,6 +35,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return diaryManager.getDiaryListFromCoreData().count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell", for: indexPath) as! MemoCell
         // 셀에 모델(Diary) 전달
@@ -61,6 +63,7 @@ extension ViewController: UITableViewDelegate {
         if segue.identifier == "MemoCell" {
             let detailVC = segue.destination as! DetailViewController
             guard let indexPath = sender as? IndexPath else { return }
+            detailVC.diaryData = diaryManager.getDiaryListFromCoreData()[indexPath.row]
         }
     }
 }

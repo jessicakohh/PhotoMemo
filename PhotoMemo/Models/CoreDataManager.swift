@@ -50,7 +50,6 @@ final class CoreDataManager {
                     diaryData.date = Date()
                     diaryData.memoText = memoText
                     diaryData.memoImage = thumbnailImage
-
                     if context.hasChanges {
                         do {
                             try context.save()
