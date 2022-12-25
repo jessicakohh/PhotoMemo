@@ -14,6 +14,9 @@
 		C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7115295842DD00C0FA24 /* PhotoMemo.xcdatamodeld */; };
 		C8DE7119295842DE00C0FA24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8DE7118295842DE00C0FA24 /* Assets.xcassets */; };
 		C8DE711C295842DE00C0FA24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8DE711A295842DE00C0FA24 /* LaunchScreen.storyboard */; };
+		C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7127295843C300C0FA24 /* DetailViewController.swift */; };
+		C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = C8DE712A295845DA00C0FA24 /* SideMenu */; };
+		C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE712C295845E900C0FA24 /* SideMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,8 @@
 		C8DE7118295842DE00C0FA24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8DE711B295842DE00C0FA24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8DE711D295842DE00C0FA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8DE7127295843C300C0FA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C8DE712C295845E900C0FA24 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,14 +66,48 @@
 			children = (
 				C8DE710C295842DD00C0FA24 /* AppDelegate.swift */,
 				C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */,
-				C8DE7110295842DD00C0FA24 /* ViewController.swift */,
-				C8DE7112295842DD00C0FA24 /* Main.storyboard */,
-				C8DE7118295842DE00C0FA24 /* Assets.xcassets */,
-				C8DE711A295842DE00C0FA24 /* LaunchScreen.storyboard */,
+				C8DE7124295842FF00C0FA24 /* Models */,
+				C8DE71252958430300C0FA24 /* Views */,
+				C8DE71262958430700C0FA24 /* Controllers */,
+				C8DE7123295842F700C0FA24 /* Helpers */,
 				C8DE711D295842DE00C0FA24 /* Info.plist */,
 				C8DE7115295842DD00C0FA24 /* PhotoMemo.xcdatamodeld */,
 			);
 			path = PhotoMemo;
+			sourceTree = "<group>";
+		};
+		C8DE7123295842F700C0FA24 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE7118295842DE00C0FA24 /* Assets.xcassets */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C8DE7124295842FF00C0FA24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C8DE71252958430300C0FA24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE711A295842DE00C0FA24 /* LaunchScreen.storyboard */,
+				C8DE7112295842DD00C0FA24 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C8DE71262958430700C0FA24 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE7110295842DD00C0FA24 /* ViewController.swift */,
+				C8DE7127295843C300C0FA24 /* DetailViewController.swift */,
+				C8DE712C295845E900C0FA24 /* SideMenuViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +126,9 @@
 			dependencies = (
 			);
 			name = PhotoMemo;
+			packageProductDependencies = (
+				C8DE712A295845DA00C0FA24 /* SideMenu */,
+			);
 			productName = PhotoMemo;
 			productReference = C8DE7109295842DD00C0FA24 /* PhotoMemo.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +157,9 @@
 				Base,
 			);
 			mainGroup = C8DE7100295842DC00C0FA24;
+			packageReferences = (
+				C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			productRefGroup = C8DE710A295842DD00C0FA24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,7 +189,9 @@
 			files = (
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
+				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */,
+				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C8DE712A295845DA00C0FA24 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C8DE7115295842DD00C0FA24 /* PhotoMemo.xcdatamodeld */ = {
