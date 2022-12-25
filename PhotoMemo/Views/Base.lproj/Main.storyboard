@@ -148,7 +148,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="deleteButton"/>
                                 <connections>
-                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" eventType="touchUpInside" id="YlW-d4-TIe"/>
+                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" eventType="touchUpInside" id="E3g-H2-wvj"/>
+                                    <action selector="pickImageButton:" destination="SiJ-mO-s7N" eventType="touchUpInside" id="aJV-jn-15A"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-wY-d4u">
@@ -209,32 +210,31 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="siI-ay-iIj">
                             <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="backButtonTapped:" destination="SiJ-mO-s7N" id="odE-vC-0my"/>
+                                <action selector="backButtonTapped:" destination="SiJ-mO-s7N" id="Bv4-fp-51M"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="plus" catalog="system" style="plain" id="lXe-PR-7Sv">
                                 <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="saveButtonTapped:" destination="SiJ-mO-s7N" id="Jk0-Tw-0eo"/>
+                                    <action selector="saveButtonTapped:" destination="SiJ-mO-s7N" id="1Hp-1F-4G6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem id="Zja-iM-Q56">
                                 <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
                                 <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="shareButtonTapped:" destination="SiJ-mO-s7N" id="ovh-ng-A8y"/>
+                                    <action selector="shareButtonTapped:" destination="SiJ-mO-s7N" id="1XZ-aa-Qfb"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentsTextView" destination="XeA-tR-keH" id="Edz-1T-pQ8"/>
-                        <outlet property="imageView" destination="x7z-Ae-IWH" id="iz8-Lv-G6k"/>
-                        <outlet property="openImageButton" destination="TW2-vQ-2NO" id="aI5-PE-Alz"/>
-                        <outlet property="saveButton" destination="lXe-PR-7Sv" id="TDs-ux-sge"/>
-                        <outlet property="textView" destination="XeA-tR-keH" id="OUm-Z4-101"/>
-                        <outlet property="titleView" destination="Qbr-Yr-8g4" id="T4g-p7-Qb4"/>
+                        <outlet property="imageView" destination="x7z-Ae-IWH" id="NlV-NC-H08"/>
+                        <outlet property="memoView" destination="XeA-tR-keH" id="5pT-Tl-N7g"/>
+                        <outlet property="openImageButton" destination="66B-gG-F0s" id="rdZ-fM-Rvo"/>
+                        <outlet property="saveButton" destination="lXe-PR-7Sv" id="Ics-Ko-UtB"/>
+                        <outlet property="titleView" destination="Qbr-Yr-8g4" id="wnb-qx-KOn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U82-SF-fIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
