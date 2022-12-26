@@ -27,6 +27,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        setupNaviBar()
         configureUI()
     }
     
@@ -48,7 +49,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         titleView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         memoView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
-        
         // 기존 데이터가 있을 때
         if let diaryData = self.diaryData {
             guard let text = diaryData.titleText else { return }
@@ -65,6 +65,12 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             memoView.text = "메모를 입력해주세요."
             memoView.textColor = UIColor.lightGray
         }
+    }
+    
+    func setupNaviBar() {
+        let saveButton = UIImage(named: "saveButtonTapped")
+        let rightButtonItem = UIBarButtonItem(image: saveButton, style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIImageView(image: saveButton))
     }
     
     // MARK: - 뒤로가기
