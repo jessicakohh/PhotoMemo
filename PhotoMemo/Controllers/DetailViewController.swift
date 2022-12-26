@@ -27,7 +27,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        setupNaviBar()
         configureUI()
     }
     
@@ -66,13 +65,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             memoView.textColor = UIColor.lightGray
         }
     }
-    
-    func setupNaviBar() {
-        let saveButton = UIImage(named: "saveButtonTapped")
-        let rightButtonItem = UIBarButtonItem(image: saveButton, style: .plain, target: self, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIImageView(image: saveButton))
-    }
-    
+
     // MARK: - 뒤로가기
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)

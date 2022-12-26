@@ -43,9 +43,13 @@ final class MemoCell: UITableViewCell {
     func configureUIwithData() {
         titleTextLabel.text = diaryData?.titleText
         dateTextLabel.text = diaryData?.dateString
-        thumbnailImage.image = UIImage(data: (diaryData?.memoImage)!)
+        
+        if diaryData?.memoImage == nil {
+            thumbnailImage.image = UIImage(named: "emptyImage")
+        } else {
+            thumbnailImage.image = UIImage(data: (diaryData?.memoImage)!)
+        }
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
