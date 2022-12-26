@@ -30,7 +30,6 @@ final class MemoCell: UITableViewCell {
     
     var updateButtonPressed: (MemoCell) -> Void = { (sender) in }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
@@ -43,7 +42,6 @@ final class MemoCell: UITableViewCell {
     func configureUIwithData() {
         titleTextLabel.text = diaryData?.titleText
         dateTextLabel.text = diaryData?.dateString
-        
         if diaryData?.memoImage == nil {
             thumbnailImage.image = UIImage(named: "emptyImage")
         } else {
