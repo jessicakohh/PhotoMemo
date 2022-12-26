@@ -47,8 +47,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         
         titleView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         memoView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
-
+        
+        
         // 기존 데이터가 있을 때
         if let diaryData = self.diaryData {
             guard let text = diaryData.titleText else { return }
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             memoView.textColor = UIColor.lightGray
         }
     }
-
+    
     // MARK: - 뒤로가기
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -79,12 +79,19 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - 공유 버튼
     @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
-        var sharedObject = [Any]()
-        sharedObject.append(imageView)
-        let vc = UIActivityViewController(activityItems: sharedObject, applicationActivities: nil)
-        vc.popoverPresentationController?.permittedArrowDirections = []
-        vc.popoverPresentationController?.sourceView = self.view
-        self.present(vc, animated: true)
+        var shareItems = [Any]()
+        if let image = self.imageView.image {
+            shareItems.append(image)
+        }
+        if let text = self.titleView.text {
+            shareItems.append(text)
+        }
+        if let text = self.memoView.text {
+            shareItems.append(text)
+        }
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     // MARK: - 저장 버튼
@@ -123,11 +130,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
                 print("삭제 완료")
                 self.navigationController?.popViewController(animated: true)
             }
-            } else {
-                self.navigationController?.popViewController(animated: true)
-            }
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
     }
+}
 
 // MARK: - 이미지 할당
 extension DetailViewController: UIImagePickerControllerDelegate {
@@ -187,3 +194,16 @@ extension DetailViewController: UITextViewDelegate {
     }
 }
 
+extension UIView {
+    func convertToImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        if let context = UIGraphicsGetCurrentContext() {
+            layer.render(in: context)
+            return UIGraphicsGetImageFromCurrentImageContext()
+        }
+        return nil
+    }
+}

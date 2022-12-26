@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     private let diaryManager = CoreDataManager.shared
@@ -37,8 +37,8 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
         tableView.cellLayoutMarginsFollowReadableWidth = false
-        tableView.separatorInset.left = 30
-        tableView.separatorInset.right = 30
+        tableView.separatorInset.left = 10
+        tableView.separatorInset.right = 10
         tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(self.refreshFunc), for: .valueChanged)
         savedCoreArray = diaryManager.getDiaryListFromCoreData()
@@ -106,3 +106,5 @@ extension ViewController: UITableViewDelegate {
         }
     }
 }
+
+

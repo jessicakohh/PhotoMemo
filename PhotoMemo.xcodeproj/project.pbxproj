@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
 		C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7110295842DD00C0FA24 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */,
+				C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,7 @@
 			name = PhotoMemo;
 			packageProductDependencies = (
 				C8DE712A295845DA00C0FA24 /* SideMenu */,
+				C81F284A295957E0004F026D /* IQKeyboardManagerSwift */,
 			);
 			productName = PhotoMemo;
 			productReference = C8DE7109295842DD00C0FA24 /* PhotoMemo.app */;
@@ -174,6 +177,7 @@
 			mainGroup = C8DE7100295842DC00C0FA24;
 			packageReferences = (
 				C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = C8DE710A295842DD00C0FA24 /* Products */;
 			projectDirPath = "";
@@ -432,6 +436,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 		C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu";
@@ -443,6 +455,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C81F284A295957E0004F026D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		C8DE712A295845DA00C0FA24 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */;
