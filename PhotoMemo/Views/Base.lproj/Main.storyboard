@@ -177,16 +177,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66B-gG-F0s">
-                                <rect key="frame" x="276" y="755" width="84" height="45"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="deleteButton"/>
-                                <connections>
-                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" eventType="touchUpInside" id="E3g-H2-wvj"/>
-                                    <action selector="pickImageButton:" destination="SiJ-mO-s7N" eventType="touchUpInside" id="aJV-jn-15A"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yCF-V4-7VZ"/>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -203,12 +193,10 @@
                             <constraint firstItem="TW2-vQ-2NO" firstAttribute="bottom" secondItem="x7z-Ae-IWH" secondAttribute="bottom" id="GBL-As-ATL"/>
                             <constraint firstItem="Qbr-Yr-8g4" firstAttribute="leading" secondItem="yCF-V4-7VZ" secondAttribute="leading" constant="30" id="L0z-Pf-gbf"/>
                             <constraint firstItem="XeA-tR-keH" firstAttribute="leading" secondItem="yCF-V4-7VZ" secondAttribute="leading" constant="30" id="Q80-Y6-hVV"/>
-                            <constraint firstItem="yCF-V4-7VZ" firstAttribute="bottom" secondItem="66B-gG-F0s" secondAttribute="bottom" constant="10" id="dA4-1w-DKd"/>
                             <constraint firstItem="Qbr-Yr-8g4" firstAttribute="leading" secondItem="yCF-V4-7VZ" secondAttribute="leading" constant="30" id="jDI-2c-pRg"/>
                             <constraint firstItem="yCF-V4-7VZ" firstAttribute="trailing" secondItem="XeA-tR-keH" secondAttribute="trailing" constant="30" id="lfv-fF-xBf"/>
                             <constraint firstItem="JlH-GH-Gmn" firstAttribute="top" secondItem="Qbr-Yr-8g4" secondAttribute="bottom" constant="10" id="nPh-US-cKR"/>
                             <constraint firstItem="x7z-Ae-IWH" firstAttribute="top" secondItem="yCF-V4-7VZ" secondAttribute="top" constant="20" id="q9c-eY-tn2"/>
-                            <constraint firstItem="yCF-V4-7VZ" firstAttribute="trailing" secondItem="66B-gG-F0s" secondAttribute="trailing" constant="30" id="qEx-BR-iVz"/>
                             <constraint firstItem="TW2-vQ-2NO" firstAttribute="trailing" secondItem="x7z-Ae-IWH" secondAttribute="trailing" id="sY5-7Y-I4B"/>
                             <constraint firstItem="x7z-Ae-IWH" firstAttribute="centerX" secondItem="eIQ-Kb-Jja" secondAttribute="centerX" id="uAM-Vm-3nw"/>
                             <constraint firstItem="XeA-tR-keH" firstAttribute="leading" secondItem="yCF-V4-7VZ" secondAttribute="leading" constant="30" id="xxN-47-CTE"/>
@@ -222,14 +210,22 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="plus" catalog="system" style="plain" id="lXe-PR-7Sv">
+                            <barButtonItem style="plain" id="lXe-PR-7Sv">
+                                <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="medium"/>
                                 <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="SiJ-mO-s7N" id="1Hp-1F-4G6"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem id="ReW-ai-o2I">
+                                <imageReference key="image" image="bookmark.slash.fill" catalog="system" symbolScale="medium"/>
+                                <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" id="cgN-6r-fwF"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem id="Zja-iM-Q56">
-                                <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
+                                <imageReference key="image" image="square.and.arrow.up.fill" catalog="system" symbolScale="medium"/>
                                 <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="SiJ-mO-s7N" id="1XZ-aa-Qfb"/>
@@ -240,7 +236,6 @@
                     <connections>
                         <outlet property="imageView" destination="x7z-Ae-IWH" id="NlV-NC-H08"/>
                         <outlet property="memoView" destination="XeA-tR-keH" id="5pT-Tl-N7g"/>
-                        <outlet property="openImageButton" destination="66B-gG-F0s" id="rdZ-fM-Rvo"/>
                         <outlet property="saveButton" destination="lXe-PR-7Sv" id="Ics-Ko-UtB"/>
                         <outlet property="titleView" destination="Qbr-Yr-8g4" id="wnb-qx-KOn"/>
                     </connections>
@@ -344,20 +339,17 @@
     <resources>
         <image name="addPhotoButton2" width="340" height="340"/>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
+        <image name="bookmark.slash.fill" catalog="system" width="113" height="128"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
-        <image name="deleteButton" width="60" height="31"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="memoButton" width="60" height="31"/>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="titleButton" width="60" height="31"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

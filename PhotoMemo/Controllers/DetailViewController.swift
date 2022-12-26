@@ -120,7 +120,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - 삭제 버튼
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+   
+    @IBAction func deleteButtonTapped(_ sender: Any) {
         if let diaryData = self.diaryData {
             diaryData.titleText = titleView.text
             diaryData.memoText = memoView.text
