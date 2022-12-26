@@ -23,36 +23,36 @@
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="133" id="zq6-C9-9hI" customClass="MemoCell" customModule="PhotoMemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="133"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="100" id="zq6-C9-9hI" customClass="MemoCell" customModule="PhotoMemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zq6-C9-9hI" id="pM6-To-NA8">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qlM-WP-1b2">
-                                                    <rect key="frame" x="39.999999999999993" y="21" width="101.33333333333331" height="91"/>
+                                                    <rect key="frame" x="39.999999999999993" y="11" width="118.33333333333331" height="78"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-EB-R3p">
-                                                            <rect key="frame" x="0.0" y="20.666666666666664" width="50" height="49.999999999999993"/>
+                                                            <rect key="frame" x="0.0" y="14" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="83u-jg-25N"/>
                                                                 <constraint firstAttribute="height" constant="50" id="KsW-hp-cCr"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rhg-RW-Vdb">
-                                                            <rect key="frame" x="60" y="21.333333333333339" width="41.333333333333343" height="48.666666666666657"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rhg-RW-Vdb">
+                                                            <rect key="frame" x="60" y="22.666666666666664" width="58.333333333333343" height="33"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="58.333333333333336" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                    <color key="textColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
-                                                                    <rect key="frame" x="0.0" y="28.333333333333336" width="41.333333333333336" height="20.333333333333336"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2022.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
+                                                                    <rect key="frame" x="0.0" y="21" width="58.333333333333336" height="12"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -60,9 +60,12 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUP-lB-3GM">
-                                                    <rect key="frame" x="292.33333333333331" y="31" width="47.666666666666686" height="71"/>
+                                                    <rect key="frame" x="311.33333333333331" y="31" width="38.666666666666686" height="38"/>
+                                                    <color key="tintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <imageReference key="image" image="ellipsis" catalog="system" symbolScale="small"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="updateButtonPressed:" destination="zq6-C9-9hI" eventType="touchUpInside" id="iOM-qF-3Lu"/>
                                                     </connections>
@@ -71,12 +74,13 @@
                                             <constraints>
                                                 <constraint firstItem="qlM-WP-1b2" firstAttribute="leading" secondItem="pM6-To-NA8" secondAttribute="leadingMargin" constant="20" id="1sf-2Z-fPW"/>
                                                 <constraint firstItem="EUP-lB-3GM" firstAttribute="top" secondItem="pM6-To-NA8" secondAttribute="topMargin" constant="20" id="8be-hL-uNK"/>
-                                                <constraint firstItem="qlM-WP-1b2" firstAttribute="top" secondItem="pM6-To-NA8" secondAttribute="topMargin" constant="10" id="Ayf-wE-IdD"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qlM-WP-1b2" secondAttribute="bottom" constant="10" id="BRM-hZ-daH"/>
+                                                <constraint firstItem="qlM-WP-1b2" firstAttribute="top" secondItem="pM6-To-NA8" secondAttribute="topMargin" id="Ayf-wE-IdD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qlM-WP-1b2" secondAttribute="bottom" id="BRM-hZ-daH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EUP-lB-3GM" secondAttribute="bottom" constant="20" id="N59-rZ-1AR"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="EUP-lB-3GM" secondAttribute="trailing" constant="30" id="XyB-XB-7fn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EUP-lB-3GM" secondAttribute="trailing" constant="20" id="XyB-XB-7fn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="bgView" destination="pM6-To-NA8" id="YEh-d0-hHf"/>
                                             <outlet property="dateTextLabel" destination="Fef-fW-cFN" id="rFX-CT-5KR"/>

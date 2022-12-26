@@ -19,6 +19,7 @@ final class CoreDataManager {
     lazy var context = appDelegate?.persistentContainer.viewContext
     let modelName: String = "Diary"
     
+    
     // MARK: - Read
     
     func getDiaryListFromCoreData() -> [Diary] {

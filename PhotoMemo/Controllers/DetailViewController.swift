@@ -35,11 +35,19 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func setUp() {
+        titleView.delegate = self
+        memoView.delegate = self
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func configureUI() {
         imageView.layer.cornerRadius = imageView.frame.height / 2
+        titleView.layer.cornerRadius = 15
+        memoView.layer.cornerRadius = 20
+        
+        titleView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        memoView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
 
         // 기존 데이터가 있을 때
         if let diaryData = self.diaryData {
@@ -52,7 +60,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             
             // 기존 데이터가 없을 때
         } else {
-            
+            titleView.text = "제목을 입력해주세요."
+            titleView.textColor = UIColor.lightGray
+            memoView.text = "메모를 입력해주세요."
+            memoView.textColor = UIColor.lightGray
         }
     }
 
@@ -104,10 +115,20 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - 삭제 버튼
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        if let diaryData = self.diaryData {
+            diaryData.titleText = titleView.text
+            diaryData.memoText = memoView.text
+            diaryData.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
+            diaryManager.deleteDiary(data: diaryData) {
+                print("삭제 완료")
+                self.navigationController?.popViewController(animated: true)
+            }
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
-    
-    }
-    
+
 // MARK: - 이미지 할당
 extension DetailViewController: UIImagePickerControllerDelegate {
     func openImagePicker() {
@@ -131,6 +152,37 @@ extension DetailViewController: UIImagePickerControllerDelegate {
 // MARK: - 뒤로가기 제스처
 extension DetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+
+// MARK: - 텍스트 뷰
+
+extension DetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if titleView.textColor == UIColor.lightGray {
+            titleView.text = nil
+            titleView.textColor = UIColor.black
+        }
+        if memoView.textColor == UIColor.lightGray {
+            memoView.text = nil
+            memoView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if titleView.text.isEmpty {
+            titleView.text = "제목을 입력해주세요."
+            titleView.textColor = UIColor.lightGray
+        }
+        if memoView.text.isEmpty {
+            memoView.text = "메모를 입력해주세요."
+            memoView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        titleView.resignFirstResponder()
+        titleView.resignFirstResponder()
         return true
     }
 }

@@ -21,6 +21,7 @@
 		C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */; };
 		C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */; };
 		C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE713429584B5400C0FA24 /* CoreDataManager.swift */; };
+		C8DE71372958785000C0FA24 /* CellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71362958785000C0FA24 /* CellManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8DE713429584B5400C0FA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C8DE71362958785000C0FA24 /* CellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */,
 				C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */,
 				C8DE713429584B5400C0FA24 /* CoreDataManager.swift */,
+				C8DE71362958785000C0FA24 /* CellManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */,
+				C8DE71372958785000C0FA24 /* CellManager.swift in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,

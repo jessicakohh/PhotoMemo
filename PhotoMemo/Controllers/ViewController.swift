@@ -11,7 +11,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let diaryManager = CoreDataManager.shared
+    private let diaryManager = CoreDataManager.shared
+    private let refreshController: UIRefreshControl = UIRefreshControl()
+    private let cellManager = CellManager.shared
+    private var savedCoreArray: [Diary] = [] {
+        didSet {
+            print("Total ViewController savedCoreArray changed \n \(savedCoreArray)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +28,38 @@ class ViewController: UIViewController {
     // 화면에 다시 진입할때마다 테이블뷰 리로드
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        savedCoreArray = diaryManager.getDiaryListFromCoreData()
         tableView.reloadData()
     }
     
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.separatorInset.left = 30
+        tableView.separatorInset.right = 30
+        tableView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(self.refreshFunc), for: .valueChanged)
+        savedCoreArray = diaryManager.getDiaryListFromCoreData()
+    }
+    
+    @objc func refreshFunc() {
+        savedCoreArray = diaryManager.getDiaryListFromCoreData()
+        tableView.reloadData()
+        refreshController.endRefreshing()
     }
 }
+
+
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return diaryManager.getDiaryListFromCoreData().count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +82,19 @@ extension ViewController: UITableViewDelegate {
     // 셀 선택했을 때 다음화면
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "MemoCell", sender: indexPath)
+    }
+    
+    // ⚠️ 셀 스와이프하여 삭제하기
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                let subject = self.savedCoreArray[indexPath.row]
+                savedCoreArray.remove(at: indexPath.row)
+                cellManager.coreDataArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                cellManager.deleteCoreData(targetData: subject) {
+                }
+            } else if editingStyle == .insert {
+            }
     }
     
     // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
