@@ -165,7 +165,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             self.diaryData?.memoText = memoView.text
             self.diaryData?.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
             if diaryData?.memoImage == nil {
-                self.navigationController?.popViewController(animated: true)
+                diaryManager.deleteDiary(data: diaryData!) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 diaryManager.deleteDiary(data: diaryData!) {
                     self.navigationController?.popViewController(animated: true)

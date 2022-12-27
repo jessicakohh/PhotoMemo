@@ -174,7 +174,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Ovu-I1-Ysp"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                             </textView>
@@ -198,7 +198,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-tR-keH">
                                                 <rect key="frame" x="0.0" y="45" width="330" height="189"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                             </textView>
@@ -323,6 +323,9 @@
                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="checkmark.seal.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="jessButtonTapped:" destination="D8B-be-M2i" eventType="touchUpInside" id="LIG-fI-6q9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

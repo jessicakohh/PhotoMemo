@@ -7,12 +7,17 @@
 
 import UIKit
 import MessageUI
-import SafariServices
 
 class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction func jessButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "개발자 정보", message: "made by Jess \n IG @jykq", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "닫기", style: .default, handler: nil)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
 }
 
