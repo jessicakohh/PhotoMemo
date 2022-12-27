@@ -13,10 +13,14 @@ class ViewController: UIViewController {
     
     private let diaryManager = CoreDataManager.shared
     private let refreshController: UIRefreshControl = UIRefreshControl()
-    private let cellManager = CellManager.shared
     private var savedCoreArray: [Diary] = [] {
         didSet {
             print("Total ViewController savedCoreArray changed \n \(savedCoreArray)")
+        }
+    }
+    var diaryData: Diary? {
+        didSet {
+            print("여기 수정")
         }
     }
     
@@ -84,18 +88,6 @@ extension ViewController: UITableViewDelegate {
         performSegue(withIdentifier: "MemoCell", sender: indexPath)
     }
     
-    // ⚠️ 셀 스와이프하여 삭제하기
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                let subject = self.savedCoreArray[indexPath.row]
-                savedCoreArray.remove(at: indexPath.row)
-                cellManager.coreDataArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                cellManager.deleteCoreData(targetData: subject) {
-                }
-            } else if editingStyle == .insert {
-            }
-    }
     
     // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

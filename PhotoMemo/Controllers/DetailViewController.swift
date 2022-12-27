@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -17,6 +18,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
     var imagePicker = UIImagePickerController()
     let diaryManager = CoreDataManager.shared
+    let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
     
     var diaryData: Diary? {
         didSet {
@@ -38,6 +40,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         titleView.delegate = self
         memoView.delegate = self
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        PHPhotoLibrary.requestAuthorization { (state) in
+            print(state)
+        }
     }
     
     func configureUI() {
@@ -66,6 +72,37 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
+    func showAuthDeniedAlert() {
+        let alert = UIAlertController(title: "앨범 접근 권한을 활성화 해주세요.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "닫기", style: .default, handler: { action in
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
+    func checkPermission() {
+        if PHPhotoLibrary.authorizationStatus() == .authorized || PHPhotoLibrary.authorizationStatus() == .limited {
+            DispatchQueue.main.async {
+                self.openImagePicker()
+            }
+        } else if PHPhotoLibrary.authorizationStatus() == .denied {
+            DispatchQueue.main.async {
+                self.showAuthDeniedAlert()
+            }
+        } else if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { status in
+                self.checkPermission()
+            }
+        }
+    }
+    
+                                    
     // MARK: - 뒤로가기
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -73,7 +110,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - 사진 버튼
     @IBAction func pickImageButton(_ sender: UIButton) {
-        openImagePicker()
+        checkPermission()
     }
     
     // MARK: - 공유 버튼
@@ -120,7 +157,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - 삭제 버튼
-    
     @IBAction func deleteButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
         let confirm = UIAlertAction(title: "취소", style: .default, handler: nil)
@@ -135,26 +171,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
                     self.navigationController?.popViewController(animated: true)
                 }
             }
-
         }
         alert.addAction(confirm)
         alert.addAction(close)
         present(alert, animated: true, completion: nil)
-        
     }
-    
-    //        if let diaryData = self.diaryData {
-    //            diaryData.titleText = titleView.text
-    //            diaryData.memoText = memoView.text
-    //            diaryData.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
-    //            diaryManager.deleteDiary(data: diaryData) {
-    //                print("삭제 완료")
-    //                self.navigationController?.popViewController(animated: true)
-    //            }
-    //        } else {
-    //            self.navigationController?.popViewController(animated: true)
-    
-    
 }
     
 
