@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageUI
+import SafariServices
 
 class SideMenuViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class SideMenuViewController: UIViewController {
 
 
 // MARK: - 문의하기
+
 extension SideMenuViewController: MFMailComposeViewControllerDelegate {
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)

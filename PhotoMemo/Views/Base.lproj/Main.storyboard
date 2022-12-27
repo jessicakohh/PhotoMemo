@@ -19,9 +19,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-qa-uvs">
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="100" id="zq6-C9-9hI" customClass="MemoCell" customModule="PhotoMemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="100"/>
@@ -43,13 +43,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rhg-RW-Vdb">
                                                             <rect key="frame" x="60" y="22.666666666666664" width="58.333333333333343" height="33"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="58.333333333333336" height="18"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <color key="textColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2022.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
                                                                     <rect key="frame" x="0.0" y="21" width="58.333333333333336" height="12"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                                     <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,6 +60,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="rhg-RW-Vdb" secondAttribute="trailing" id="4c1-Ub-ab1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rhg-RW-Vdb" secondAttribute="trailing" id="pci-2s-8ee"/>
                                                     </constraints>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUP-lB-3GM">
@@ -74,6 +75,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="tintColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="qlM-WP-1b2" firstAttribute="leading" secondItem="pM6-To-NA8" secondAttribute="leadingMargin" constant="15" id="1sf-2Z-fPW"/>
                                                 <constraint firstItem="EUP-lB-3GM" firstAttribute="top" secondItem="pM6-To-NA8" secondAttribute="topMargin" constant="20" id="8be-hL-uNK"/>
@@ -83,7 +85,8 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="EUP-lB-3GM" secondAttribute="trailing" constant="20" id="XyB-XB-7fn"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="bgView" destination="pM6-To-NA8" id="YEh-d0-hHf"/>
                                             <outlet property="dateTextLabel" destination="Fef-fW-cFN" id="rFX-CT-5KR"/>
@@ -96,7 +99,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zoA-2n-5lD"/>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4sI-qa-uvs" firstAttribute="top" secondItem="zoA-2n-5lD" secondAttribute="top" id="7JI-ca-Slt"/>
                             <constraint firstItem="zoA-2n-5lD" firstAttribute="bottom" secondItem="4sI-qa-uvs" secondAttribute="bottom" id="A4C-N2-LPs"/>
@@ -215,7 +218,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yCF-V4-7VZ"/>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JlL-eR-OFu" firstAttribute="top" secondItem="TW2-vQ-2NO" secondAttribute="bottom" id="4CI-Ac-8Kg"/>
@@ -312,7 +315,6 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="sendButtonTapped:" destination="D8B-be-M2i" eventType="touchUpInside" id="PN2-6J-qHv"/>
                                             <action selector="sendMailButtonTapped:" destination="D8B-be-M2i" eventType="touchUpInside" id="rpe-pC-NVb"/>
                                         </connections>
                                     </button>

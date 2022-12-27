@@ -65,7 +65,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             memoView.textColor = UIColor.lightGray
         }
     }
-
+    
     // MARK: - 뒤로가기
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -120,21 +120,43 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - 삭제 버튼
-   
+    
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        if let diaryData = self.diaryData {
-            diaryData.titleText = titleView.text
-            diaryData.memoText = memoView.text
-            diaryData.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
-            diaryManager.deleteDiary(data: diaryData) {
-                print("삭제 완료")
+        let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let close = UIAlertAction(title: "삭제", style: .destructive) { [self] UIAlertAction in
+            self.diaryData?.titleText = titleView.text
+            self.diaryData?.memoText = memoView.text
+            self.diaryData?.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
+            if diaryData?.memoImage == nil {
                 self.navigationController?.popViewController(animated: true)
+            } else {
+                diaryManager.deleteDiary(data: diaryData!) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
-        } else {
-            self.navigationController?.popViewController(animated: true)
+
         }
+        alert.addAction(confirm)
+        alert.addAction(close)
+        present(alert, animated: true, completion: nil)
+        
     }
+    
+    //        if let diaryData = self.diaryData {
+    //            diaryData.titleText = titleView.text
+    //            diaryData.memoText = memoView.text
+    //            diaryData.memoImage = self.imageView.image?.jpegData(compressionQuality: 1.0)
+    //            diaryManager.deleteDiary(data: diaryData) {
+    //                print("삭제 완료")
+    //                self.navigationController?.popViewController(animated: true)
+    //            }
+    //        } else {
+    //            self.navigationController?.popViewController(animated: true)
+    
+    
 }
+    
 
 // MARK: - 이미지 할당
 extension DetailViewController: UIImagePickerControllerDelegate {
