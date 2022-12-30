@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7TH-H8-dWZ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -63,11 +64,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="rhg-RW-Vdb" secondAttribute="trailing" id="pci-2s-8ee"/>
                                                     </constraints>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUP-lB-3GM">
-                                                    <rect key="frame" x="311.33333333333331" y="31" width="38.666666666666686" height="38"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUP-lB-3GM">
+                                                    <rect key="frame" x="306.66666666666669" y="31" width="43.333333333333314" height="38"/>
                                                     <color key="tintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain">
+                                                    <buttonConfiguration key="configuration" style="plain" title=" ">
                                                         <imageReference key="image" image="ellipsis" catalog="system" symbolScale="small"/>
                                                     </buttonConfiguration>
                                                     <connections>
@@ -160,13 +161,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lXJ-2E-ynw">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="75"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-wY-d4u">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-wY-d4u">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="b0x-Vw-jHt"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="titleButton"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="titleButton" title=" "/>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qbr-Yr-8g4">
                                                 <rect key="frame" x="0.0" y="45" width="330" height="30"/>
@@ -187,13 +188,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4FK-AT-d6J">
                                         <rect key="frame" x="0.0" y="85" width="330" height="234"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlH-GH-Gmn">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlH-GH-Gmn">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="L0r-Gy-V4y"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="memoButton"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="memoButton" title=" "/>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-tR-keH">
                                                 <rect key="frame" x="0.0" y="45" width="330" height="189"/>
@@ -307,22 +308,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="gra-2k-Rpf">
-                                <rect key="frame" x="20.000000000000004" y="141" width="52.333333333333343" height="91.666666666666686"/>
+                                <rect key="frame" x="20" y="141" width="57" height="91.666666666666686"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8f-ig-Eag">
-                                        <rect key="frame" x="0.0" y="0.0" width="52.333333333333336" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="34.333333333333336"/>
                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system" title=" "/>
                                         <connections>
                                             <action selector="sendMailButtonTapped:" destination="D8B-be-M2i" eventType="touchUpInside" id="rpe-pC-NVb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8W-NL-nUI">
-                                        <rect key="frame" x="0.0" y="57.333333333333343" width="52.333333333333336" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="57.333333333333343" width="57" height="34.333333333333343"/>
                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.seal.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.seal.fill" catalog="system" title=" "/>
                                         <connections>
                                             <action selector="jessButtonTapped:" destination="D8B-be-M2i" eventType="touchUpInside" id="LIG-fI-6q9"/>
                                         </connections>
