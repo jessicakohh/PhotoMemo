@@ -30,24 +30,7 @@
 ## 배운점 및 고민
 
 ## Structure
-MVC Pattern  
-├── PhotoMemo  
-	├──AppDelegate  
-	├──SceneDelegate  
-├──Models  
-	├──Diary+CoreDataClass  
-	├──Diary+CoreDataProperties  
-	├──CoreDataManager  
-├──Views  
-	├──LaunchScreen  
-	├──Main  
-	├──MemoCell  
-├──Controllers  
-	├──ViewController  
-	├──DetailViewController  
-	├──SideMenuViewController  
-├──Helpers  
-	└── Assets  
+
 
 ## 심사과정
 1. 첫 번째 리젝
