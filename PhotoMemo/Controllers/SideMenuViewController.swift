@@ -39,7 +39,7 @@ extension SideMenuViewController: MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let compseVC = MFMailComposeViewController()
             compseVC.mailComposeDelegate = self
-            compseVC.setToRecipients(["본 메일을 전달받을 이메일 주소"])
+            compseVC.setToRecipients(["juko95@me.com"])
             compseVC.setSubject("문의 제목")
             compseVC.setMessageBody("문의 내용", isHTML: false)
             self.present(compseVC, animated: true, completion: nil)

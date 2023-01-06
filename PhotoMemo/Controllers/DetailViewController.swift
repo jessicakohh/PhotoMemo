@@ -110,7 +110,19 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - 사진 버튼
     @IBAction func pickImageButton(_ sender: UIButton) {
-        checkPermission()
+        if imageView.image != nil {
+            let alert = UIAlertController(title: "사진을 수정하시겠습니까?", message: nil, preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "취소", style: .default, handler: nil)
+            let close = UIAlertAction(title: "수정", style: .default) { [self] UIAlertAction in
+                openImagePicker()
+            }
+            alert.addAction(confirm)
+            alert.addAction(close)
+            present(alert, animated: true, completion: nil)
+            print("이미지 없음")
+        } else {
+            checkPermission()
+        }
     }
     
     // MARK: - 공유 버튼
