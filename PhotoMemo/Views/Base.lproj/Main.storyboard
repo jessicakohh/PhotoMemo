@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7TH-H8-dWZ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-qa-uvs">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="141" width="390" height="669"/>
                                 <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,13 +97,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tDq-CQ-GMh">
+                                <rect key="frame" x="0.0" y="91" width="390" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WwL-qu-y3h"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1vJ-3O-rZM" id="kfK-xj-ZW3"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zoA-2n-5lD"/>
                         <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4sI-qa-uvs" firstAttribute="top" secondItem="zoA-2n-5lD" secondAttribute="top" id="7JI-ca-Slt"/>
+                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="top" secondItem="zoA-2n-5lD" secondAttribute="top" id="2YK-qf-hsd"/>
                             <constraint firstItem="zoA-2n-5lD" firstAttribute="bottom" secondItem="4sI-qa-uvs" secondAttribute="bottom" id="A4C-N2-LPs"/>
                             <constraint firstItem="4sI-qa-uvs" firstAttribute="leading" secondItem="zoA-2n-5lD" secondAttribute="leading" id="F81-bq-zq0"/>
+                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="trailing" secondItem="zoA-2n-5lD" secondAttribute="trailing" id="JMw-sV-Vcc"/>
+                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="leading" secondItem="zoA-2n-5lD" secondAttribute="leading" id="PLf-0g-4yW"/>
+                            <constraint firstItem="4sI-qa-uvs" firstAttribute="top" secondItem="tDq-CQ-GMh" secondAttribute="bottom" id="r6m-kf-HC2"/>
                             <constraint firstItem="zoA-2n-5lD" firstAttribute="trailing" secondItem="4sI-qa-uvs" secondAttribute="trailing" id="tnP-GR-aDm"/>
                         </constraints>
                     </view>
@@ -124,6 +137,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="tDq-CQ-GMh" id="RRS-U8-WlU"/>
                         <outlet property="tableView" destination="4sI-qa-uvs" id="L39-6Z-g40"/>
                     </connections>
                 </viewController>
@@ -266,8 +280,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="x7z-Ae-IWH" id="NlV-NC-H08"/>
-                        <outlet property="memoView" destination="XeA-tR-keH" id="5pT-Tl-N7g"/>
+                        <outlet property="imageView" destination="x7z-Ae-IWH" id="oVG-Sd-MZX"/>
+                        <outlet property="memoView" destination="XeA-tR-keH" id="9lI-Zx-LX1"/>
+                        <outlet property="openImageButton" destination="TW2-vQ-2NO" id="xvO-BT-Xs1"/>
                         <outlet property="saveButton" destination="lXe-PR-7Sv" id="Ics-Ko-UtB"/>
                         <outlet property="titleView" destination="Qbr-Yr-8g4" id="wnb-qx-KOn"/>
                     </connections>

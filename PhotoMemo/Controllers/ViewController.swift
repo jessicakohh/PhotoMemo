@@ -10,11 +10,15 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private let diaryManager = CoreDataManager.shared
+    private let memoManager = MemoManager.shared
+    
     private let refreshController: UIRefreshControl = UIRefreshControl()
     private var savedCoreArray: [Diary] = [] {
         didSet {
+            tableView.reloadData()
             print("Total ViewController savedCoreArray changed \n \(savedCoreArray)")
         }
     }
@@ -24,9 +28,11 @@ class ViewController: UIViewController {
         }
     }
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupSearchBar()
     }
     
     // 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -46,6 +52,7 @@ class ViewController: UIViewController {
         tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(self.refreshFunc), for: .valueChanged)
         savedCoreArray = diaryManager.getDiaryListFromCoreData()
+
     }
     
     @objc func refreshFunc() {
@@ -53,13 +60,19 @@ class ViewController: UIViewController {
         tableView.reloadData()
         refreshController.endRefreshing()
     }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = "검색할 내용을 입력하세요."
+    }
 }
 
 
 
 extension ViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diaryManager.getDiaryListFromCoreData().count
+        return savedCoreArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,25 +91,52 @@ extension ViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-}
-
-
-extension ViewController: UITableViewDelegate {
     
-    // 셀 선택했을 때 다음화면
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "MemoCell", sender: indexPath)
+    // MARK: - 🚨 스와이프하여 삭제
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
     }
     
-    
-    // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MemoCell" {
-            let detailVC = segue.destination as! DetailViewController
-            guard let indexPath = sender as? IndexPath else { return }
-            detailVC.diaryData = diaryManager.getDiaryListFromCoreData()[indexPath.row]
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            let subject = self.savedCoreArray[indexPath.row]
+            savedCoreArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
         }
     }
 }
 
+    
+    extension ViewController: UITableViewDelegate {
+        
+        // 셀 선택했을 때 다음화면
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "MemoCell", sender: indexPath)
+        }
+        
+        
+        // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "MemoCell" {
+                let detailVC = segue.destination as! DetailViewController
+                guard let indexPath = sender as? IndexPath else { return }
+                detailVC.diaryData = diaryManager.getDiaryListFromCoreData()[indexPath.row]
+            }
+        }
+        
+    }
+    
+
+
+// MARK: - SearchBar
+
+extension ViewController: UISearchBarDelegate {
+    // 서치바에서 검색을 시작할 때 호출
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+}
 

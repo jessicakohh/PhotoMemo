@@ -44,6 +44,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         PHPhotoLibrary.requestAuthorization { (state) in
             print(state)
         }
+        
     }
     
     func configureUI() {
@@ -119,10 +120,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             alert.addAction(confirm)
             alert.addAction(close)
             present(alert, animated: true, completion: nil)
-            print("이미지 없음")
         } else {
             checkPermission()
         }
+        openImagePicker()
     }
     
     // MARK: - 공유 버튼
