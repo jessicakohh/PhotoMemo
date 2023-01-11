@@ -28,11 +28,16 @@ class ViewController: UIViewController {
         }
     }
     
+    // searchBar를 통해 array가 필터링 되어졌는지에 대한 bool값 변수
+    var isFiltering: Bool = false
+    // filter (서치바를 통해 작성한 무언가)를 담는 리스트
+    var filteredArr: [String] = []
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupSearchBar()
+//        setupSearchBar()
     }
     
     // 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -61,10 +66,10 @@ class ViewController: UIViewController {
         refreshController.endRefreshing()
     }
     
-    func setupSearchBar() {
-        searchBar.delegate = self
-        searchBar.placeholder = "검색할 내용을 입력하세요."
-    }
+//    func setupSearchBar() {
+//        searchBar.delegate = self
+//        searchBar.placeholder = "검색할 내용을 입력하세요."
+//    }
 }
 
 
@@ -72,7 +77,8 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return savedCoreArray.count
+        return isFiltering ? filteredArr.count : savedCoreArray.count
+//        return savedCoreArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,24 +94,31 @@ extension ViewController: UITableViewDataSource {
         cell.updateButtonPressed = { [weak self] (senderCell) in
             self?.performSegue(withIdentifier: "MemoCell", sender: indexPath)
         }
+//        if isFiltering {
+//            cell.titleTextLabel?.text = self.filteredArr[indexPath.row]
+//        } else {
+//            cell.titleTextLabel.text = savedCoreArray[indexPath.row]
+//        }
         cell.selectionStyle = .none
         return cell
     }
     
-    // MARK: - 🚨 스와이프하여 삭제
+    
+    // MARK: - 스와이프하여 삭제
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            let subject = self.savedCoreArray[indexPath.row]
-            savedCoreArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
+        tableView.beginUpdates()
+        let subject = self.savedCoreArray[indexPath.row]
+        savedCoreArray.remove(at: indexPath.row)
+        memoManager.deleteCoreData(targetData: subject) {
+
         }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
     }
 }
 
@@ -132,11 +145,35 @@ extension ViewController: UITableViewDataSource {
 
 
 // MARK: - SearchBar
-
-extension ViewController: UISearchBarDelegate {
-    // 서치바에서 검색을 시작할 때 호출
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
-    }
-}
-
+//
+//extension ViewController: UISearchBarDelegate {
+//    // 서치바에서 검색을 시작할 때 호출
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        isFiltering = true
+//        searchBar.showsCancelButton = true
+//        tableView.reloadData()
+//    }
+//
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        guard let text = searchBar.text?.lowercased() else { return }
+//        filteredArr = arr.filter { $0.localizedCaseInsensitiveContains(text) }
+//
+//        self.tableView.reloadData()
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.text = ""
+//        searchBar.resignFirstResponder()
+//        isFiltering = false
+//        tableView.reloadData()
+//    }
+//
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        tableView.reloadData()
+//    }
+//
+//    override func dismissKeyboard() {
+//        searchBar.resignFirstResponder()
+//    }
+//}
+//
