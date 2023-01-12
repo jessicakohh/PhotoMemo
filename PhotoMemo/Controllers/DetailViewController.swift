@@ -48,6 +48,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func configureUI() {
+
         imageView.layer.cornerRadius = imageView.frame.height / 2
         titleView.layer.cornerRadius = 15
         memoView.layer.cornerRadius = 20
@@ -224,7 +225,7 @@ extension DetailViewController: UIGestureRecognizerDelegate {
 // MARK: - 텍스트 뷰
 
 extension DetailViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if titleView.textColor == UIColor.lightGray {
             titleView.text = nil
             titleView.textColor = UIColor.black
@@ -234,6 +235,7 @@ extension DetailViewController: UITextViewDelegate {
             memoView.textColor = UIColor.black
         }
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if titleView.text.isEmpty {
             titleView.text = "제목을 입력해주세요."

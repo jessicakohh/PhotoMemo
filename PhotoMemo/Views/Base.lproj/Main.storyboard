@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-qa-uvs">
-                                <rect key="frame" x="0.0" y="141" width="390" height="669"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,13 +43,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rhg-RW-Vdb">
                                                             <rect key="frame" x="60" y="22.666666666666664" width="58.333333333333343" height="33"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-eG-MWb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="58.333333333333336" height="18"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <color key="textColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2022.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-fW-cFN">
                                                                     <rect key="frame" x="0.0" y="21" width="58.333333333333336" height="12"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                                     <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,27 +97,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tDq-CQ-GMh">
-                                <rect key="frame" x="0.0" y="91" width="390" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WwL-qu-y3h"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="1vJ-3O-rZM" id="kfK-xj-ZW3"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zoA-2n-5lD"/>
                         <color key="backgroundColor" red="0.92779594659999998" green="0.92779582739999999" blue="0.92779582739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="top" secondItem="zoA-2n-5lD" secondAttribute="top" id="2YK-qf-hsd"/>
                             <constraint firstItem="zoA-2n-5lD" firstAttribute="bottom" secondItem="4sI-qa-uvs" secondAttribute="bottom" id="A4C-N2-LPs"/>
                             <constraint firstItem="4sI-qa-uvs" firstAttribute="leading" secondItem="zoA-2n-5lD" secondAttribute="leading" id="F81-bq-zq0"/>
-                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="trailing" secondItem="zoA-2n-5lD" secondAttribute="trailing" id="JMw-sV-Vcc"/>
-                            <constraint firstItem="tDq-CQ-GMh" firstAttribute="leading" secondItem="zoA-2n-5lD" secondAttribute="leading" id="PLf-0g-4yW"/>
-                            <constraint firstItem="4sI-qa-uvs" firstAttribute="top" secondItem="tDq-CQ-GMh" secondAttribute="bottom" id="r6m-kf-HC2"/>
+                            <constraint firstItem="4sI-qa-uvs" firstAttribute="top" secondItem="zoA-2n-5lD" secondAttribute="top" id="kJ5-EQ-ve2"/>
                             <constraint firstItem="zoA-2n-5lD" firstAttribute="trailing" secondItem="4sI-qa-uvs" secondAttribute="trailing" id="tnP-GR-aDm"/>
                         </constraints>
                     </view>
@@ -137,7 +123,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="tDq-CQ-GMh" id="RRS-U8-WlU"/>
                         <outlet property="tableView" destination="4sI-qa-uvs" id="L39-6Z-g40"/>
                     </connections>
                 </viewController>
@@ -257,17 +242,17 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="lXe-PR-7Sv">
-                                <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="medium"/>
+                                <imageReference key="image" image="folder.fill" catalog="system" symbolScale="default"/>
                                 <color key="tintColor" red="0.28796792030000001" green="0.28796789049999999" blue="0.28796789049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="SiJ-mO-s7N" id="1Hp-1F-4G6"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem id="ReW-ai-o2I">
-                                <imageReference key="image" image="bookmark.slash.fill" catalog="system" symbolScale="medium"/>
+                            <barButtonItem title="Item" id="shJ-DG-t06">
+                                <imageReference key="image" image="trash.fill" catalog="system" symbolScale="medium"/>
                                 <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" id="cgN-6r-fwF"/>
+                                    <action selector="deleteButtonTapped:" destination="SiJ-mO-s7N" id="950-k2-Rzq"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem id="Zja-iM-Q56">
@@ -389,15 +374,15 @@
     <resources>
         <image name="addPhotoButton2" width="340" height="340"/>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
-        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
-        <image name="bookmark.slash.fill" catalog="system" width="113" height="128"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="memoButton" width="60" height="31"/>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="titleButton" width="60" height="31"/>
+        <image name="trash.fill" catalog="system" width="119" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

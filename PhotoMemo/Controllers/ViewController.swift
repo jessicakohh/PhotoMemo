@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     private let diaryManager = CoreDataManager.shared
     private let memoManager = MemoManager.shared
@@ -18,26 +17,20 @@ class ViewController: UIViewController {
     private let refreshController: UIRefreshControl = UIRefreshControl()
     private var savedCoreArray: [Diary] = [] {
         didSet {
-            tableView.reloadData()
             print("Total ViewController savedCoreArray changed \n \(savedCoreArray)")
         }
     }
+    
     var diaryData: Diary? {
         didSet {
             print("여기 수정")
         }
     }
     
-    // searchBar를 통해 array가 필터링 되어졌는지에 대한 bool값 변수
-    var isFiltering: Bool = false
-    // filter (서치바를 통해 작성한 무언가)를 담는 리스트
-    var filteredArr: [String] = []
     
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-//        setupSearchBar()
     }
     
     // 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -57,7 +50,7 @@ class ViewController: UIViewController {
         tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(self.refreshFunc), for: .valueChanged)
         savedCoreArray = diaryManager.getDiaryListFromCoreData()
-
+        
     }
     
     @objc func refreshFunc() {
@@ -66,10 +59,6 @@ class ViewController: UIViewController {
         refreshController.endRefreshing()
     }
     
-//    func setupSearchBar() {
-//        searchBar.delegate = self
-//        searchBar.placeholder = "검색할 내용을 입력하세요."
-//    }
 }
 
 
@@ -77,8 +66,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? filteredArr.count : savedCoreArray.count
-//        return savedCoreArray.count
+        return savedCoreArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,11 +82,6 @@ extension ViewController: UITableViewDataSource {
         cell.updateButtonPressed = { [weak self] (senderCell) in
             self?.performSegue(withIdentifier: "MemoCell", sender: indexPath)
         }
-//        if isFiltering {
-//            cell.titleTextLabel?.text = self.filteredArr[indexPath.row]
-//        } else {
-//            cell.titleTextLabel.text = savedCoreArray[indexPath.row]
-//        }
         cell.selectionStyle = .none
         return cell
     }
@@ -115,65 +98,29 @@ extension ViewController: UITableViewDataSource {
         let subject = self.savedCoreArray[indexPath.row]
         savedCoreArray.remove(at: indexPath.row)
         memoManager.deleteCoreData(targetData: subject) {
-
+            
         }
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
     }
 }
 
+
+extension ViewController: UITableViewDelegate {
     
-    extension ViewController: UITableViewDelegate {
-        
-        // 셀 선택했을 때 다음화면
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "MemoCell", sender: indexPath)
-        }
-        
-        
-        // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "MemoCell" {
-                let detailVC = segue.destination as! DetailViewController
-                guard let indexPath = sender as? IndexPath else { return }
-                detailVC.diaryData = diaryManager.getDiaryListFromCoreData()[indexPath.row]
-            }
-        }
-        
+    // 셀 선택했을 때 다음화면
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "MemoCell", sender: indexPath)
     }
     
+    
+    // 세그웨이를 실행할 때 실제 데이터 전달 (Diary)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MemoCell" {
+            let detailVC = segue.destination as! DetailViewController
+            guard let indexPath = sender as? IndexPath else { return }
+            detailVC.diaryData = diaryManager.getDiaryListFromCoreData()[indexPath.row]
+        }
+    }
+}
 
-
-// MARK: - SearchBar
-//
-//extension ViewController: UISearchBarDelegate {
-//    // 서치바에서 검색을 시작할 때 호출
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        isFiltering = true
-//        searchBar.showsCancelButton = true
-//        tableView.reloadData()
-//    }
-//
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard let text = searchBar.text?.lowercased() else { return }
-//        filteredArr = arr.filter { $0.localizedCaseInsensitiveContains(text) }
-//
-//        self.tableView.reloadData()
-//    }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.text = ""
-//        searchBar.resignFirstResponder()
-//        isFiltering = false
-//        tableView.reloadData()
-//    }
-//
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        tableView.reloadData()
-//    }
-//
-//    override func dismissKeyboard() {
-//        searchBar.resignFirstResponder()
-//    }
-//}
-//
