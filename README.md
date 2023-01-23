@@ -12,7 +12,7 @@
 ## 스크린샷
 |TableView|DetailViewController|Swipe to delete|SideMenu|
 |---|---|---|---|
-| | | | |
+|<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174160-39400dd0-7abc-45bf-9dbd-0d6897286e4b.gif">| <img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174610-51fdfdac-dbd6-4844-b45d-bd7f8ad7a3d6.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174712-073ad04c-d3ca-4b42-ba88-3ef5a07229d8.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174771-f94b3760-b6b3-4c2a-a077-64962d1289f6.gif"> |
 
 ## 진행 기간
 - 프로젝트 기간 : 2022.12.12 ~ 12.27
