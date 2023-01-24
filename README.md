@@ -166,7 +166,7 @@
 
 **사진 권한** 
 
-- [사진첩 권한 허용 참고](https://gonslab.tistory.com/28](https://gonslab.tistory.com/28)
+- [사진첩 권한 허용 참고](https://gonslab.tistory.com/28)
 - 상세 페이지(DetailViewContoller)에서 사진 및 메모의 수정, 삭제가 가능합니다.
 
 **SideMenu** 
