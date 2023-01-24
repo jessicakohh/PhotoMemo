@@ -160,14 +160,13 @@
     
 
 **CoreData**
-
 - CoreData를 사용해 데이터베이스 CRUD를 구현하였습니다.
-- [이미지 코어 데이터 저장 참고](notion://www.notion.so/jesskoh/%5B%3Chttps://developer-p.tistory.com/148%3E%5D(%3Chttps://developer-p.tistory.com/148%3E)
+- [이미지 코어 데이터 저장 참고](https://developer-p.tistory.com/148)
 
 **사진 권한** 
-
-- [사진첩 권한 허용 참고](https://gonslab.tistory.com/28)
 - 상세 페이지(DetailViewContoller)에서 사진 및 메모의 수정, 삭제가 가능합니다.
+- [사진첩 권한 허용 참고](https://gonslab.tistory.com/28)
+
 
 **SideMenu** 
 
