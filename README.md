@@ -70,8 +70,6 @@
 &nbsp;&nbsp;- 싱글톤 패턴  
 &nbsp;&nbsp;- MVC 패턴의 이해  
 
-## Structure
-
 
 ## 심사과정
 - 리젝 사유
