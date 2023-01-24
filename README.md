@@ -24,10 +24,10 @@
 |---|---|---|---|
 |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174160-39400dd0-7abc-45bf-9dbd-0d6897286e4b.gif">| <img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174610-51fdfdac-dbd6-4844-b45d-bd7f8ad7a3d6.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174712-073ad04c-d3ca-4b42-ba88-3ef5a07229d8.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174771-f94b3760-b6b3-4c2a-a077-64962d1289f6.gif"> |
 
-1. NavigationBar에서 Add Photo Button (+) 을 누르면 사진과 메모를 기록할 수 있는 페이지가 나옵니다. 
-- [사진첩 권한 허용 참고]([https://gonslab.tistory.com/28](https://gonslab.tistory.com/28))
+1. NavigationBar에서 Add Photo Button (+) 을 누르면 사진과 메모를 기록할 수 있는 페이지가 나옵니다.  
+    - [사진첩 권한 허용 참고]([https://gonslab.tistory.com/28](https://gonslab.tistory.com/28))
 2. 사진과 메모는 TableView 형식으로 코어데이터에 저장됩니다.
-- [이미지 코어 데이터 저장 참고]([https://developer-p.tistory.com/148](https://developer-p.tistory.com/148))
+    - [이미지 코어 데이터 저장 참고]([https://developer-p.tistory.com/148](https://developer-p.tistory.com/148))
 3. 상세 페이지(DetailViewContoller)에서 사진 및 메모의 수정, 삭제가 가능합니다.
 4. TableView에서 스와이프하여 메모를 삭제할 수 있습니다.
 
