@@ -19,18 +19,6 @@
 - 앱스토어 출시 : 2023.01.04 ~
 - 개인 프로젝트
 
-## 스크린샷
-|TableView|DetailViewController|Swipe to delete|SideMenu|
-|---|---|---|---|
-|<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174160-39400dd0-7abc-45bf-9dbd-0d6897286e4b.gif">| <img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174610-51fdfdac-dbd6-4844-b45d-bd7f8ad7a3d6.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174712-073ad04c-d3ca-4b42-ba88-3ef5a07229d8.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174771-f94b3760-b6b3-4c2a-a077-64962d1289f6.gif"> |
-
-1. NavigationBar에서 Add Photo Button (+) 을 누르면 사진과 메모를 기록할 수 있는 페이지가 나옵니다.  
-    - [사진첩 권한 허용 참고]([https://gonslab.tistory.com/28](https://gonslab.tistory.com/28))
-2. 사진과 메모는 TableView 형식으로 코어데이터에 저장됩니다.
-    - [이미지 코어 데이터 저장 참고]([https://developer-p.tistory.com/148](https://developer-p.tistory.com/148))
-3. 상세 페이지(DetailViewContoller)에서 사진 및 메모의 수정, 삭제가 가능합니다.
-4. TableView에서 스와이프하여 메모를 삭제할 수 있습니다.
-
 
 ## 개발 환경
 - Swift
@@ -42,7 +30,12 @@
 - [IQKeyboardManagerSwift](https://github.com/hackiftekhar/IQKeyboardManager)
 - [SideMenu](https://github.com/jonkykong/SideMenu)
 
-## 구현기능
+
+## 스크린샷 및 구현기능
+|TableView|DetailViewController|Swipe to delete|SideMenu|
+|---|---|---|---|
+|<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174160-39400dd0-7abc-45bf-9dbd-0d6897286e4b.gif">| <img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174610-51fdfdac-dbd6-4844-b45d-bd7f8ad7a3d6.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174712-073ad04c-d3ca-4b42-ba88-3ef5a07229d8.gif"> |<img width="196" alt="1" src="https://user-images.githubusercontent.com/108605997/214174771-f94b3760-b6b3-4c2a-a077-64962d1289f6.gif"> |
+
 |기능|구현|
 |---|---|
 |테이블 뷰|✔️|
@@ -50,6 +43,145 @@
 |메모 추가, 변경, 삭제, 공유|✔️|
 |메모 날짜별 내림차순 정렬|✔️|
 |코어데이터 저장|✔️|
+
+### 
+
+---
+
+**TableView**
+
+- 메인 화면에는 저장된 일기의 목록이 보여지도록 구성했습니다.
+- 메모를 추가하게 되면, 가장 최근에 추가 된 메모가 TableView의 제일 첫번째로 오게 했습니다.
+
+<details>
+<summary>코드</summary>
+<div markdown="1">        
+
+```swift  
+        func getDiaryListFromCoreData() -> [Diary] {
+                var diaryList: [Diary] = []
+                if let context = context {
+                    let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+                    let dateOrder = NSSortDescriptor(key: "date", ascending: false)
+                    request.sortDescriptors = [dateOrder]
+                    
+                    do {
+                        if let fetchedDiaryList = try context.fetch(request) as? [Diary] {
+                            diaryList = fetchedDiaryList
+                        }
+                    } catch {
+                        print("가져오는 것 실패")
+                    }
+                }
+                return diaryList
+            }
+```  
+    
+</div>
+</details>
+        
+- 스와이프하여 메모를 삭제할 수 있습니다.
+<details>
+<summary>코드</summary>
+<div markdown="1"> 
+    
+```swift
+        func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+                return .delete
+            }
+            
+            func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+                tableView.beginUpdates()
+                let subject = self.savedCoreArray[indexPath.row]
+                savedCoreArray.remove(at: indexPath.row)
+                memoManager.deleteCoreData(targetData: subject) {
+                    
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+            }
+```
+    
+</div>
+</details>
+        
+<details>
+<summary>CoreData 코드</summary>
+<div markdown="1"> 
+        
+```swift
+        import UIKit
+        import CoreData
+        
+        protocol MemoInfoDelegate: AnyObject {
+            func getInfo() -> [Int]
+        }
+        
+        final class MemoManager {
+            private let coreDataManager = CoreDataManager.shared
+            static let shared = MemoManager()
+            var coreDataArray: [Diary] = []
+            var delegate: MemoInfoDelegate?
+            
+            private init() {
+                coreDataArray = coreDataManager.getDiaryListFromCoreData()
+                print(coreDataArray)
+            }
+            
+            func getCoreDataArray() -> [Diary] {
+                print(#function)
+                return coreDataArray
+            }
+            
+            func saveCoreData(titleText: String, memoText: String, thumbnailImage: Data, completion: @escaping() -> Void) {
+                coreDataManager.saveDiaryData(titleText: titleText, memoText: memoText, thumbnailImage: thumbnailImage) {
+                    completion()
+                    self.coreDataArray = self.coreDataManager.getDiaryListFromCoreData()
+                }
+                print("\(#function) : CoreData Saved")
+            }
+            
+            func updateCoreData(newCoreData: Diary, completion: @escaping() -> Void) {
+                coreDataManager.updateDiary(newDiaryData: newCoreData) {
+                    completion()
+                    self.coreDataArray = self.coreDataManager.getDiaryListFromCoreData()
+                }
+                print("\(#function) : CoreData Updated")
+            }
+            
+            func deleteCoreData(targetData: Diary, completion: @escaping() -> Void) {
+                coreDataManager.deleteDiary(data: targetData) {
+                    completion()
+                    self.coreDataArray = self.coreDataManager.getDiaryListFromCoreData()
+                }
+                print("\(#function) : CoreData Deleted")
+            }
+            
+        }
+```
+</div>
+</details>
+    
+
+**CoreData**
+
+- CoreData를 사용해 데이터베이스 CRUD를 구현하였습니다.
+- [이미지 코어 데이터 저장 참고](notion://www.notion.so/jesskoh/%5B%3Chttps://developer-p.tistory.com/148%3E%5D(%3Chttps://developer-p.tistory.com/148%3E))
+
+**사진 권한** 
+
+- [사진첩 권한 허용 참고]([[https://gonslab.tistory.com/28](https://gonslab.tistory.com/28)]
+- 상세 페이지(DetailViewContoller)에서 사진 및 메모의 수정, 삭제가 가능합니다.
+
+**SideMenu** 
+
+- 앱의 버전, 개발자에게 이메일 전송 등 자잘한 기능을 사용자가 선택할때만 볼 수 있게끔 하는 것이 깔끔하다고 생각되어 사용하였습니다.
+
+**IQKeyboardManagerSwift**
+
+- 메모 작성 시, 키보드가 화면을 가리는 경우가 생겨 화면 임의의 곳을 터치하면 dismiss keyboard가 실행 될 수 있도록 하였습니다.
+
+
 
 
 ## 배운점 및 고민
