@@ -162,7 +162,7 @@
 **CoreData**
 
 - CoreData를 사용해 데이터베이스 CRUD를 구현하였습니다.
-- [이미지 코어 데이터 저장 참고](notion://www.notion.so/jesskoh/%5B%3Chttps://developer-p.tistory.com/148%3E%5D(%3Chttps://developer-p.tistory.com/148%3E))
+- [이미지 코어 데이터 저장 참고](notion://www.notion.so/jesskoh/%5B%3Chttps://developer-p.tistory.com/148%3E%5D(%3Chttps://developer-p.tistory.com/148%3E)
 
 **사진 권한** 
 
