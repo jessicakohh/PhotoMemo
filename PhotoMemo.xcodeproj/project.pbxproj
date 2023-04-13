@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8141FD9296BD14800AB0AAC /* MemoManager.swift */; };
+		C81E062029E811C300D22514 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C81E061F29E811C300D22514 /* Realm */; };
+		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
+		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
+		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
+		C81E062B29E8126800D22514 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062A29E8126800D22514 /* FirebaseDatabase */; };
+		C81E062D29E8126800D22514 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062C29E8126800D22514 /* FirebaseFirestore */; };
+		C81E062F29E8126800D22514 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062E29E8126800D22514 /* FirebaseMessaging */; };
+		C81E063129E8126800D22514 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C81E063029E8126800D22514 /* FirebaseStorage */; };
 		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
@@ -49,8 +57,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81E062F29E8126800D22514 /* FirebaseMessaging in Frameworks */,
+				C81E062029E811C300D22514 /* Realm in Frameworks */,
+				C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */,
+				C81E063129E8126800D22514 /* FirebaseStorage in Frameworks */,
+				C81E062329E811DA00D22514 /* SnapKit in Frameworks */,
 				C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */,
 				C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */,
+				C81E062D29E8126800D22514 /* FirebaseFirestore in Frameworks */,
+				C81E062B29E8126800D22514 /* FirebaseDatabase in Frameworks */,
+				C81E062629E811EC00D22514 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +162,14 @@
 			packageProductDependencies = (
 				C8DE712A295845DA00C0FA24 /* SideMenu */,
 				C81F284A295957E0004F026D /* IQKeyboardManagerSwift */,
+				C81E061F29E811C300D22514 /* Realm */,
+				C81E062229E811DA00D22514 /* SnapKit */,
+				C81E062529E811EC00D22514 /* Kingfisher */,
+				C81E062829E8126800D22514 /* FirebaseAuth */,
+				C81E062A29E8126800D22514 /* FirebaseDatabase */,
+				C81E062C29E8126800D22514 /* FirebaseFirestore */,
+				C81E062E29E8126800D22514 /* FirebaseMessaging */,
+				C81E063029E8126800D22514 /* FirebaseStorage */,
 			);
 			productName = PhotoMemo;
 			productReference = C8DE7109295842DD00C0FA24 /* PhotoMemo.app */;
@@ -178,6 +202,10 @@
 			packageReferences = (
 				C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C81E062429E811EC00D22514 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C8DE710A295842DD00C0FA24 /* Products */;
 			projectDirPath = "";
@@ -448,6 +476,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C81E062429E811EC00D22514 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -467,6 +527,46 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C81E061F29E811C300D22514 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C81E062229E811DA00D22514 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C81E062529E811EC00D22514 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062429E811EC00D22514 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		C81E062829E8126800D22514 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C81E062A29E8126800D22514 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		C81E062C29E8126800D22514 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C81E062E29E8126800D22514 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		C81E063029E8126800D22514 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		C81F284A295957E0004F026D /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
