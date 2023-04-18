@@ -46,6 +46,8 @@ class SettingView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.register(SettingCell.self, forCellReuseIdentifier: SettingCell.identifier)
+        tableView.isScrollEnabled = false
         return tableView
     }()
     
@@ -136,7 +138,7 @@ extension SettingView: LayoutProtocol {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).offset(20)
+            make.top.equalTo(nameTextField.snp.bottom).offset(50)
             make.left.equalToSuperview().inset(40)
             make.right.equalToSuperview().inset(40)
             make.height.lessThanOrEqualTo(300)

@@ -24,6 +24,7 @@
 		C81E064A29E9483900D22514 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E064929E9483900D22514 /* Protocols.swift */; };
 		C81E065129E95FE600D22514 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E065029E95FE600D22514 /* SettingCell.swift */; };
 		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
+		C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
 		C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7110295842DD00C0FA24 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		C81E064729E9481300D22514 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C81E064929E9483900D22514 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C81E065029E95FE600D22514 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C8DE7109295842DD00C0FA24 /* PhotoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DE710C295842DD00C0FA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		C81E063629E8138C00D22514 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
 				C81E065129E95FE600D22514 /* SettingCell.swift in Sources */,
 				C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */,
+				C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */,
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 				C81E064A29E9483900D22514 /* Protocols.swift in Sources */,
 				C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */,
