@@ -10,9 +10,6 @@ import SnapKit
 
 final class SettingViewController: UIViewController {
 
-    
-    
-    
     // MARK: - Properties
     
     var settingView = SettingView()

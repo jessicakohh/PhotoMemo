@@ -25,6 +25,10 @@
 		C81E065129E95FE600D22514 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E065029E95FE600D22514 /* SettingCell.swift */; };
 		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
 		C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */; };
+		C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5E29EE8991007506D0 /* LoginViewController.swift */; };
+		C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6029EE8A73007506D0 /* LoginView.swift */; };
+		C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* PhotoView.swift */; };
+		C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
 		C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7110295842DD00C0FA24 /* ViewController.swift */; };
@@ -50,6 +54,10 @@
 		C81E064929E9483900D22514 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C81E065029E95FE600D22514 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		C8B99E5E29EE8991007506D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C8B99E6029EE8A73007506D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C8B99E6229EE9680007506D0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoInstance.swift; sourceTree = "<group>"; };
 		C8DE7109295842DD00C0FA24 /* PhotoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DE710C295842DD00C0FA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 		C81E063429E8138200D22514 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +174,7 @@
 		C81E063B29E8141E00D22514 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C8B99E5E29EE8991007506D0 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 		C81E064C29E9496600D22514 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C8B99E6029EE8A73007506D0 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -213,6 +224,7 @@
 		C81E064E29E9497100D22514 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				C8B99E6229EE9680007506D0 /* PhotoView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -393,17 +405,21 @@
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
+				C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C81E064529E92FCB00D22514 /* UIColor.swift in Sources */,
+				C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C81E064329E9150E00D22514 /* SettingViewController.swift in Sources */,
+				C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */,
 				C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */,
 				C81E063F29E8144A00D22514 /* PhotoViewController.swift in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
 				C81E065129E95FE600D22514 /* SettingCell.swift in Sources */,
+				C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */,
 				C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */,
 				C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */,
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
