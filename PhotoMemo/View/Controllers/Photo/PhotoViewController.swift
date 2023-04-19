@@ -39,13 +39,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     var currentCalendarIndex: Int = 0
     var now = ""
     var yymm = ""
-    
-    lazy var plusBarButton : UIBarButtonItem = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "addButton")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(didAddButtonClicked), for: .touchUpInside)
-        return UIBarButtonItem(customView: button)
-    }()
+ 
     
     
     // MARK: - LifeCycle
@@ -100,9 +94,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-        
-        self.navigationItem.rightBarButtonItem = plusBarButton
-        
+            
         photoView.delegate = self
         
         collectionView.delegate = self

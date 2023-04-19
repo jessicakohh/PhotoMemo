@@ -45,6 +45,7 @@ class MainViewManager {
         items[1].selectedImage = UIImage(systemName: "gearshape.fill")
         
         tabBarViewController.selectedIndex = 0
+        tabBarViewController.tabBar.backgroundColor = .mainGrey
         rootViewController = tabBarViewController
     }
     

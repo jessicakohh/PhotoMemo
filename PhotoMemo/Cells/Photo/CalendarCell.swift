@@ -31,6 +31,7 @@ class CalendarCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configureUI()
         setSubViews()
         setLayout()
     }
@@ -49,6 +50,10 @@ class CalendarCell: UICollectionViewCell {
     }
     
     // MARK: - Helpers
+    
+    private func configureUI() {
+        backgroundColor = .mainGrey
+    }
 
 }
 
@@ -63,6 +68,7 @@ extension CalendarCell: LayoutProtocol {
     func setLayout() {
         
         imgView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
             make.width.equalTo(38)
             make.height.equalTo(80)
         }
