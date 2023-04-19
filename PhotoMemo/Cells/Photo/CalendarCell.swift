@@ -41,6 +41,13 @@ class CalendarCell: UICollectionViewCell {
         setLayout()
     }
     
+    // 재활용 셀 중첩오류 해결법
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imgView.image = nil
+        imgView.isHidden = true
+    }
+    
     // MARK: - Helpers
 
 }

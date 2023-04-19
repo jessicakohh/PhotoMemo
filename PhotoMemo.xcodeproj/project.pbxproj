@@ -46,6 +46,7 @@
 		C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */; };
 		C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */; };
 		C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE713429584B5400C0FA24 /* CoreDataManager.swift */; };
+		C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F3A1DC29EFE77E00B9AF2C /* PhotoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		C8DE71302958469A00C0FA24 /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C8DE71312958469A00C0FA24 /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8DE713429584B5400C0FA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C8F3A1DC29EFE77E00B9AF2C /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C81E063E29E8144A00D22514 /* PhotoViewController.swift */,
+				C8F3A1DC29EFE77E00B9AF2C /* PhotoDetailViewController.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
+				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
 				C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */,
 				C81E064329E9150E00D22514 /* SettingViewController.swift in Sources */,
 				C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */,

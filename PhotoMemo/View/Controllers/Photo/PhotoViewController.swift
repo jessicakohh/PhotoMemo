@@ -40,6 +40,13 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     var now = ""
     var yymm = ""
     
+    lazy var plusBarButton : UIBarButtonItem = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "addButton")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(didAddButtonClicked), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+    
     
     // MARK: - LifeCycle
     
@@ -57,6 +64,9 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     override func loadView() {
         view = photoView
     }
+    
+    
+
     
     // MARK: - Selectors
     
@@ -79,6 +89,10 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         setMonthView()
     }
     
+    @objc func didAddButtonClicked(_ sender: UIBarButtonItem) {
+        print("디테일뷰로 넘어가기")
+    }
+    
     // MARK: - Helpers
     
     private func configureUI() {
@@ -86,6 +100,8 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
+        
+        self.navigationItem.rightBarButtonItem = plusBarButton
         
         photoView.delegate = self
         
@@ -164,7 +180,13 @@ extension PhotoViewController: UICollectionViewDataSource {
         }
         return cell
     }
+}
 
+extension PhotoViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoDetailVC = PhotoDetailViewController()
+        navigationController?.pushViewController(photoDetailVC, animated: true)
+    }
 }
 
 
