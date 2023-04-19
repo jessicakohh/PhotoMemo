@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
-        "revision" : "05d494c85e5635b6462151dd9ebbfda48c9f4266",
-        "version" : "10.8.0"
+        "revision" : "ee016a6774edca5ffc50c39855783d1add6ca0fc",
+        "version" : "10.8.1"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
       "state" : {
-        "revision" : "9ab144a1a6c6ae8dad25840610c072709b15d8b5",
-        "version" : "6.5.10"
+        "revision" : "0ea3febb36cfcec2afb5841fd8809a9c0fa545b3",
+        "version" : "6.5.11"
       }
     },
     {

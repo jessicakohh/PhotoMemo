@@ -130,10 +130,27 @@ extension PhotoViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
+        now = yymm + totalDates[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as? CalendarCell else {
+            return UICollectionViewCell()
+        }
+        cell.dayOfMonth.text = totalDates[indexPath.item]
+
+        // ⭐️ 셀 생성
+        DispatchQueue.main.async {
+            self.now = self.yymm + self.totalDates[indexPath.item]
+            if cell.dayOfMonth.text != "" {
+                cell.imgView.image = self.thumbnails[self.yymm + self.totalDates[indexPath.item]]
+                cell.imgView.layer.cornerRadius = 2
+                cell.contentView.bringSubviewToFront(cell.imgView)
+            }else{
+                cell.imgView.image = nil
+                cell.imgView.isHidden = true
+            }
+        }
         return cell
-        
     }
+
 }
 
 
