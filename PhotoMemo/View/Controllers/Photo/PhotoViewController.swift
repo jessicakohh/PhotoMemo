@@ -23,6 +23,8 @@ final class PhotoViewController: UIViewController {
     var thumbnails = [String:UIImage]()
     let calendarHelper = CalendarHelper()
     
+    let picker = UIImagePickerController()
+    
     var currentCalendarIndex: Int = 0
     var now = ""
     var yymm = ""
@@ -32,11 +34,12 @@ final class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureUI()
         selectedDate = Date()
+        configureUI()
         setMonthView()
         swipeSetting()
+        
+        picker.delegate = self
     }
     
     
@@ -110,8 +113,8 @@ final class PhotoViewController: UIViewController {
             }
             count += 1
         }
- 
-        photoView.monthLabel.text = calendarHelper.monthString(date: selectedDate) + "월  " + calendarHelper.yearString(date: selectedDate)
+        
+        photoView.monthLabel.text = calendarHelper.yearString(date: selectedDate) + "." + calendarHelper.monthString(date: selectedDate)
         yymm = calendarHelper.yearString(date: selectedDate) + calendarHelper.monthString(date: selectedDate)
         self.collectionView.reloadData()
     }
@@ -168,4 +171,18 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
+// MARK: - ImagePicker
 
+extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: false) {
+            if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                DispatchQueue.main.async {
+                    self.thumbnails[self.now] = img
+                    self.collectionView.reloadData()
+                }
+            }
+            
+        }
+    }
+}
