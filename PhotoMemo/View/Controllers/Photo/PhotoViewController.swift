@@ -9,7 +9,18 @@ import UIKit
 import SnapKit
 
 
-final class PhotoViewController: UIViewController {
+final class PhotoViewController: UIViewController, PhotoViewDelegate {
+    
+    func photoViewDidTapPreviousButton(_ photoView: PhotoView) {
+        selectedDate = calendarHelper.previousMonth(date: selectedDate)
+        setMonthView()
+    }
+    
+    func photoViewDidTapNextButton(_ photoView: PhotoView) {
+        selectedDate = calendarHelper.nextMonth(date: selectedDate)
+        setMonthView()
+    }
+    
  
     
     // MARK: - Properties
@@ -75,6 +86,9 @@ final class PhotoViewController: UIViewController {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
+        
+        photoView.delegate = self
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .white

@@ -8,13 +8,21 @@
 import UIKit
 import SnapKit
 
+protocol PhotoViewDelegate: AnyObject {
+    func photoViewDidTapPreviousButton(_ photoView: PhotoView)
+    func photoViewDidTapNextButton(_ photoView: PhotoView)
+}
+
 class PhotoView: UIView {
     
     // MARK: - Properties
     
+    weak var delegate: PhotoViewDelegate?
+    
     private let previousButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "previousButton"), for: .normal)
+        button.addTarget(self, action: #selector(didTapPreviousButton), for: .touchUpInside)
         return button
     }()
     
@@ -33,6 +41,7 @@ class PhotoView: UIView {
     private let nextButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "nextButton"), for: .normal)
+        button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
         return button
     }()
     
@@ -53,7 +62,7 @@ class PhotoView: UIView {
     }()
     
     lazy var labelsStackView: UIStackView = {
-        let daysOfWeek = ["월", "화", "수", "목", "금", "토", "일"]
+        let daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"]
         var labels: [UILabel] = []
 
         for day in daysOfWeek {
@@ -88,10 +97,20 @@ class PhotoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Selectors
+    
+    @objc private func didTapPreviousButton() {
+        delegate?.photoViewDidTapPreviousButton(self)
+    }
+    
+    @objc private func didTapNextButton() {
+        delegate?.photoViewDidTapNextButton(self)
+    }
+
+    
     
     // MARK: - Helpers
     
-
 }
 
 
