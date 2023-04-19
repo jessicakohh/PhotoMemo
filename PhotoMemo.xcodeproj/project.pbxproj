@@ -29,6 +29,10 @@
 		C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6029EE8A73007506D0 /* LoginView.swift */; };
 		C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* PhotoView.swift */; };
 		C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */; };
+		C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */; };
+		C8B99E6E29EEB1A2007506D0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */; };
+		C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6F29EEB247007506D0 /* CalendarCell.swift */; };
+		C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E7329EEB557007506D0 /* CalendarHelper.swift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
 		C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7110295842DD00C0FA24 /* ViewController.swift */; };
@@ -58,6 +62,10 @@
 		C8B99E6029EE8A73007506D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C8B99E6229EE9680007506D0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoInstance.swift; sourceTree = "<group>"; };
+		C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		C8B99E6F29EEB247007506D0 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		C8B99E7329EEB557007506D0 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		C8DE7109295842DD00C0FA24 /* PhotoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DE710C295842DD00C0FA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +140,8 @@
 		C81E063629E8138C00D22514 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */,
+				C8B99E6829EEB101007506D0 /* Photo */,
+				C8B99E6929EEB106007506D0 /* Setting */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,9 +241,43 @@
 		C81E065229E95FE900D22514 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C81E065029E95FE600D22514 /* SettingCell.swift */,
+				C8B99E6A29EEB18B007506D0 /* Photo */,
+				C8B99E6B29EEB18F007506D0 /* Setting */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C8B99E6829EEB101007506D0 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		C8B99E6929EEB106007506D0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		C8B99E6A29EEB18B007506D0 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */,
+				C8B99E6F29EEB247007506D0 /* CalendarCell.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		C8B99E6B29EEB18F007506D0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				C81E065029E95FE600D22514 /* SettingCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		C8DE7100295842DC00C0FA24 = {
@@ -278,6 +321,7 @@
 			children = (
 				C81E063229E812F100D22514 /* PM1 */,
 				C81E064029E8158900D22514 /* MainViewManager.swift */,
+				C8B99E7329EEB557007506D0 /* CalendarHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -403,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
+				C8B99E6E29EEB1A2007506D0 /* PhotoCell.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
 				C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */,
@@ -411,10 +456,13 @@
 				C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
+				C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */,
 				C81E064329E9150E00D22514 /* SettingViewController.swift in Sources */,
+				C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */,
 				C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */,
 				C8DE7117295842DD00C0FA24 /* PhotoMemo.xcdatamodeld in Sources */,
 				C81E063F29E8144A00D22514 /* PhotoViewController.swift in Sources */,
+				C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,

@@ -115,7 +115,7 @@ extension PhotoView: LayoutProtocol {
         
         rectangleImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(dateStackView.snp.bottom).offset(10)
+            make.top.equalTo(dateStackView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
