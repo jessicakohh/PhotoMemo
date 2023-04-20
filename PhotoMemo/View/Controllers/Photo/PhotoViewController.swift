@@ -229,17 +229,7 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - ImagePicker
 
 extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        picker.dismiss(animated: false) {
-//            if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//                DispatchQueue.main.async {
-//                    self.thumbnails[self.now] = img
-//                    self.collectionView.reloadData()
-//                }
-//            }
-//
-//        }
-//    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
             if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
@@ -252,5 +242,4 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
             }
         }
     }
-
 }

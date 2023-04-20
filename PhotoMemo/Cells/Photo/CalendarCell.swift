@@ -14,6 +14,9 @@ class CalendarCell: UICollectionViewCell {
 
     let dayOfMonth: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .mainDarkGrey
+        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         return label
     }()
     

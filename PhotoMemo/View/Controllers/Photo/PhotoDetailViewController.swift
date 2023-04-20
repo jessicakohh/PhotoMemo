@@ -11,18 +11,28 @@ import RealmSwift
 final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Properties
+    var photoDetailView = PhotoDetailView()
+
 
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .darkRed
+        configureNavigation()
+    }
+    
+    override func loadView() {
+        view = photoDetailView
     }
     
     // MARK: - Selectors
     
     // MARK: - Helpers
+    
+    private func configureNavigation() {
+        navigationController?.navigationBar.tintColor = .mainDarkGrey
+    }
     
     // MARK: - Layout Extension
     
