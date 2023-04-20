@@ -65,16 +65,7 @@ final class PhotoDetailView: UIView {
         label.font = UIFont.systemFont(ofSize: 13, weight: .black)
         return label
     }()
-    
-    lazy var weatherStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [locationButton, weatherLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 0
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
+
     lazy var weatherImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "weatherImageView")
@@ -83,8 +74,22 @@ final class PhotoDetailView: UIView {
     
     lazy var weatherIcon: UIImageView = {
         let imageView = UIImageView()
-         return imageView
+        imageView.image = UIImage(systemName: "sun.min.fill")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .mainDarkGrey
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
+    
+    
+    lazy var weatherStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [locationButton, weatherLabel, weatherImageView])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
     
 
 // ----------- 📷 하단
@@ -151,7 +156,7 @@ final class PhotoDetailView: UIView {
 extension PhotoDetailView: LayoutProtocol {
     
     func setSubViews() {
-        [dateStackView, weatherStackView, weatherImageView, weatherIcon, photoImageView, addPhotoButton, memoLabel, memoTextView, memoImageView]
+        [dateStackView, weatherStackView, weatherIcon, photoImageView, addPhotoButton, memoLabel, memoTextView, memoImageView]
             .forEach { self.addSubview($0) }    }
     
     func setLayout() {
@@ -159,24 +164,17 @@ extension PhotoDetailView: LayoutProtocol {
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.trailing.equalToSuperview().offset(-250)
         }
         
         weatherStackView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(30)
-            make.leading.equalTo(dateStackView.snp.trailing).offset(10)
-            make.trailing.equalTo(weatherImageView.snp.leading).offset(-10)
-            make.centerY.equalTo(dateStackView.snp.centerY)
-        }
-        
-        weatherImageView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(30)
-            make.width.height.equalTo(43)
+            make.leading.equalTo(dateStackView.snp.trailing).offset(90)
             make.trailing.equalToSuperview().offset(-30)
-            make.centerY.equalTo(weatherStackView.snp.centerY)
         }
-        
+
         weatherIcon.snp.makeConstraints { make in
+            make.width.height.equalTo(28)
             make.centerX.equalTo(weatherImageView.snp.centerX)
             make.centerY.equalTo(weatherImageView.snp.centerY)
             make.width.equalTo(weatherImageView.snp.width)
@@ -186,7 +184,7 @@ extension PhotoDetailView: LayoutProtocol {
         // ----------- 📷 하단
         photoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(dateStackView.snp.bottom).offset(10)
+            make.top.equalTo(dateStackView.snp.bottom).offset(30)
             make.width.height.equalTo(350)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
