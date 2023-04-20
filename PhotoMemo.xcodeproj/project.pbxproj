@@ -30,7 +30,6 @@
 		C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* PhotoView.swift */; };
 		C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */; };
 		C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */; };
-		C8B99E6E29EEB1A2007506D0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */; };
 		C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6F29EEB247007506D0 /* CalendarCell.swift */; };
 		C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E7329EEB557007506D0 /* CalendarHelper.swift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
@@ -65,7 +64,6 @@
 		C8B99E6229EE9680007506D0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoInstance.swift; sourceTree = "<group>"; };
 		C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
-		C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		C8B99E6F29EEB247007506D0 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C8B99E7329EEB557007506D0 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		C8DE7109295842DD00C0FA24 /* PhotoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,7 +270,6 @@
 		C8B99E6A29EEB18B007506D0 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				C8B99E6D29EEB1A2007506D0 /* PhotoCell.swift */,
 				C8B99E6F29EEB247007506D0 /* CalendarCell.swift */,
 			);
 			path = Photo;
@@ -453,7 +450,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
-				C8B99E6E29EEB1A2007506D0 /* PhotoCell.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
 				C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */,

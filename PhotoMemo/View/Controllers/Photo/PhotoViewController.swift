@@ -21,8 +21,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         setMonthView()
     }
     
- 
-    
+
     // MARK: - Properties
     
     var photoView = PhotoView()
@@ -37,6 +36,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     let picker = UIImagePickerController()
     
     var currentCalendarIndex: Int = 0
+    var checkIndex = 0
     var now = ""
     var yymm = ""
  
@@ -44,8 +44,10 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     
     // MARK: - LifeCycle
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         selectedDate = Date()
         configureUI()
         setMonthView()
@@ -99,7 +101,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .mainGrey
         collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "calendarCell")
         photoView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -157,15 +159,14 @@ extension PhotoViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.dayOfMonth.text = totalDates[indexPath.item]
-
-        // ⭐️ 셀 생성
+        
         DispatchQueue.main.async {
-            self.now = self.yymm + self.totalDates[indexPath.item]
-            if cell.dayOfMonth.text != "" {
-                cell.imgView.image = self.thumbnails[self.yymm + self.totalDates[indexPath.item]]
+            if let image = self.thumbnails[self.now] {
+                cell.imgView.image = image
+                cell.imgView.isHidden = false
                 cell.imgView.layer.cornerRadius = 2
                 cell.contentView.bringSubviewToFront(cell.imgView)
-            }else{
+            } else {
                 cell.imgView.image = nil
                 cell.imgView.isHidden = true
             }
@@ -176,8 +177,17 @@ extension PhotoViewController: UICollectionViewDataSource {
 
 extension PhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photoDetailVC = PhotoDetailViewController()
-        navigationController?.pushViewController(photoDetailVC, animated: true)
+
+        now = yymm + totalDates[indexPath.item]
+        guard totalDates[indexPath.item] != "" else { return }
+        
+        if thumbnails[now] == nil {
+            present(picker, animated: true, completion: nil)
+        } else {
+            checkIndex += 1
+            let photoDetailVC = PhotoDetailViewController()
+            navigationController?.pushViewController(photoDetailVC, animated: true)
+        }
     }
 }
 
@@ -219,15 +229,28 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - ImagePicker
 
 extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        picker.dismiss(animated: false) {
+//            if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                DispatchQueue.main.async {
+//                    self.thumbnails[self.now] = img
+//                    self.collectionView.reloadData()
+//                }
+//            }
+//
+//        }
+//    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
-            if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+               let selectedIndexPath = self.collectionView.indexPathsForSelectedItems?.first {
+                let now = self.yymm + self.totalDates[selectedIndexPath.item]
                 DispatchQueue.main.async {
-                    self.thumbnails[self.now] = img
-                    self.collectionView.reloadData()
+                    self.thumbnails[now] = img
+                    self.collectionView.reloadItems(at: [selectedIndexPath])
                 }
             }
-            
         }
     }
+
 }

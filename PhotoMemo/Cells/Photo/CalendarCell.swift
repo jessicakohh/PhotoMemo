@@ -19,7 +19,7 @@ class CalendarCell: UICollectionViewCell {
     
     let imgView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .mainGrey
+        imageView.backgroundColor = .newGrey
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 15
@@ -36,17 +36,14 @@ class CalendarCell: UICollectionViewCell {
         setLayout()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setSubViews()
-        setLayout()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // 재활용 셀 중첩오류 해결법
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil
-        imgView.isHidden = true
     }
     
     // MARK: - Helpers
@@ -56,7 +53,6 @@ class CalendarCell: UICollectionViewCell {
     }
 
 }
-
 
 extension CalendarCell: LayoutProtocol {
     
@@ -68,9 +64,7 @@ extension CalendarCell: LayoutProtocol {
     func setLayout() {
         
         imgView.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-            make.width.equalTo(38)
-            make.height.equalTo(80)
+            make.centerX.centerY.width.height.equalToSuperview()
         }
         
         dayOfMonth.snp.makeConstraints { make in
