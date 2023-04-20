@@ -12,7 +12,7 @@ final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Properties
     var photoDetailView = PhotoDetailView()
-
+    var calendarData: CalendarData?
 
     // MARK: - LifeCycle
 
@@ -20,6 +20,7 @@ final class PhotoDetailViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigation()
+        configureUI()
     }
     
     override func loadView() {
@@ -34,6 +35,11 @@ final class PhotoDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .mainDarkGrey
     }
     
-    // MARK: - Layout Extension
+    private func configureUI() {
+//        photoDetailView.photoImageView.image = UIImage(data: imageData)
+    }
+    
     
 }
+
+

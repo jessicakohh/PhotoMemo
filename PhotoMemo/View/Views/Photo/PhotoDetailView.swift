@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
-final class PhotoDetailView: UIView {
+
+final class PhotoDetailView: UIView, UINavigationControllerDelegate {
+    
     // MARK: - Properties
     
-    let imagePicker = UIImagePickerController()
-
     
     lazy var yearLabel: UILabel = {
-       let dateLabel = UILabel()
+        let dateLabel = UILabel()
         let myFormatter = DateFormatter()
         myFormatter.dateFormat = "yyyy"
         let today = myFormatter.string(from: Date())
@@ -30,7 +31,7 @@ final class PhotoDetailView: UIView {
     }()
     
     lazy var dateLabel: UILabel = {
-       let dateLabel = UILabel()
+        let dateLabel = UILabel()
         let myFormatter = DateFormatter()
         myFormatter.dateFormat = "MM월 dd일"
         let today = myFormatter.string(from: Date())
@@ -48,8 +49,8 @@ final class PhotoDetailView: UIView {
         return stackView
     }()
     
- 
-// ----------- ☀️ 날씨
+    
+    // ----------- ☀️ 날씨
     lazy var locationButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "locationButton"), for: .normal)
@@ -58,16 +59,16 @@ final class PhotoDetailView: UIView {
     }()
     
     lazy var weatherLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "오늘 날씨"
         label.textAlignment = .left
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 13, weight: .black)
         return label
     }()
-
+    
     lazy var weatherImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "weatherImageView")
         return imageView
     }()
@@ -80,7 +81,6 @@ final class PhotoDetailView: UIView {
         return imageView
     }()
     
-    
     lazy var weatherStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [locationButton, weatherLabel, weatherImageView])
         stackView.axis = .horizontal
@@ -90,9 +90,7 @@ final class PhotoDetailView: UIView {
         return stackView
     }()
     
-    
-
-// ----------- 📷 하단
+    // ----------- 📷 하단
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -105,6 +103,7 @@ final class PhotoDetailView: UIView {
     lazy var addPhotoButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
         return button
     }()
     
@@ -121,13 +120,12 @@ final class PhotoDetailView: UIView {
         textView.textColor = .darkGray
         return textView
     }()
-
+    
     lazy var memoImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "memoTextView")
         return imageView
     }()
-    
     
     
     // MARK: - LifeCycles
@@ -145,12 +143,19 @@ final class PhotoDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Selectors
+    
+    @objc private func openImagePicker() {
+        print("이미지피커")
+    }
+
     
     // MARK: - Helpers
     
     private func configureUI() {
         self.backgroundColor = .mainGrey
     }
+    
 }
 
 extension PhotoDetailView: LayoutProtocol {
@@ -219,4 +224,5 @@ extension PhotoDetailView: LayoutProtocol {
     }
     
 }
+
 

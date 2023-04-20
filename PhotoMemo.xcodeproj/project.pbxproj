@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8141FD9296BD14800AB0AAC /* MemoManager.swift */; };
-		C81E062029E811C300D22514 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C81E061F29E811C300D22514 /* Realm */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -24,11 +23,14 @@
 		C81E064A29E9483900D22514 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E064929E9483900D22514 /* Protocols.swift */; };
 		C81E065129E95FE600D22514 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E065029E95FE600D22514 /* SettingCell.swift */; };
 		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
+		C8A2872429F12EC900BF68FE /* RalmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2872329F12EC900BF68FE /* RalmManager.swift */; };
+		C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2872529F12FDA00BF68FE /* CalendarData.swift */; };
+		C8A2872929F1427700BF68FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C8A2872829F1427700BF68FE /* Realm */; };
+		C8A2872B29F1427700BF68FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C8A2872A29F1427700BF68FE /* RealmSwift */; };
 		C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */; };
 		C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5E29EE8991007506D0 /* LoginViewController.swift */; };
 		C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6029EE8A73007506D0 /* LoginView.swift */; };
 		C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* PhotoView.swift */; };
-		C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */; };
 		C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */; };
 		C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6F29EEB247007506D0 /* CalendarCell.swift */; };
 		C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E7329EEB557007506D0 /* CalendarHelper.swift */; };
@@ -58,11 +60,12 @@
 		C81E064729E9481300D22514 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C81E064929E9483900D22514 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C81E065029E95FE600D22514 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		C8A2872329F12EC900BF68FE /* RalmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalmManager.swift; sourceTree = "<group>"; };
+		C8A2872529F12FDA00BF68FE /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C8B99E5E29EE8991007506D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C8B99E6029EE8A73007506D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C8B99E6229EE9680007506D0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoInstance.swift; sourceTree = "<group>"; };
 		C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		C8B99E6F29EEB247007506D0 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C8B99E7329EEB557007506D0 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -90,13 +93,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81E062F29E8126800D22514 /* FirebaseMessaging in Frameworks */,
-				C81E062029E811C300D22514 /* Realm in Frameworks */,
 				C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */,
 				C81E063129E8126800D22514 /* FirebaseStorage in Frameworks */,
 				C81E062329E811DA00D22514 /* SnapKit in Frameworks */,
+				C8A2872929F1427700BF68FE /* Realm in Frameworks */,
 				C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */,
 				C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */,
 				C81E062D29E8126800D22514 /* FirebaseFirestore in Frameworks */,
+				C8A2872B29F1427700BF68FE /* RealmSwift in Frameworks */,
 				C81E062B29E8126800D22514 /* FirebaseDatabase in Frameworks */,
 				C81E062629E811EC00D22514 /* Kingfisher in Frameworks */,
 			);
@@ -125,7 +129,7 @@
 		C81E063429E8138200D22514 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C8B99E6429EE97B4007506D0 /* CalendarInfoInstance.swift */,
+				C8A2872529F12FDA00BF68FE /* CalendarData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +329,7 @@
 				C81E063229E812F100D22514 /* PM1 */,
 				C81E064029E8158900D22514 /* MainViewManager.swift */,
 				C8B99E7329EEB557007506D0 /* CalendarHelper.swift */,
+				C8A2872329F12EC900BF68FE /* RalmManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -378,7 +383,6 @@
 			packageProductDependencies = (
 				C8DE712A295845DA00C0FA24 /* SideMenu */,
 				C81F284A295957E0004F026D /* IQKeyboardManagerSwift */,
-				C81E061F29E811C300D22514 /* Realm */,
 				C81E062229E811DA00D22514 /* SnapKit */,
 				C81E062529E811EC00D22514 /* Kingfisher */,
 				C81E062829E8126800D22514 /* FirebaseAuth */,
@@ -386,6 +390,8 @@
 				C81E062C29E8126800D22514 /* FirebaseFirestore */,
 				C81E062E29E8126800D22514 /* FirebaseMessaging */,
 				C81E063029E8126800D22514 /* FirebaseStorage */,
+				C8A2872829F1427700BF68FE /* Realm */,
+				C8A2872A29F1427700BF68FE /* RealmSwift */,
 			);
 			productName = PhotoMemo;
 			productReference = C8DE7109295842DD00C0FA24 /* PhotoMemo.app */;
@@ -418,10 +424,10 @@
 			packageReferences = (
 				C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C81E062429E811EC00D22514 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C8A2872729F1427700BF68FE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C8DE710A295842DD00C0FA24 /* Products */;
 			projectDirPath = "";
@@ -452,9 +458,9 @@
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
-				C8B99E6529EE97B4007506D0 /* CalendarInfoInstance.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C81E064529E92FCB00D22514 /* UIColor.swift in Sources */,
+				C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */,
 				C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
@@ -477,6 +483,7 @@
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 				C81E064A29E9483900D22514 /* Protocols.swift in Sources */,
 				C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */,
+				C8A2872429F12EC900BF68FE /* RalmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,14 +705,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -738,6 +737,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		C8A2872729F1427700BF68FE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C8DE7129295845D900C0FA24 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu";
@@ -749,11 +756,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C81E061F29E811C300D22514 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C81E061E29E811C300D22514 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
 		C81E062229E811DA00D22514 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -793,6 +795,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C81F2849295957E0004F026D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		C8A2872829F1427700BF68FE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8A2872729F1427700BF68FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C8A2872A29F1427700BF68FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8A2872729F1427700BF68FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		C8DE712A295845DA00C0FA24 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;

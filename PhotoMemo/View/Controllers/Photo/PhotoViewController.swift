@@ -25,6 +25,8 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     // MARK: - Properties
     
     var photoView = PhotoView()
+    var realmManager = RealmManager()
+    private let viewModel = PhotoViewModel()
         
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
@@ -84,11 +86,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         }
         setMonthView()
     }
-    
-    @objc func didAddButtonClicked(_ sender: UIBarButtonItem) {
-        print("디테일뷰로 넘어가기")
-    }
-    
+
     // MARK: - Helpers
     
     private func configureUI() {
