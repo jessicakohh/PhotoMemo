@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 
 final class PhotoViewController: UIViewController, PhotoViewDelegate {
@@ -56,6 +57,8 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
         swipeSetting()
         
         picker.delegate = self
+        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+
     }
     
     
@@ -164,6 +167,12 @@ extension PhotoViewController: UICollectionViewDataSource {
                 cell.imgView.isHidden = false
                 cell.imgView.layer.cornerRadius = 2
                 cell.contentView.bringSubviewToFront(cell.imgView)
+                
+                let calendarData = CalendarData()
+                calendarData.date = self.now
+                calendarData.image = image.jpegData(compressionQuality: 0.5)
+                self.realmManager.save(calendarData: calendarData, image: image)
+                
             } else {
                 cell.imgView.image = nil
                 cell.imgView.isHidden = true
@@ -184,6 +193,12 @@ extension PhotoViewController: UICollectionViewDelegate {
         } else {
             checkIndex += 1
             let photoDetailVC = PhotoDetailViewController()
+            
+            if let image = thumbnails[now] {
+                photoDetailVC.photoDetailView.photoImageView.image = image
+             }
+             
+
             navigationController?.pushViewController(photoDetailVC, animated: true)
         }
     }

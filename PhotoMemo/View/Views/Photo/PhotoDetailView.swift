@@ -95,7 +95,8 @@ final class PhotoDetailView: UIView, UINavigationControllerDelegate {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "addPhotoImage")
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 350 / 2
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -154,6 +155,7 @@ final class PhotoDetailView: UIView, UINavigationControllerDelegate {
     
     private func configureUI() {
         self.backgroundColor = .mainGrey
+        
     }
     
 }

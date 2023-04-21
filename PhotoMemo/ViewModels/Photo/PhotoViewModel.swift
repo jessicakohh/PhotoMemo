@@ -17,9 +17,9 @@ final class PhotoViewModel {
     var calendars: Results<CalendarData>?
     
     // ViewModel을 생성할 때 필요한 초기화
-//    init() {
-//        self.calendars = CalendarData.realmManager.fetchAll()
-//    }
+    init() {
+        self.calendars = PhotoViewModel.realmManager.fetchAll()
+    }
     
     // 셀의 갯수 반환
     func numberOfItems() -> Int {

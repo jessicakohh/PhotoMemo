@@ -317,6 +317,7 @@
 				C81E063829E8139500D22514 /* Utils */,
 				C8DE71252958430300C0FA24 /* Views */,
 				C8DE7123295842F700C0FA24 /* Helpers */,
+				C81E063229E812F100D22514 /* PM1 */,
 				C8DE711D295842DE00C0FA24 /* Info.plist */,
 				C8DE7115295842DD00C0FA24 /* PhotoMemo.xcdatamodeld */,
 			);
@@ -326,10 +327,9 @@
 		C8DE7123295842F700C0FA24 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C81E063229E812F100D22514 /* PM1 */,
+				C8A2872329F12EC900BF68FE /* RalmManager.swift */,
 				C81E064029E8158900D22514 /* MainViewManager.swift */,
 				C8B99E7329EEB557007506D0 /* CalendarHelper.swift */,
-				C8A2872329F12EC900BF68FE /* RalmManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

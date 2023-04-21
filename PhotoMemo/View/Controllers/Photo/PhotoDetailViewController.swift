@@ -36,7 +36,9 @@ final class PhotoDetailViewController: UIViewController {
     }
     
     private func configureUI() {
-//        photoDetailView.photoImageView.image = UIImage(data: imageData)
+        if let imageData = calendarData?.image {
+            photoDetailView.photoImageView.image = UIImage(data: imageData)
+        }
     }
     
     
