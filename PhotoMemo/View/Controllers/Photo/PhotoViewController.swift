@@ -27,7 +27,6 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
     
     var photoView = PhotoView()
     var realmManager = RealmManager()
-    private let viewModel = PhotoViewModel()
         
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
@@ -111,6 +110,15 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview()
         }
+        
+        let realm = try! Realm()
+        let calendarDataArray = Array(realm.objects(CalendarData.self))
+        for calendarData in calendarDataArray {
+            if let imageData = calendarData.image,
+               let image = UIImage(data: imageData) {
+                thumbnails[calendarData.date] = image
+            }
+        }
     }
     
     private func swipeSetting() {
@@ -161,22 +169,15 @@ extension PhotoViewController: UICollectionViewDataSource {
         }
         cell.dayOfMonth.text = totalDates[indexPath.item]
         
-        DispatchQueue.main.async {
-            if let image = self.thumbnails[self.now] {
-                cell.imgView.image = image
-                cell.imgView.isHidden = false
-                cell.imgView.layer.cornerRadius = 2
-                cell.contentView.bringSubviewToFront(cell.imgView)
-                
-                let calendarData = CalendarData()
-                calendarData.date = self.now
-                calendarData.image = image.jpegData(compressionQuality: 0.5)
-                self.realmManager.save(calendarData: calendarData, image: image)
-                
-            } else {
-                cell.imgView.image = nil
-                cell.imgView.isHidden = true
-            }
+        // thumbnails 딕셔너리에서 이미지를 가져와서 표시
+        if let image = self.thumbnails[self.now] {
+            cell.imgView.image = image
+            cell.imgView.isHidden = false
+            cell.imgView.layer.cornerRadius = 2
+            cell.contentView.bringSubviewToFront(cell.imgView)
+        } else {
+            cell.imgView.image = nil
+            cell.imgView.isHidden = true
         }
         return cell
     }
