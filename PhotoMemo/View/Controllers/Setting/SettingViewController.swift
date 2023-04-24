@@ -22,6 +22,7 @@ final class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigation()
         configureUI()
         configureTableView()
     }
@@ -32,6 +33,10 @@ final class SettingViewController: UIViewController {
     
     // MARK: - Selectors
     
+    @objc func editButtonTapped() {
+        
+    }
+    
     // MARK: - Helpers
     
     private func configureUI() {
@@ -41,7 +46,14 @@ final class SettingViewController: UIViewController {
     
     private func configureTableView() {
         tableView.dataSource = self
+        tableView.backgroundColor = .mainGrey
         viewModel.fetchItems()
+    }
+    
+    private func configureNavigation() {
+        navigationController?.navigationBar.tintColor = .mainDarkGrey
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "editButton"), style: .plain, target: self, action: #selector(editButtonTapped))
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     // MARK: - Layout Extension
@@ -60,6 +72,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.text = viewModel.items[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        cell.textLabel?.textColor = .mainDarkGrey
+        cell.backgroundColor = .mainGrey
         return cell
     }
     

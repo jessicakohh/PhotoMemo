@@ -23,17 +23,8 @@ class SettingView: UIView {
     
     private lazy var profileButton: UIButton = {
         let button = UIButton(type: .system)
-        // 버튼 이미지 넣기
+        // 이게뭐지
         return button
-    }()
-    
-    private lazy var plusIcon: UIImageView = {
-        let image = UIImage(named: "square.and.pencil.circle.fill")
-        let imageView = UIImageView(image: image)
-        imageView.tintColor = .mainDarkGrey
-        imageView.backgroundColor = .none
-        imageView.clipsToBounds = true
-        return imageView
     }()
     
     private lazy var nameTextField: UITextField = {
@@ -54,7 +45,7 @@ class SettingView: UIView {
     lazy var logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("로그아웃", for: .normal)
-        button.setTitleColor(.newGrey, for: .normal)
+        button.setTitleColor(.mainDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
         return button
@@ -63,7 +54,7 @@ class SettingView: UIView {
     lazy var signOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("회원탈퇴", for: .normal)
-        button.setTitleColor(.newGrey, for: .normal)
+        button.setTitleColor(.darkRed, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
         return button
@@ -97,7 +88,7 @@ class SettingView: UIView {
     // MARK: - Helpers
     
     private func configureUI() {
-        backgroundColor = .white
+        backgroundColor = .mainGrey
     }
 }
 
@@ -106,7 +97,6 @@ extension SettingView: LayoutProtocol {
     func setSubViews() {
         self.addSubview(profileImage)
         self.addSubview(profileButton)
-        self.addSubview(plusIcon)
         self.addSubview(nameTextField)
         self.addSubview(tableView)
         self.addSubview(dateStackView)
@@ -131,26 +121,19 @@ extension SettingView: LayoutProtocol {
             make.top.equalTo(profileImage.snp.bottom).offset(8)
         }
         
-        plusIcon.snp.makeConstraints { make in
-            make.top.equalTo(profileImage.snp.bottom).offset(-15)
-            make.width.height.equalTo(25)
-            make.trailing.equalToSuperview().offset(20)
-        }
-        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(50)
             make.left.equalToSuperview().inset(40)
             make.right.equalToSuperview().inset(40)
-            make.height.lessThanOrEqualTo(300)
+            make.height.lessThanOrEqualTo(150)
         }
         
         dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom).offset(20)
+            make.top.equalTo(tableView.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
-        
         profileImage.layer.zPosition = CGFloat(-1)
     }
     

@@ -13,13 +13,5 @@ class PhotoDetailViewModel {
     
     
     // MARK: - Helpers
-    
-    func didTapDeleteButton() {
-        print("삭제")
-    }
 
-    func saveButtonTapped() {
-        print("저장")
-    }
-    
 }

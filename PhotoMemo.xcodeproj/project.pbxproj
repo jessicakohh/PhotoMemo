@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8141FD9296BD14800AB0AAC /* MemoManager.swift */; };
 		C819057E29F6647600610870 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819057D29F6647600610870 /* PhotoDetailViewModel.swift */; };
+		C819058029F68A9600610870 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819057F29F68A9600610870 /* EditView.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		C8141FD9296BD14800AB0AAC /* MemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoManager.swift; sourceTree = "<group>"; };
 		C819057D29F6647600610870 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
+		C819057F29F68A9600610870 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				C81E064729E9481300D22514 /* SettingView.swift */,
+				C819057F29F68A9600610870 /* EditView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
 				C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */,
+				C819058029F68A9600610870 /* EditView.swift in Sources */,
 				C81E064329E9150E00D22514 /* SettingViewController.swift in Sources */,
 				C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */,
 				C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */,

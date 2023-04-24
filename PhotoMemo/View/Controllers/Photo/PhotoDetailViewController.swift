@@ -14,6 +14,8 @@ final class PhotoDetailViewController: UIViewController {
     var photoDetailView = PhotoDetailView()
     var calendarData: CalendarData?
     private let viewModel = PhotoDetailViewModel()
+    
+    var realmManager = RealmManager()
 
 
     // MARK: - LifeCycle
@@ -32,11 +34,10 @@ final class PhotoDetailViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func deleteButtonTapped() {
-        viewModel.didTapDeleteButton()
     }
     
     @objc func saveButtonTapped() {
-        viewModel.saveButtonTapped()
+        guard let date = photoDetailView.dateLabel.text else { return }
     }
     
     // MARK: - Helpers
@@ -65,6 +66,10 @@ final class PhotoDetailViewController: UIViewController {
         if let imageData = calendarData?.image {
             photoDetailView.photoImageView.image = UIImage(data: imageData)
         }
+    }
+    
+    private func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
     
     
