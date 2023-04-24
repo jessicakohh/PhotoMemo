@@ -8,16 +8,16 @@
 import UIKit
 import SnapKit
 
-protocol PhotoViewDelegate: AnyObject {
-    func photoViewDidTapPreviousButton(_ photoView: PhotoView)
-    func photoViewDidTapNextButton(_ photoView: PhotoView)
+protocol CalendarViewDelegate: AnyObject {
+    func photoViewDidTapPreviousButton(_ photoView: CalendarView)
+    func photoViewDidTapNextButton(_ photoView: CalendarView)
 }
 
-class PhotoView: UIView {
+class CalendarView: UIView {
     
     // MARK: - Properties
     
-    weak var delegate: PhotoViewDelegate?
+    weak var delegate: CalendarViewDelegate?
     
     private let previousButton: UIButton = {
         let button = UIButton()
@@ -121,7 +121,7 @@ class PhotoView: UIView {
 
 // MARK: - Layouts
 
-extension PhotoView: LayoutProtocol {
+extension CalendarView: LayoutProtocol {
     func setSubViews() {
         self.addSubview(dateStackView)
         self.addSubview(rectangleImageView)

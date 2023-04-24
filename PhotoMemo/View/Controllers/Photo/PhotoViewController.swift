@@ -10,14 +10,14 @@ import SnapKit
 import RealmSwift
 
 
-final class PhotoViewController: UIViewController, PhotoViewDelegate {
+final class PhotoViewController: UIViewController, CalendarViewDelegate {
     
-    func photoViewDidTapPreviousButton(_ photoView: PhotoView) {
+    func photoViewDidTapPreviousButton(_ photoView: CalendarView) {
         selectedDate = calendarHelper.previousMonth(date: selectedDate)
         setMonthView()
     }
     
-    func photoViewDidTapNextButton(_ photoView: PhotoView) {
+    func photoViewDidTapNextButton(_ photoView: CalendarView) {
         selectedDate = calendarHelper.nextMonth(date: selectedDate)
         setMonthView()
     }
@@ -25,7 +25,7 @@ final class PhotoViewController: UIViewController, PhotoViewDelegate {
 
     // MARK: - Properties
     
-    var photoView = PhotoView()
+    var photoView = CalendarView()
     var realmManager = RealmManager()
         
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -173,7 +173,7 @@ extension PhotoViewController: UICollectionViewDataSource {
         if let image = self.thumbnails[self.now] {
             cell.imgView.image = image
             cell.imgView.isHidden = false
-            cell.imgView.layer.cornerRadius = 2
+            cell.imgView.layer.cornerRadius = 10
             cell.contentView.bringSubviewToFront(cell.imgView)
         } else {
             cell.imgView.image = nil

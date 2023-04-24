@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8141FD9296BD14800AB0AAC /* MemoManager.swift */; };
+		C819057E29F6647600610870 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819057D29F6647600610870 /* PhotoDetailViewModel.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -30,7 +31,7 @@
 		C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */; };
 		C8B99E5F29EE8991007506D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E5E29EE8991007506D0 /* LoginViewController.swift */; };
 		C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6029EE8A73007506D0 /* LoginView.swift */; };
-		C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* PhotoView.swift */; };
+		C8B99E6329EE9680007506D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6229EE9680007506D0 /* CalendarView.swift */; };
 		C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */; };
 		C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6F29EEB247007506D0 /* CalendarCell.swift */; };
 		C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E7329EEB557007506D0 /* CalendarHelper.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		C8141FD9296BD14800AB0AAC /* MemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoManager.swift; sourceTree = "<group>"; };
+		C819057D29F6647600610870 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C8B99E5E29EE8991007506D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C8B99E6029EE8A73007506D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C8B99E6229EE9680007506D0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		C8B99E6229EE9680007506D0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		C8B99E6F29EEB247007506D0 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C8B99E7329EEB557007506D0 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -240,7 +242,7 @@
 		C81E064E29E9497100D22514 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				C8B99E6229EE9680007506D0 /* PhotoView.swift */,
+				C8B99E6229EE9680007506D0 /* CalendarView.swift */,
 				C8F3A1DE29EFE8C500B9AF2C /* PhotoDetailView.swift */,
 			);
 			path = Photo;
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */,
+				C819057D29F6647600610870 /* PhotoDetailViewModel.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -461,7 +464,7 @@
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C81E064529E92FCB00D22514 /* UIColor.swift in Sources */,
 				C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */,
-				C8B99E6329EE9680007506D0 /* PhotoView.swift in Sources */,
+				C8B99E6329EE9680007506D0 /* CalendarView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
@@ -479,6 +482,7 @@
 				C81E065129E95FE600D22514 /* SettingCell.swift in Sources */,
 				C8B99E6129EE8A73007506D0 /* LoginView.swift in Sources */,
 				C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */,
+				C819057E29F6647600610870 /* PhotoDetailViewModel.swift in Sources */,
 				C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */,
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 				C81E064A29E9483900D22514 /* Protocols.swift in Sources */,
