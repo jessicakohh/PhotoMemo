@@ -12,12 +12,21 @@ class LoginView: UIView {
     
     // MARK: - Properties
     
+    private lazy var appLogo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "appLogo")
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     private lazy var emailTextFieldView: UIView = {
         let view = UIView()
-        view.layer.borderColor = UIColor.mainDarkGrey.cgColor
+        view.layer.borderColor = UIColor.newGrey.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
+        view.backgroundColor = .white
         view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(10)
@@ -29,7 +38,7 @@ class LoginView: UIView {
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "email"
-        textField.font = UIFont.systemFont(ofSize: 13)
+        textField.font = UIFont.boldSystemFont(ofSize: 13)
         textField.layer.borderColor = .none
         return textField
     }()
@@ -40,6 +49,7 @@ class LoginView: UIView {
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
+        view.backgroundColor = .white
         view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(10)
@@ -51,7 +61,7 @@ class LoginView: UIView {
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "password"
-        textField.font = UIFont.systemFont(ofSize: 13)
+        textField.font = UIFont.boldSystemFont(ofSize: 13)
         textField.layer.borderColor = .none
         textField.isSecureTextEntry = true
         return textField
@@ -67,10 +77,10 @@ class LoginView: UIView {
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("로그인", for: .normal)
+        button.setTitle("로그인 하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.backgroundColor = .mainDarkGrey
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
         return button
@@ -80,11 +90,12 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("가입하지 않고 둘러보기", for: .normal)
         button.setTitleColor(UIColor.newGrey, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
         button.layer.borderColor = UIColor.newGrey.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 20
+        button.backgroundColor = .white
         button.clipsToBounds = true
         return button
     }()
@@ -123,8 +134,8 @@ class LoginView: UIView {
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("비밀번호 재설정", for: .normal)
-        button.setTitleColor(UIColor.mainGrey, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.setTitleColor(UIColor.mainDarkGrey, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
         button.snp.makeConstraints { make in
             make.width.equalTo(80)
@@ -148,6 +159,9 @@ class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configureUI()
+        setSubViews()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -156,20 +170,34 @@ class LoginView: UIView {
     
     
     // MARK: - Helpers
+    
+    private func configureUI() {
+        self.backgroundColor = .mainGrey
+    }
 
 }
 
+// MARK: - Layouts
+
 extension LoginView: LayoutProtocol {
     func setSubViews() {
-        [emailPasswordStackView, loginButtonStackView, loginCheckedLabel, signInStackView]
+        [appLogo, emailPasswordStackView, loginButtonStackView, loginCheckedLabel, signInStackView]
             .forEach { self.addSubview($0) }
     }
     
     func setLayout() {
+        
+        appLogo.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(300)
+        }
+        
         emailPasswordStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(120)
+            make.left.right.equalToSuperview().inset(70)
+            make.top.equalTo(appLogo.snp.bottom).offset(40)
             make.height.equalTo(80)
         }
+        
         loginCheckedLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(emailPasswordStackView.snp.bottom).offset(10)

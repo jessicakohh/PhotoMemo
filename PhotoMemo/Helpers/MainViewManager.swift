@@ -23,8 +23,8 @@ class MainViewManager {
         window.backgroundColor = .white
         window.makeKeyAndVisible()
         
-        setTapBarController()
-        
+//        setTapBarController()
+        setLoginViewController()
     }
     
     private func setTapBarController() {
@@ -47,6 +47,14 @@ class MainViewManager {
         tabBarViewController.selectedIndex = 0
         tabBarViewController.tabBar.backgroundColor = .mainGrey
         rootViewController = tabBarViewController
+    }
+    
+    private func setLoginViewController() {
+//        let loginViewController = UINavigationController(rootViewController: LoginViewController())
+//        rootViewController = loginViewController
+        
+        let loginViewController = UINavigationController(rootViewController: SignInViewController())
+        rootViewController = loginViewController
     }
     
 }

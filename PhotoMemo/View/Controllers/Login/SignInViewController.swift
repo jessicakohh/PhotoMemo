@@ -1,18 +1,18 @@
 //
-//  LoginViewController.swift
+//  SignViewController.swift
 //  PhotoMemo
 //
-//  Created by juyeong koh on 2023/04/18.
+//  Created by juyeong koh on 2023/04/25.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let loginView = LoginView()
-    private let viewModel = LoginViewModel()
+    private let signInView = SignInView()
+//    private let viewModel = LoginViewModel()
         
     // MARK: - LifeCycle
     
@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     }
     
     override func loadView() {
-      view = loginView
+      view = signInView
   }
     
     // MARK: - Selectors
@@ -32,5 +32,3 @@ class LoginViewController: UIViewController {
     
     // MARK: - Layout Extension
 }
-
-

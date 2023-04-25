@@ -13,7 +13,6 @@ final class PhotoDetailView: UIView, UINavigationControllerDelegate {
     
     // MARK: - Properties
     
-    
     lazy var yearLabel: UILabel = {
         let dateLabel = UILabel()
         let myFormatter = DateFormatter()

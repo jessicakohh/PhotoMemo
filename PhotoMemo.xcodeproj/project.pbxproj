@@ -11,6 +11,9 @@
 		C819057E29F6647600610870 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819057D29F6647600610870 /* PhotoDetailViewModel.swift */; };
 		C819058029F68A9600610870 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819057F29F68A9600610870 /* EditView.swift */; };
 		C819058229F68CE600610870 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058129F68CE600610870 /* EditViewController.swift */; };
+		C819058529F7B71800610870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058429F7B71800610870 /* LoginViewModel.swift */; };
+		C819058729F7CBE100610870 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058629F7CBE100610870 /* SignInView.swift */; };
+		C819058929F7D56200610870 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058829F7D56200610870 /* SignInViewController.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -59,6 +62,9 @@
 		C819057D29F6647600610870 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		C819057F29F68A9600610870 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		C819058129F68CE600610870 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		C819058429F7B71800610870 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C819058629F7CBE100610870 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		C819058829F7D56200610870 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C819058329F7B70F00610870 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C819058429F7B71800610870 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		C81E063229E812F100D22514 /* PM1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +166,7 @@
 		C81E063629E8138C00D22514 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C819058329F7B70F00610870 /* Login */,
 				C8B99E6829EEB101007506D0 /* Photo */,
 				C8B99E6929EEB106007506D0 /* Setting */,
 			);
@@ -196,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C8B99E5E29EE8991007506D0 /* LoginViewController.swift */,
+				C819058829F7D56200610870 /* SignInViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -232,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				C8B99E6029EE8A73007506D0 /* LoginView.swift */,
+				C819058629F7CBE100610870 /* SignInView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -466,9 +483,12 @@
 			files = (
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
+				C819058529F7B71800610870 /* LoginViewModel.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C81E064529E92FCB00D22514 /* UIColor.swift in Sources */,
+				C819058729F7CBE100610870 /* SignInView.swift in Sources */,
+				C819058929F7D56200610870 /* SignInViewController.swift in Sources */,
 				C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */,
 				C8B99E6329EE9680007506D0 /* CalendarView.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
