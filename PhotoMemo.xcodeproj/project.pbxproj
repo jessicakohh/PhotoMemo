@@ -14,6 +14,8 @@
 		C819058529F7B71800610870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058429F7B71800610870 /* LoginViewModel.swift */; };
 		C819058729F7CBE100610870 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058629F7CBE100610870 /* SignInView.swift */; };
 		C819058929F7D56200610870 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058829F7D56200610870 /* SignInViewController.swift */; };
+		C819058B29F7D8C400610870 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058A29F7D8C400610870 /* ResetPasswordView.swift */; };
+		C819058D29F7DA3500610870 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819058C29F7DA3500610870 /* ResetPasswordViewController.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -65,6 +67,8 @@
 		C819058429F7B71800610870 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C819058629F7CBE100610870 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C819058829F7D56200610870 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C819058A29F7D8C400610870 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		C819058C29F7DA3500610870 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			children = (
 				C8B99E5E29EE8991007506D0 /* LoginViewController.swift */,
 				C819058829F7D56200610870 /* SignInViewController.swift */,
+				C819058C29F7DA3500610870 /* ResetPasswordViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			children = (
 				C8B99E6029EE8A73007506D0 /* LoginView.swift */,
 				C819058629F7CBE100610870 /* SignInView.swift */,
+				C819058A29F7D8C400610870 /* ResetPasswordView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -484,9 +490,11 @@
 				C81E064129E8158900D22514 /* MainViewManager.swift in Sources */,
 				C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */,
 				C819058529F7B71800610870 /* LoginViewModel.swift in Sources */,
+				C819058B29F7D8C400610870 /* ResetPasswordView.swift in Sources */,
 				C8DE71322958469A00C0FA24 /* Diary+CoreDataClass.swift in Sources */,
 				C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */,
 				C81E064529E92FCB00D22514 /* UIColor.swift in Sources */,
+				C819058D29F7DA3500610870 /* ResetPasswordViewController.swift in Sources */,
 				C819058729F7CBE100610870 /* SignInView.swift in Sources */,
 				C819058929F7D56200610870 /* SignInViewController.swift in Sources */,
 				C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */,

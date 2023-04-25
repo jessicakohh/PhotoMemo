@@ -53,7 +53,7 @@ class MainViewManager {
 //        let loginViewController = UINavigationController(rootViewController: LoginViewController())
 //        rootViewController = loginViewController
         
-        let loginViewController = UINavigationController(rootViewController: SignInViewController())
+        let loginViewController = UINavigationController(rootViewController: ResetPasswordViewController())
         rootViewController = loginViewController
     }
     
