@@ -34,7 +34,7 @@ final class SettingViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func editButtonTapped() {
-        
+        self.navigationController?.pushViewController(EditViewController(), animated: true)
     }
     
     // MARK: - Helpers

@@ -104,7 +104,7 @@ extension SettingView: LayoutProtocol {
     
     func setLayout() {
         profileImage.snp.makeConstraints { make in
-            make.width.height.equalTo(180)
+            make.size.equalTo(180)
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(150)
         }
