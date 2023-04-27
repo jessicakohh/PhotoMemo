@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class MainViewManager {
     
+    // MARK: - Properties
+
     static let shared = MainViewManager()
     
     private var window: UIWindow!
@@ -18,13 +22,38 @@ class MainViewManager {
         }
     }
     
+    private init() {
+        FirebaseApp.configure()
+        registerAuthStateDidChangeEvent()
+    }
+    
+    // MARK: - LifeCycle
+
     func show(in window: UIWindow) {
         self.window = window
         window.backgroundColor = .white
         window.makeKeyAndVisible()
         
-//        setTapBarController()
-        setLoginViewController()
+        checkLoginIn()
+    }
+    
+    // MARK: - Seletors
+    
+    @objc private func checkLoginIn() {
+        if let _ = Auth.auth().currentUser {
+            setTapBarController()
+        } else {
+            setLoginViewController()
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private func registerAuthStateDidChangeEvent() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(checkLoginIn),
+                                               name: .AuthStateDidChange,
+                                               object: nil)
     }
     
     private func setTapBarController() {
@@ -50,10 +79,8 @@ class MainViewManager {
     }
     
     private func setLoginViewController() {
-//        let loginViewController = UINavigationController(rootViewController: LoginViewController())
-//        rootViewController = loginViewController
-        
-        let loginViewController = UINavigationController(rootViewController: SignInViewController())
+
+        let loginViewController = UINavigationController(rootViewController: LoginViewController())
         rootViewController = loginViewController
     }
     

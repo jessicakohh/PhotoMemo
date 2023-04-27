@@ -8,8 +8,14 @@
 import UIKit
 import SnapKit
 
+protocol LoginViewDelegate: AnyObject {
+    func loginViewDidTapLoginButton(_ loginView: LoginView)
+}
+
 class LoginView: UIView {
     
+    weak var delegate: LoginViewDelegate?
+
     // MARK: - Properties
     
     private lazy var appLogo: UIImageView = {
@@ -78,6 +84,7 @@ class LoginView: UIView {
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("로그인 하기", for: .normal)
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .mainDarkGrey
@@ -166,6 +173,12 @@ class LoginView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func loginButtonTapped() {
+        delegate?.loginViewDidTapLoginButton(self)
     }
     
     

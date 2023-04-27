@@ -6,7 +6,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewModel {
     
+    func loginUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        
+        AuthService.shared.logInUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG : 에러 \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            print("DEBUG : 로그인 성공")
+            completion(nil)
+        }
+    }
 }

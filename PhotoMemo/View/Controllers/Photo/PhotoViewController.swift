@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RealmSwift
+import FirebaseAuth
 
 
 final class PhotoViewController: UIViewController, CalendarViewDelegate {
@@ -51,21 +52,27 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         super.viewDidLoad()
         
         selectedDate = Date()
-        configureUI()
-        setMonthView()
-        swipeSetting()
-        
+ 
         picker.delegate = self
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
 
     }
     
-    
     override func loadView() {
         view = photoView
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AuthManager.shared.authenticateUser { [weak self] authenticated in
+            if authenticated {
+                self?.configureUI()
+                self?.setMonthView()
+                self?.swipeSetting()
+            }
+        }
+    }
 
     
     // MARK: - Selectors
