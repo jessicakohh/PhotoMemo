@@ -8,16 +8,31 @@
 import UIKit
 import SnapKit
 
+protocol SignInViewDelegate: AnyObject {
+    func joinButtonTapped(_ signInView: SignInView)
+    func openImagePickerTapped(_ signInView: SignInView)
+}
+
 class SignInView: UIView {
+    
+    weak var delegate: SignInViewDelegate?
     
     // MARK: - Properties
     
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .newGrey
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 75
         return imageView
+    }()
+    
+    lazy var imagePickerButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+        return button
     }()
     
     private lazy var plusIconImageView: UIImageView = {
@@ -29,12 +44,7 @@ class SignInView: UIView {
         imageView.clipsToBounds = true
         return imageView
     }()
-    
-    lazy var imagePickerButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .none
-        return button
-    }()
+
     
     private lazy var emailTitleLabel: UILabel = {
         let label = UILabel()
@@ -156,6 +166,7 @@ class SignInView: UIView {
         button.setTitle("가입하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.addTarget(self, action: #selector(joinButtonAction), for: .touchUpInside)
         button.layer.cornerRadius = 18
         button.clipsToBounds = true
         return button
@@ -184,6 +195,16 @@ class SignInView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func joinButtonAction() {
+        delegate?.joinButtonTapped(self)
+    }
+
+    @objc func openImagePicker() {
+        delegate?.openImagePickerTapped(self)
     }
     
     

@@ -19,6 +19,9 @@
 		C819059929F80CDE00610870 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819059829F80CDE00610870 /* UserModel.swift */; };
 		C819059C29F80D6A00610870 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819059B29F80D6A00610870 /* AuthManager.swift */; };
 		C819059E29F80EC300610870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C819059D29F80EC200610870 /* GoogleService-Info.plist */; };
+		C81905A029F8DE4200610870 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819059F29F8DE4200610870 /* SignInViewModel.swift */; };
+		C81905A429F8F4F200610870 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A329F8F4F200610870 /* Contents.swift */; };
+		C81905A629FA46FB00610870 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A529FA46FB00610870 /* AuthService.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -75,6 +78,9 @@
 		C819059829F80CDE00610870 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C819059B29F80D6A00610870 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		C819059D29F80EC200610870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C819059F29F8DE4200610870 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		C81905A329F8F4F200610870 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
+		C81905A529FA46FB00610870 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				C819058429F7B71800610870 /* LoginViewModel.swift */,
+				C819059F29F8DE4200610870 /* SignInViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 		C81E063729E8138F00D22514 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				C81905A529FA46FB00610870 /* AuthService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 		C81E063829E8139500D22514 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C81905A329F8F4F200610870 /* Contents.swift */,
 				C81E063929E8139900D22514 /* Extensions */,
 			);
 			path = Utils;
@@ -533,6 +542,7 @@
 				C819058929F7D56200610870 /* SignInViewController.swift in Sources */,
 				C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */,
 				C8B99E6329EE9680007506D0 /* CalendarView.swift in Sources */,
+				C81905A029F8DE4200610870 /* SignInViewModel.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
 				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
@@ -547,6 +557,7 @@
 				C81E063F29E8144A00D22514 /* PhotoViewController.swift in Sources */,
 				C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */,
 				C8F3A1DF29EFE8C500B9AF2C /* PhotoDetailView.swift in Sources */,
+				C81905A629FA46FB00610870 /* AuthService.swift in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
@@ -556,6 +567,7 @@
 				C8DE713529584B5400C0FA24 /* CoreDataManager.swift in Sources */,
 				C819057E29F6647600610870 /* PhotoDetailViewModel.swift in Sources */,
 				C8B99E5D29EE80A0007506D0 /* SettingViewModel.swift in Sources */,
+				C81905A429F8F4F200610870 /* Contents.swift in Sources */,
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 				C81E064A29E9483900D22514 /* Protocols.swift in Sources */,
 				C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */,

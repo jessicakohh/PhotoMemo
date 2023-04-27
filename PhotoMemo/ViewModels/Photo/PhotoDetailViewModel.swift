@@ -17,7 +17,6 @@ class PhotoDetailViewModel {
     var imageData: Data?
     
     
-    
     // MARK: - Helpers
 
 }
