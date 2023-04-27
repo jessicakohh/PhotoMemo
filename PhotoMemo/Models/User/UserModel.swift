@@ -8,12 +8,12 @@
 import UIKit
 
 struct UserModel {
-    var uid: String
-    var username: String
-    var email: String
-    var profileImageUrl: String?
-    
-    init(username: String, email: String, uid: String, profileImageUrl: String? = nil) {
+    let username: String
+    let email: String
+    let uid: String
+    let profileImageUrl: String?
+
+    init(username: String, email: String, uid: String, profileImageUrl: String?) {
         self.username = username
         self.email = email
         self.uid = uid

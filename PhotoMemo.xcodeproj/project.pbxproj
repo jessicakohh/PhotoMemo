@@ -23,6 +23,7 @@
 		C81905A429F8F4F200610870 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A329F8F4F200610870 /* Contents.swift */; };
 		C81905A629FA46FB00610870 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A529FA46FB00610870 /* AuthService.swift */; };
 		C81905A829FA842A00610870 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A729FA842A00610870 /* UserService.swift */; };
+		C81905AB29FA908100610870 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C81905AA29FA908100610870 /* SDWebImage */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -128,6 +129,7 @@
 				C81E062329E811DA00D22514 /* SnapKit in Frameworks */,
 				C8A2872929F1427700BF68FE /* Realm in Frameworks */,
 				C8DE712B295845DA00C0FA24 /* SideMenu in Frameworks */,
+				C81905AB29FA908100610870 /* SDWebImage in Frameworks */,
 				C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */,
 				C81E062D29E8126800D22514 /* FirebaseFirestore in Frameworks */,
 				C8A2872B29F1427700BF68FE /* RealmSwift in Frameworks */,
@@ -469,6 +471,7 @@
 				C81E063029E8126800D22514 /* FirebaseStorage */,
 				C8A2872829F1427700BF68FE /* Realm */,
 				C8A2872A29F1427700BF68FE /* RealmSwift */,
+				C81905AA29FA908100610870 /* SDWebImage */,
 			);
 			productName = PhotoMemo;
 			productReference = C8DE7109295842DD00C0FA24 /* PhotoMemo.app */;
@@ -505,6 +508,7 @@
 				C81E062429E811EC00D22514 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C81E062729E8126800D22514 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C8A2872729F1427700BF68FE /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C81905A929FA908000610870 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C8DE710A295842DD00C0FA24 /* Products */;
 			projectDirPath = "";
@@ -797,6 +801,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C81905A929FA908000610870 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -848,6 +860,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C81905AA29FA908100610870 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81905A929FA908000610870 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		C81E062229E811DA00D22514 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C81E062129E811DA00D22514 /* XCRemoteSwiftPackageReference "SnapKit" */;

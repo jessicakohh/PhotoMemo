@@ -35,19 +35,36 @@ struct AuthService {
         let storageRef = storageProfileImages.child(filename)
         
         storageRef.putData(imageData, metadata: nil) { (meta, error) in
+            
+            if let error = error {
+                print("DEBUG: Failed to upload image to storage with error \(error.localizedDescription)")
+                completion(error, refUsers)
+                return
+            }
+            
             storageRef.downloadURL { (url, error) in
-                guard let profileImageUrl = url?.absoluteString else { return }
+                guard let profileImageUrl = url?.absoluteString else {
+                    print("DEBUG: Failed to get download URL")
+                    completion(error, refUsers)
+                    return
+                }
                 
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                     if let error = error {
-                        print("DEBUG : \(error.localizedDescription)")
+                        print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+                        completion(error, refUsers)
                         return
                     }
-                    guard let uid = result?.user.uid else { return }
+                    
+                    guard let uid = result?.user.uid else {
+                        print("DEBUG: Failed to get user ID")
+                        completion(nil, refUsers)
+                        return
+                    }
+                    
                     let values = ["email": email,
                                   "username": username,
                                   "profileImageUrl": profileImageUrl]
-                    
                     
                     refUsers.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }

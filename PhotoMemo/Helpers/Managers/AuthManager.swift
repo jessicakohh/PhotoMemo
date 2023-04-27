@@ -13,10 +13,18 @@ final class AuthManager {
     
     static let shared = AuthManager()
     
-    func fetchUser() {
-        UserService.shared.fetchUser()
+    var userModel: UserModel? {
+        didSet {
+            print("유저모델")
+        }
     }
-
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { userModel in
+            self.userModel = userModel
+        }
+    }
+    
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -32,17 +40,18 @@ final class AuthManager {
             print("DEBUG : 유저가 로그인했습니다")
         }
     }
-  
+    
     
     func logUserOut(completion: @escaping (Bool) -> Void) {
-         do {
-             try Auth.auth().signOut()
-             completion(true)
-         } catch let error {
-             print("DEBUG : 로그아웃 실패 \(error.localizedDescription)")
-             completion(false)
-         }
-     }
-
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch let error {
+            print("DEBUG : 로그아웃 실패 \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
     
 }
+

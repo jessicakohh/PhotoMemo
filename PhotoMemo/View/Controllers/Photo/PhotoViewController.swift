@@ -23,14 +23,14 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         setMonthView()
     }
     
-
+    
     // MARK: - Properties
     
     var photoView = CalendarView()
     var realmManager = RealmManager()
-        
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-
+    
     var selectedDate = Date()
     var totalDates = [String]()
     var thumbnails = [String:UIImage]()
@@ -42,12 +42,11 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     var checkIndex = 0
     var now = ""
     var yymm = ""
- 
     
     
     // MARK: - LifeCycle
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,12 +54,13 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         
         picker.delegate = self
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
-
+        
     }
     
     override func loadView() {
         view = photoView
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,7 +70,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         swipeSetting()
         setMonthView()
     }
-
+    
     
     // MARK: - Selectors
     
@@ -92,7 +92,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         }
         setMonthView()
     }
-
+    
     // MARK: - Helpers
     
     private func configureUI() {
@@ -100,7 +100,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-            
+        
         photoView.delegate = self
         
         collectionView.delegate = self
@@ -189,7 +189,7 @@ extension PhotoViewController: UICollectionViewDataSource {
 
 extension PhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         now = yymm + totalDates[indexPath.item]
         guard totalDates[indexPath.item] != "" else { return }
         
@@ -201,9 +201,9 @@ extension PhotoViewController: UICollectionViewDelegate {
             
             if let image = thumbnails[now] {
                 photoDetailVC.photoDetailView.photoImageView.image = image
-             }
-             
-
+            }
+            
+            
             navigationController?.pushViewController(photoDetailVC, animated: true)
         }
     }
@@ -247,7 +247,7 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - ImagePicker
 
 extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
             if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,

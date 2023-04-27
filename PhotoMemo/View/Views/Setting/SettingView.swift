@@ -12,7 +12,7 @@ class SettingView: UIView {
     
     // MARK: - Properties
     
-    private lazy var profileImage: UIImageView = {
+    lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .newGrey
         imageView.clipsToBounds = true
@@ -27,7 +27,7 @@ class SettingView: UIView {
         return button
     }()
     
-    private lazy var nameTextField: UITextField = {
+    lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.text = "닉네임"
         textField.tintColor = .mainDarkGrey
@@ -68,7 +68,7 @@ class SettingView: UIView {
         stackView.distribution = .fillEqually
         return stackView
     }()
-
+    
     
     // MARK: - LifeCycles
     

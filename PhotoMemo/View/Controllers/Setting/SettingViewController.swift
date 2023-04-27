@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Firebase
+import Kingfisher
 
 final class SettingViewController: UIViewController {
 
@@ -14,16 +16,22 @@ final class SettingViewController: UIViewController {
     
     var settingView = SettingView()
     lazy var tableView = settingView.tableView
-    
     var viewModel = SettingViewModel()
+    
+    private var userModel: UserModel?
+
 
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        UserService.shared.fetchUser { [weak self] userModel in
+             self?.userModel = userModel
+             self?.configureUI()
+         }
         
         configureNavigation()
-        configureUI()
         configureTableView()
     }
     
@@ -40,10 +48,27 @@ final class SettingViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-        navigationItem.title = "Profile"
-        navigationItem.titleView?.tintColor = .mainDarkGrey
+        UserService.shared.fetchUser { [weak self] userModel in
+            self?.settingView.nameTextField.text = userModel.username
+            
+            // Set the profile image to a default image first
+            self?.settingView.profileImage.image = UIImage(named: "saveButton")
+
+            if let imageUrlString = userModel.profileImageUrl {
+                UserService.shared.downloadImage(from: imageUrlString) { image in
+                    DispatchQueue.main.async {
+                        self?.settingView.profileImage.image = image
+                    }
+                    print("여기여기 \(userModel.profileImageUrl)")
+                }
+            }
+        }
     }
-    
+
+                
+
+
+
     private func configureTableView() {
         tableView.dataSource = self
         tableView.backgroundColor = .mainGrey
@@ -51,13 +76,12 @@ final class SettingViewController: UIViewController {
     }
     
     private func configureNavigation() {
+        navigationItem.title = "Profile"
+        navigationItem.titleView?.tintColor = .mainDarkGrey
         navigationController?.navigationBar.tintColor = .mainDarkGrey
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "editButton"), style: .plain, target: self, action: #selector(editButtonTapped))
         navigationItem.rightBarButtonItem = barButtonItem
     }
-    
-    // MARK: - Layout Extension
-
 
 }
 
@@ -77,7 +101,5 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .mainGrey
         return cell
     }
-    
-
 }
 
