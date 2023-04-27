@@ -13,7 +13,6 @@ import FirebaseDatabase
 class SignInViewModel {
     
     // MARK: - Properties
-    
     var email: String?
     var password: String?
     var username: String?
@@ -31,6 +30,7 @@ class SignInViewModel {
             print("DEBUG : 가입 성공")
             print("DEBUG : 사용자 업데이트 성공")
         }
+        
     }
     
     

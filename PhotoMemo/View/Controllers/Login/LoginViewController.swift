@@ -54,10 +54,8 @@ extension LoginViewController: LoginViewDelegate {
             if let error = error {
                 print("로그인 에러:", error.localizedDescription)
             } else {
-                print("로그인 성공")
-                guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow}) else { return }
-                guard let tab = window.rootViewController as? PhotoViewController else { return }
-                self.dismiss(animated: true, completion: nil)
+                print("뷰모델로그인 성공")
+           
             }
         }
     }

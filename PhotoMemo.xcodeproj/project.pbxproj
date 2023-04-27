@@ -22,6 +22,7 @@
 		C81905A029F8DE4200610870 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C819059F29F8DE4200610870 /* SignInViewModel.swift */; };
 		C81905A429F8F4F200610870 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A329F8F4F200610870 /* Contents.swift */; };
 		C81905A629FA46FB00610870 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A529FA46FB00610870 /* AuthService.swift */; };
+		C81905A829FA842A00610870 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81905A729FA842A00610870 /* UserService.swift */; };
 		C81E062329E811DA00D22514 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062229E811DA00D22514 /* SnapKit */; };
 		C81E062629E811EC00D22514 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062529E811EC00D22514 /* Kingfisher */; };
 		C81E062929E8126800D22514 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81E062829E8126800D22514 /* FirebaseAuth */; };
@@ -81,6 +82,7 @@
 		C819059F29F8DE4200610870 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		C81905A329F8F4F200610870 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		C81905A529FA46FB00610870 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C81905A729FA842A00610870 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C81E063E29E8144A00D22514 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C81E064029E8158900D22514 /* MainViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewManager.swift; sourceTree = "<group>"; };
 		C81E064229E9150E00D22514 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				C81905A529FA46FB00610870 /* AuthService.swift */,
+				C81905A729FA842A00610870 /* UserService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
 				C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */,
 				C819059C29F80D6A00610870 /* AuthManager.swift in Sources */,
+				C81905A829FA842A00610870 /* UserService.swift in Sources */,
 				C819058029F68A9600610870 /* EditView.swift in Sources */,
 				C81E064329E9150E00D22514 /* SettingViewController.swift in Sources */,
 				C819059929F80CDE00610870 /* UserModel.swift in Sources */,

@@ -52,7 +52,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         super.viewDidLoad()
         
         selectedDate = Date()
- 
+        
         picker.delegate = self
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
 
@@ -65,13 +65,10 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        AuthManager.shared.authenticateUser { [weak self] authenticated in
-            if authenticated {
-                self?.configureUI()
-                self?.setMonthView()
-                self?.swipeSetting()
-            }
-        }
+        AuthManager.shared.authenticateUser()
+        configureUI()
+        swipeSetting()
+        setMonthView()
     }
 
     

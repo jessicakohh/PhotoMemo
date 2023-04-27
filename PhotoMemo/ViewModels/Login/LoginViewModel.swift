@@ -19,6 +19,7 @@ class LoginViewModel {
                 return
             }
             print("DEBUG : 로그인 성공")
+            
             completion(nil)
         }
     }
