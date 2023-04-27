@@ -59,11 +59,18 @@ extension SignInViewController: SignInViewDelegate {
         guard let password = signInView.passwordTextField.text else { return }
         guard let username = signInView.nameTextField.text else { return }
         
-        let credentials = AuthCredentials(email: email, password: password, username: username, profileImage: profileImage)
+        viewModel.email = email
+        viewModel.password = password
+        viewModel.username = username
+        viewModel.profileImage = signInView.profileImageView.image
         
-        AuthService.shared.registerUser(credentials: credentials) { (error, ref) in
-            print("DEBUG : 가입 성공")
-            print("DEBUG : 사용자 업데이트 성공")
+        viewModel.registerUser { error in
+            if let error = error {
+                print("DEBUG: Error registering user with error \(error.localizedDescription)")
+            } else {
+                print("DEBUG : 가입 성공")
+                print("DEBUG : 사용자 업데이트 성공")
+            }
         }
     }
 }
