@@ -11,7 +11,7 @@ import Firebase
 import Kingfisher
 
 final class SettingViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     var settingView = SettingView()
@@ -19,17 +19,17 @@ final class SettingViewController: UIViewController {
     var viewModel = SettingViewModel()
     
     private var userModel: UserModel?
-
-
+    
+    
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        UserService.shared.fetchUser { [weak self] userModel in
-             self?.userModel = userModel
-             self?.configureUI()
-         }
+        
+        
+        viewModel.fetchUser { [weak self] userModel in
+            self?.configureUI()
+        }
         
         configureNavigation()
         configureTableView()
@@ -48,25 +48,18 @@ final class SettingViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-        UserService.shared.fetchUser { [weak self] userModel in
+        DispatchQueue.main.async { [weak self] in
+            guard let userModel = self?.viewModel.userModel else { return }
             self?.settingView.nameTextField.text = userModel.username
-            
-            // Set the profile image to a default image first
             self?.settingView.profileImage.image = UIImage(named: "daefaultImage")
-
-            if let imageUrlString = userModel.profileImageUrl {
-                UserService.shared.downloadImage(from: imageUrlString) { image in
-                    DispatchQueue.main.async {
-                        self?.settingView.profileImage.image = image
-                    }
-                    print("여기여기 \(userModel.profileImageUrl)")
+            
+            self?.viewModel.downloadProfileImage { image in
+                DispatchQueue.main.async {
+                    self?.settingView.profileImage.image = image
                 }
             }
         }
     }
-
-                
-
 
 
     private func configureTableView() {
