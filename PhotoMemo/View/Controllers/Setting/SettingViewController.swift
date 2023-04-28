@@ -52,7 +52,7 @@ final class SettingViewController: UIViewController {
             self?.settingView.nameTextField.text = userModel.username
             
             // Set the profile image to a default image first
-            self?.settingView.profileImage.image = UIImage(named: "saveButton")
+            self?.settingView.profileImage.image = UIImage(named: "daefaultImage")
 
             if let imageUrlString = userModel.profileImageUrl {
                 UserService.shared.downloadImage(from: imageUrlString) { image in

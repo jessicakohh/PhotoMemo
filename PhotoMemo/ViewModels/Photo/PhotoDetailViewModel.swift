@@ -7,9 +7,11 @@
 
 import UIKit
 
-// View에서 필요한 데이터를 가져와서 가공하고, View에서 발생한 이벤트를 처리 
+// View에서 필요한 데이터를 가져와서 가공하고, View에서 발생한 이벤트를 처리
+
 
 class PhotoDetailViewModel {
+    
     
     // MARK: - Properties
     
