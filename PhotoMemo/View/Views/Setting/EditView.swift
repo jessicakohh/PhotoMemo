@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol EditViewDelegate: class {
+    func updateUserInfo(_ editView: EditView)
+}
+
 class EditView: UIView {
+    
+    weak var delegate: EditViewDelegate?
     
     // MARK: - Properties
     
-    private lazy var profileImage: UIImageView = {
+    lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .newGrey
         imageView.clipsToBounds = true
@@ -69,6 +75,7 @@ class EditView: UIView {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.layer.cornerRadius = 18
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(updateUserInfo), for: .touchUpInside)
         return button
     }()
     
@@ -86,6 +93,13 @@ class EditView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Selectors
+    
+    @objc func updateUserInfo() {
+        delegate?.updateUserInfo(self)
+    }
+
     
     
     // MARK: - Helpers

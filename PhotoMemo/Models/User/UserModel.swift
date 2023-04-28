@@ -11,7 +11,7 @@ struct UserModel {
     let username: String
     let email: String
     let uid: String
-    let profileImageUrl: String?
+    var profileImageUrl: String?
 
     init(username: String, email: String, uid: String, profileImageUrl: String?) {
         self.username = username

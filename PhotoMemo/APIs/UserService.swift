@@ -7,10 +7,41 @@
 
 import Firebase
 
+typealias DatabaseCompletion = ((Error?, DatabaseReference) -> Void)
+
 struct UserService {
     
     static let shared = UserService()
-
+    
+    func updateProfileImage(image: UIImage, completion: @escaping(URL?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.3) else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let filename = NSUUID().uuidString
+        let ref = storageProfileImages.child(filename)
+        
+        ref.putData(imageData, metadata: nil) { (meta, error) in
+            ref.downloadURL { (url, error) in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                let values = ["profileImageUrl": profileImageUrl]
+                
+                refUsers.child(uid).updateChildValues(values) { (err, ref) in
+                    completion(url)
+                    
+                }
+            }
+        }
+    }
+    
+    func saveUserData(user: UserModel, completion: @escaping(DatabaseCompletion)) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let values = ["username": user.username]
+        
+        refUsers.child(uid).updateChildValues(values, withCompletionBlock: completion)
+    }
+    
+    
     func fetchUser(completion: @escaping (UserModel) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
 
