@@ -70,6 +70,8 @@ extension SignInViewController: SignInViewDelegate {
             } else {
                 print("DEBUG : 가입 성공")
                 print("DEBUG : 사용자 업데이트 성공")
+                let controller = PhotoViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }

@@ -10,12 +10,13 @@ import SnapKit
 
 protocol LoginViewDelegate: AnyObject {
     func loginViewDidTapLoginButton(_ loginView: LoginView)
+    func registerButtonTapped(_ loginView: LoginView)
 }
 
 class LoginView: UIView {
     
     weak var delegate: LoginViewDelegate?
-
+    
     // MARK: - Properties
     
     private lazy var appLogo: UIImageView = {
@@ -93,28 +94,6 @@ class LoginView: UIView {
         return button
     }()
     
-    lazy var signWithAnonymousButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("가입하지 않고 둘러보기", for: .normal)
-        button.setTitleColor(UIColor.newGrey, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.backgroundColor = .none
-        button.layer.borderColor = UIColor.newGrey.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .white
-        button.clipsToBounds = true
-        return button
-    }()
-    
-    private lazy var loginButtonStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [loginButton, signWithAnonymousButton])
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 5
-        return stackView
-    }()
-    
     lazy var loginCheckedLabel: UILabel = {
         let label = UILabel()
         label.text = "아이디와 비밀번호를 확인해주세요❗️"
@@ -128,6 +107,7 @@ class LoginView: UIView {
     lazy var signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("회원가입", for: .normal)
+        button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.setTitleColor(UIColor.mainDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
@@ -181,6 +161,10 @@ class LoginView: UIView {
         delegate?.loginViewDidTapLoginButton(self)
     }
     
+    @objc func registerButtonTapped() {
+        delegate?.registerButtonTapped(self)
+    }
+    
     
     // MARK: - Helpers
     
@@ -194,7 +178,7 @@ class LoginView: UIView {
 
 extension LoginView: LayoutProtocol {
     func setSubViews() {
-        [appLogo, emailPasswordStackView, loginButtonStackView, loginCheckedLabel, signInStackView]
+        [appLogo, emailPasswordStackView, loginButton, loginCheckedLabel, signInStackView]
             .forEach { self.addSubview($0) }
     }
     
@@ -215,14 +199,14 @@ extension LoginView: LayoutProtocol {
             make.centerX.equalToSuperview()
             make.top.equalTo(emailPasswordStackView.snp.bottom).offset(10)
         }
-        loginButtonStackView.snp.makeConstraints { make in
+        loginButton.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(120)
             make.top.equalTo(loginCheckedLabel.snp.bottom).offset(10)
-            make.height.equalTo(80)
+            make.height.equalTo(37)
         }
         signInStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
-            make.top.equalTo(loginButtonStackView.snp.bottom).offset(20)
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
         }
     }
 }

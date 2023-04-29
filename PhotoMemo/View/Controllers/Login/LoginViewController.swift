@@ -38,6 +38,12 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewDelegate {
     
+    func registerButtonTapped(_ loginView: LoginView) {
+        let controller = SignInViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
     func handleShowSignUp() {
          let controller = PhotoViewController()
          navigationController?.pushViewController(controller, animated: true)
