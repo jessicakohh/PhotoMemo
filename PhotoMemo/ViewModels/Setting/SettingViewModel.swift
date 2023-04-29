@@ -18,6 +18,7 @@ class SettingViewModel {
 
     
     // MARK: - Helpers
+
     
     func fetchUser(completion: @escaping (UserModel?) -> Void) {
         UserService.shared.fetchUser { userModel in

@@ -22,7 +22,10 @@ struct UserService {
         
         ref.putData(imageData, metadata: nil) { (meta, error) in
             ref.downloadURL { (url, error) in
-                guard let profileImageUrl = url?.absoluteString else { return }
+                guard let profileImageUrl = url?.absoluteString else {
+                    completion(nil)
+                    return
+                }
                 let values = ["profileImageUrl": profileImageUrl]
                 
                 refUsers.child(uid).updateChildValues(values) { (err, ref) in
@@ -33,14 +36,15 @@ struct UserService {
         }
     }
     
-    func saveUserData(user: UserModel, completion: @escaping(DatabaseCompletion)) {
+    func updateUsername(_ username: String, completion: @escaping(DatabaseCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let values = ["username": user.username]
+        let values = ["username": username]
         
         refUsers.child(uid).updateChildValues(values, withCompletionBlock: completion)
     }
     
+
     
     func fetchUser(completion: @escaping (UserModel) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }

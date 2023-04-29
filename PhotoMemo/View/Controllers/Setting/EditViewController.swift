@@ -15,16 +15,7 @@ final class EditViewController: UIViewController {
     private var userModel: UserModel?
     var viewModel = SettingViewModel()
     private let imagePicker = UIImagePickerController()
-
-    // 기본적으로 선택한 이미지에 값이 있으면 이미지가 변경되었음을 의미
-    private var imageChanged: Bool {
-        return selectedImage != nil
-    }
     
-    private var selectedImage: UIImage? {
-        didSet { editView.profileImage.image = selectedImage }
-    }
-
     // MARK: - LifeCycle
 
     
@@ -60,6 +51,10 @@ final class EditViewController: UIViewController {
         }
     }
     
+    private func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Layout Extension
 }
 
@@ -71,13 +66,27 @@ extension EditViewController: EditViewDelegate {
     func updateUserInfo(_ editView: EditView) {
         print("수정하기 버튼탭")
         guard let username = editView.nameTextField.text else { return }
-        guard let image = selectedImage else { return }
+        guard let image = editView.profileImage.image else { return }
         UserService.shared.updateProfileImage(image: image) { profileImageUrl in
-            self.userModel?.profileImageUrl = String(describing: profileImageUrl)
+            guard let profileImageUrl = profileImageUrl else { return }
+            self.userModel?.profileImageUrl = profileImageUrl.absoluteString
+            
+            UserService.shared.updateUsername(username) { error, ref in
+                if let error = error {
+                    print("Failed to update username with error: ", error.localizedDescription)
+                    return
+                }
+                self.userModel?.username = username
+                print("Successfully updated username.")
+                
+                    self.popViewController()
+                
+            }
         }
     }
-    
 }
+
+
 
 
 // MARK: - UIImagePicker

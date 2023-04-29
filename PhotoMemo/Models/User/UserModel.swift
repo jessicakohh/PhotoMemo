@@ -8,7 +8,7 @@
 import UIKit
 
 struct UserModel {
-    let username: String
+    var username: String
     let email: String
     let uid: String
     var profileImageUrl: String?

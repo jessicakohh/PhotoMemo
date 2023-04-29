@@ -20,6 +20,8 @@ final class SettingViewController: UIViewController {
     
     private var userModel: UserModel?
     
+
+    
     
     // MARK: - LifeCycle
     
