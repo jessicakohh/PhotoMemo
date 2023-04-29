@@ -14,6 +14,7 @@ final class PhotoDetailViewController: UIViewController {
     var photoDetailView = PhotoDetailView()
     var calendarData: CalendarData?
     private let viewModel = PhotoDetailViewModel()
+    private let imagePicker = UIImagePickerController()
     
     var realmManager = RealmManager()
 
@@ -23,6 +24,8 @@ final class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        photoDetailView.delegate = self
+
         configureNavigation()
         configureUI()
     }
@@ -71,8 +74,34 @@ final class PhotoDetailViewController: UIViewController {
     private func popViewController() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
 
+
+
+// MARK: - ImagePicker
+
+extension PhotoDetailViewController: PhotoDetailViewDelegate {
+    func openImagePickerTapped(_ photoDetailView: PhotoDetailView) {
+        openImagePicker()
+    }
+}
+
+extension PhotoDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func openImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+           if let photoImage = info[.editedImage] as? UIImage {
+               self.photoDetailView.photoImageView.image = photoImage
+           }
+           picker.dismiss(animated: true, completion: nil)
+    }
+}

@@ -8,8 +8,13 @@
 import UIKit
 import SnapKit
 
+protocol PhotoDetailViewDelegate: AnyObject {
+    func openImagePickerTapped(_ photoDetailView: PhotoDetailView)
+}
 
 final class PhotoDetailView: UIView {
+    
+    weak var delegate: PhotoDetailViewDelegate?
     
     // MARK: - Properties
     
@@ -148,7 +153,7 @@ final class PhotoDetailView: UIView {
     // MARK: - Selectors
     
     @objc private func openImagePicker() {
-        print("이미지피커")
+        delegate?.openImagePickerTapped(self)
     }
 
     
