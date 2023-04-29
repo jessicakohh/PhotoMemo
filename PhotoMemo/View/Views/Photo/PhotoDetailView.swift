@@ -9,10 +9,13 @@ import UIKit
 import SnapKit
 
 
-final class PhotoDetailView: UIView, UINavigationControllerDelegate {
+final class PhotoDetailView: UIView {
     
     // MARK: - Properties
     
+    let height = UIScreen.main.bounds.height * 80 / 844
+    let textViewHeight = UIScreen.main.bounds.height * 50 / 844
+
     lazy var yearLabel: UILabel = {
         let dateLabel = UILabel()
         let myFormatter = DateFormatter()
@@ -92,9 +95,8 @@ final class PhotoDetailView: UIView, UINavigationControllerDelegate {
     // ----------- 📷 하단
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "addPhotoImage")
-        imageView.layer.cornerRadius = 350 / 2
+        imageView.layer.cornerRadius = 20
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -154,9 +156,7 @@ final class PhotoDetailView: UIView, UINavigationControllerDelegate {
     
     private func configureUI() {
         self.backgroundColor = .mainGrey
-        
     }
-    
 }
 
 extension PhotoDetailView: LayoutProtocol {
@@ -190,10 +190,13 @@ extension PhotoDetailView: LayoutProtocol {
         // ----------- 📷 하단
         photoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(dateStackView.snp.bottom).offset(30)
-            make.width.height.equalTo(350)
+            make.top.equalTo(dateLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+            
+            // 부모 뷰의 가로 크기의 80%와 세로 크기의 60%에 해당하는 크기
+            make.width.equalToSuperview().multipliedBy(0.9)
+            make.height.equalToSuperview().multipliedBy(0.55)
         }
         
         addPhotoButton.snp.makeConstraints { make in
@@ -212,15 +215,17 @@ extension PhotoDetailView: LayoutProtocol {
             make.centerX.equalTo(memoImageView.snp.centerX)
             make.centerY.equalTo(memoImageView.snp.centerY)
             make.width.equalTo(315)
+            make.height.equalTo(textViewHeight)
         }
         
         memoImageView.snp.makeConstraints { make in
-            make.width.equalTo(300)
-            make.height.equalTo(150)
+            make.width.equalTo(350)
+            make.height.equalTo(height)
             make.top.equalTo(memoLabel.snp.bottom).offset(-15)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
+        
         memoImageView.layer.zPosition = CGFloat(-1)
     }
     
