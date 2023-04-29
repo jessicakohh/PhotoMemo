@@ -25,14 +25,15 @@ final class SettingViewController: UIViewController {
     
     // MARK: - LifeCycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.fetchUser { [weak self] userModel in
             self?.configureUI()
         }
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configureNavigation()
         configureTableView()
     }
@@ -40,7 +41,7 @@ final class SettingViewController: UIViewController {
     override func loadView() {
         view = settingView
     }
-    
+
     // MARK: - Selectors
     
     @objc func editButtonTapped() {
