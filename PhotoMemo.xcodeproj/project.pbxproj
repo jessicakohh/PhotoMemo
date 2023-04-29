@@ -39,7 +39,7 @@
 		C81E064A29E9483900D22514 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E064929E9483900D22514 /* Protocols.swift */; };
 		C81E065129E95FE600D22514 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E065029E95FE600D22514 /* SettingCell.swift */; };
 		C81F284B295957E0004F026D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C81F284A295957E0004F026D /* IQKeyboardManagerSwift */; };
-		C8A2872429F12EC900BF68FE /* RalmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2872329F12EC900BF68FE /* RalmManager.swift */; };
+		C8A2872429F12EC900BF68FE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2872329F12EC900BF68FE /* RealmManager.swift */; };
 		C8A2872629F12FDA00BF68FE /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2872529F12FDA00BF68FE /* CalendarData.swift */; };
 		C8A2872929F1427700BF68FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C8A2872829F1427700BF68FE /* Realm */; };
 		C8A2872B29F1427700BF68FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C8A2872A29F1427700BF68FE /* RealmSwift */; };
@@ -91,7 +91,7 @@
 		C81E064729E9481300D22514 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C81E064929E9483900D22514 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C81E065029E95FE600D22514 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		C8A2872329F12EC900BF68FE /* RalmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalmManager.swift; sourceTree = "<group>"; };
+		C8A2872329F12EC900BF68FE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		C8A2872529F12FDA00BF68FE /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		C8B99E5C29EE80A0007506D0 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C8B99E5E29EE8991007506D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		C819059A29F80D5A00610870 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C8A2872329F12EC900BF68FE /* RalmManager.swift */,
+				C8A2872329F12EC900BF68FE /* RealmManager.swift */,
 				C81E064029E8158900D22514 /* MainViewManager.swift */,
 				C819059B29F80D6A00610870 /* AuthManager.swift */,
 			);
@@ -579,7 +579,7 @@
 				C8DE712F2958465300C0FA24 /* MemoCell.swift in Sources */,
 				C81E064A29E9483900D22514 /* Protocols.swift in Sources */,
 				C8141FDA296BD14800AB0AAC /* MemoManager.swift in Sources */,
-				C8A2872429F12EC900BF68FE /* RalmManager.swift in Sources */,
+				C8A2872429F12EC900BF68FE /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
