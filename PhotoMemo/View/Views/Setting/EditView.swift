@@ -9,6 +9,7 @@ import UIKit
 
 protocol EditViewDelegate: class {
     func updateUserInfo(_ editView: EditView)
+    func openImagePickerTapped(_ editView: EditView)
 }
 
 class EditView: UIView {
@@ -21,7 +22,7 @@ class EditView: UIView {
         let imageView = UIImageView()
         imageView.backgroundColor = .newGrey
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 150 / 2
         return imageView
     }()
@@ -39,6 +40,7 @@ class EditView: UIView {
     lazy var imagePickerButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .none
+        button.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
         return button
     }()
     
@@ -100,6 +102,9 @@ class EditView: UIView {
         delegate?.updateUserInfo(self)
     }
 
+    @objc private func openImagePicker() {
+        delegate?.openImagePickerTapped(self)
+    }
     
     
     // MARK: - Helpers
