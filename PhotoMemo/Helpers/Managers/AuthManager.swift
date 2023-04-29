@@ -54,7 +54,31 @@ final class AuthManager {
         }
     }
 
-    
+    func deleteCurrentUser(completion: @escaping (Bool) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        currentUser.delete { error in
+            if let error = error {
+                print("DEBUG: 회원 탈퇴 실패 \(error.localizedDescription)")
+                completion(false)
+            } else {
+                do {
+                    try Auth.auth().signOut()
+                    self.userModel = nil
+                    completion(true)
+                } catch let error {
+                    print("DEBUG : 로그아웃 실패 \(error.localizedDescription)")
+                    completion(false)
+                }
+            }
+        }
+    }
+
+
+        
+
     
 }
 

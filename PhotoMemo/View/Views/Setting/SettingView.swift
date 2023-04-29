@@ -10,6 +10,7 @@ import SnapKit
 
 protocol SettingViewDelegate: AnyObject {
     func handleLogout()
+    func handleSignOut()
 }
 
 class SettingView: UIView {
@@ -63,6 +64,7 @@ class SettingView: UIView {
         button.setTitle("회원탈퇴", for: .normal)
         button.setTitleColor(.darkRed, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
         button.backgroundColor = .none
         return button
     }()
@@ -95,6 +97,10 @@ class SettingView: UIView {
     
     @objc func handleLogout() {
         delegate?.handleLogout()
+    }
+    
+    @objc func handleSignOut() {
+        delegate?.handleSignOut()
     }
 
     

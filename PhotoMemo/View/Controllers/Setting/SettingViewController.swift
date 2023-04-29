@@ -20,7 +20,7 @@ final class SettingViewController: UIViewController {
     
     private var userModel: UserModel?
     
-
+    
     
     
     // MARK: - LifeCycle
@@ -38,13 +38,13 @@ final class SettingViewController: UIViewController {
         configureTableView()
         
         settingView.delegate = self
-
+        
     }
     
     override func loadView() {
         view = settingView
     }
-
+    
     // MARK: - Selectors
     
     @objc func editButtonTapped() {
@@ -66,8 +66,8 @@ final class SettingViewController: UIViewController {
             }
         }
     }
-
-
+    
+    
     private func configureTableView() {
         tableView.dataSource = self
         tableView.backgroundColor = .mainGrey
@@ -81,7 +81,7 @@ final class SettingViewController: UIViewController {
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "editButton"), style: .plain, target: self, action: #selector(editButtonTapped))
         navigationItem.rightBarButtonItem = barButtonItem
     }
-
+    
 }
 
 
@@ -105,20 +105,39 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension SettingViewController: SettingViewDelegate {
+    
     func handleLogout() {
         AuthManager.shared.logUserOut { success in
-              if success {
-                  DispatchQueue.main.async {
-                      let nav = UINavigationController(rootViewController: LoginViewController())
-                      nav.modalPresentationStyle = .fullScreen
-                      if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
-                          rootViewController.present(nav, animated: true, completion: nil)
-                      }
-                  }
-                  print("DEBUG : 로그아웃 성공")
-              } else {
-                  print("DEBUG : 로그아웃 실패")
-              }
-          }
+            if success {
+                DispatchQueue.main.async {
+                    let nav = UINavigationController(rootViewController: LoginViewController())
+                    nav.modalPresentationStyle = .fullScreen
+                    if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+                        rootViewController.present(nav, animated: true, completion: nil)
+                    }
+                }
+                print("DEBUG : 로그아웃 성공")
+            } else {
+                print("DEBUG : 로그아웃 실패")
+            }
+        }
     }
+    
+    func handleSignOut() {
+        AuthManager.shared.deleteCurrentUser { success in
+               if success {
+                   DispatchQueue.main.async {
+                       let nav = UINavigationController(rootViewController: LoginViewController())
+                       nav.modalPresentationStyle = .fullScreen
+                       if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+                           rootViewController.present(nav, animated: true, completion: nil)
+                       }
+                   }
+                   print("DEBUG : 회원 탈퇴 및 로그아웃 성공")
+               } else {
+                   print("DEBUG : 회원 탈퇴 및 로그아웃 실패")
+               }
+           }
+    }
+    
 }
