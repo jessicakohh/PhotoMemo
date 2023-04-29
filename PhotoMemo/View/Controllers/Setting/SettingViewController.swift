@@ -36,6 +36,9 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
         configureNavigation()
         configureTableView()
+        
+        settingView.delegate = self
+
     }
     
     override func loadView() {
@@ -99,3 +102,23 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+
+extension SettingViewController: SettingViewDelegate {
+    func handleLogout() {
+        AuthManager.shared.logUserOut { success in
+              if success {
+                  DispatchQueue.main.async {
+                      let nav = UINavigationController(rootViewController: LoginViewController())
+                      nav.modalPresentationStyle = .fullScreen
+                      if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+                          rootViewController.present(nav, animated: true, completion: nil)
+                      }
+                  }
+                  print("DEBUG : 로그아웃 성공")
+              } else {
+                  print("DEBUG : 로그아웃 실패")
+              }
+          }
+    }
+}

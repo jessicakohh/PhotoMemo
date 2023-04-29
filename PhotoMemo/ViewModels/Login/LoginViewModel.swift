@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class LoginViewModel {
     
+//    let resultLogin = loginUser(email: , password: , completion: <#T##(Error?) -> Void#>)
+    
     func loginUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
         
         AuthService.shared.logInUser(withEmail: email, password: password) { result, error in

@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
+protocol SettingViewDelegate: AnyObject {
+    func handleLogout()
+}
+
 class SettingView: UIView {
+    
+    weak var delegate: SettingViewDelegate?
     
     // MARK: - Properties
     
@@ -47,6 +53,7 @@ class SettingView: UIView {
         button.setTitle("로그아웃", for: .normal)
         button.setTitleColor(.mainDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         button.backgroundColor = .none
         return button
     }()
@@ -83,6 +90,13 @@ class SettingView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Selectors
+    
+    @objc func handleLogout() {
+        delegate?.handleLogout()
+    }
+
     
     
     // MARK: - Helpers

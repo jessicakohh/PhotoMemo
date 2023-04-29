@@ -9,6 +9,8 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+// 현재 로그인된 사용자를 확인, 해당 사용자의 정보를 가져옴
+
 final class AuthManager {
     
     static let shared = AuthManager()
@@ -41,16 +43,17 @@ final class AuthManager {
         }
     }
     
-    
     func logUserOut(completion: @escaping (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
+            self.userModel = nil
             completion(true)
         } catch let error {
             print("DEBUG : 로그아웃 실패 \(error.localizedDescription)")
             completion(false)
         }
     }
+
     
     
 }
