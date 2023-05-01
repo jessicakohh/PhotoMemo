@@ -21,12 +21,12 @@ final class PhotoDetailViewController: UIViewController {
 
     // MARK: - LifeCycle
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
         configureDelegate()
         configureNavigation()
-        configureUI()
     }
     
     override func loadView() {
@@ -39,11 +39,30 @@ final class PhotoDetailViewController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        guard let date = photoDetailView.dateLabel.text else { return }
+        guard let image = photoDetailView.photoImageView.image else {
+            return
+        }
+        
+        let calendarData = CalendarData()
+        calendarData.date = photoDetailView.dateLabel.text ?? ""
+        calendarData.memo = photoDetailView.memoTextView.text ?? ""
+
+        // 이미지를 Realm 데이터베이스에 저장
+        realmManager.save(calendarData: calendarData, image: image)
+        
+        popViewController()
     }
     
     // MARK: - Helpers
     
+    private func configureUI() {
+        if let calendarData = calendarData {
+            photoDetailView.memoTextView.text = calendarData.memo
+        } else {
+            photoDetailView.memoTextView.text = ""
+        }
+    }
+
     private func configureDelegate() {
         photoDetailView.delegate = self
     }
@@ -65,12 +84,6 @@ final class PhotoDetailViewController: UIViewController {
         space.width = 10
 
         navigationItem.rightBarButtonItems = [saveBarButtonItem, space, deleteBarButtonItem]
-    }
-    
-    private func configureUI() {
-        if let imageData = calendarData?.image {
-            photoDetailView.photoImageView.image = UIImage(data: imageData)
-        }
     }
     
     private func popViewController() {

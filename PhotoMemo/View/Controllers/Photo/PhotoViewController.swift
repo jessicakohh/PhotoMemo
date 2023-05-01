@@ -42,7 +42,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     private var checkIndex = 0
     private var now = ""
     private var yymm = ""
-    
+
     
     // MARK: - LifeCycle
     
@@ -196,7 +196,7 @@ extension PhotoViewController: UICollectionViewDataSource {
 extension PhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        now = yymm + totalDates[indexPath.item]
+        now = yymm + "" + totalDates[indexPath.item]
         guard totalDates[indexPath.item] != "" else { return }
         
         if thumbnails[now] == nil {
@@ -205,15 +205,22 @@ extension PhotoViewController: UICollectionViewDelegate {
             checkIndex += 1
             let photoDetailVC = PhotoDetailViewController()
             
+            photoDetailVC.photoDetailView.yearLabel.text = calendarHelper.yearString(date: selectedDate)
+    
+            let lastCharacter = String(now.suffix(2))
+
+            photoDetailVC.photoDetailView.dateLabel.text = calendarHelper.monthString(date: selectedDate) + "월" + lastCharacter + "일"
+            
             if let image = thumbnails[now] {
                 photoDetailVC.photoDetailView.photoImageView.image = image
             }
-            
-            
-            navigationController?.pushViewController(photoDetailVC, animated: true)
+
+                navigationController?.pushViewController(photoDetailVC, animated: true)
+            }
+
         }
     }
-}
+
 
 
 // MARK: - FlowLayout

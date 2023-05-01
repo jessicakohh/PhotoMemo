@@ -163,7 +163,7 @@ class SignInView: UIView {
     lazy var loginCheckedLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkRed
-        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         return label
     }()
     

@@ -15,10 +15,12 @@ class PhotoDetailViewModel {
     
     // MARK: - Properties
     
-    var calendarData: CalendarData?
-    var imageData: Data?
-    
+    private var realmManager = RealmManager()
+    private var calendarData: CalendarData?
     
     // MARK: - Helpers
 
+    func getCalendarData() -> CalendarData? {
+        return calendarData
+    }
 }
