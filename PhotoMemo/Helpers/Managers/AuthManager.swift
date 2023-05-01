@@ -75,5 +75,23 @@ final class AuthManager {
             }
         }
     }
+    
+    func resetPassword(forEmail email: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().fetchSignInMethods(forEmail: email) { (methods, error) in
+            if let error = error {
+                // 이메일 조회 중 에러 발생
+                completion(error)
+            } else if let methods = methods, methods.isEmpty {
+                // 이메일이 존재하지 않음
+                completion(NSError(domain: "auth", code: 17011, userInfo: [NSLocalizedDescriptionKey: "이메일이 존재하지 않습니다."]))
+            } else {
+                // 이메일이 존재하면 비밀번호 재설정 메일 보내기
+                Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+                    completion(error)
+                }
+            }
+        }
+    }
+
 }
 

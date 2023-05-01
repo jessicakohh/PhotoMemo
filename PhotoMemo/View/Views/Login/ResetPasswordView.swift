@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ResetPasswordViewDelegate: AnyObject {
+    func resetButtonTapped(_ resetPasswordView: ResetPasswordView)
+}
+
 class ResetPasswordView: UIView {
+    
+    weak var delegate: ResetPasswordViewDelegate?
     
     // MARK: - Properties
     
@@ -26,6 +32,7 @@ class ResetPasswordView: UIView {
         view.layer.borderColor = UIColor.newGrey.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 20
+        view.backgroundColor = .white
         view.clipsToBounds = true
         view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
@@ -46,6 +53,7 @@ class ResetPasswordView: UIView {
     lazy var resetButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("비밀번호 리셋하기", for: .normal)
+        button.addTarget(self, action: #selector(resetPasswordButton), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor.mainDarkGrey
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
@@ -56,8 +64,8 @@ class ResetPasswordView: UIView {
     
     lazy var resultLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemRed
-        label.isHidden = true
+        label.textColor = .darkRed
+        label.isHidden = false
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
@@ -75,6 +83,12 @@ class ResetPasswordView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func resetPasswordButton() {
+        delegate?.resetButtonTapped(self)
     }
     
     

@@ -38,12 +38,15 @@ final class LoginViewController: UIViewController {
     // MARK: - Layout Extension
 
 extension LoginViewController: LoginViewDelegate {
+    func resetPasswordButtonTapped(_ loginView: LoginView) {
+        let controller = ResetPasswordViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     func registerButtonTapped(_ loginView: LoginView) {
         let controller = SignInViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
-    
     
     func handleShowSignUp() {
          let controller = PhotoViewController()
@@ -51,7 +54,6 @@ extension LoginViewController: LoginViewDelegate {
      }
  
     func loginViewDidTapLoginButton(_ loginView: LoginView) {
-        
         guard let email = loginView.emailTextField.text,
               let password = loginView.passwordTextField.text else {
             return

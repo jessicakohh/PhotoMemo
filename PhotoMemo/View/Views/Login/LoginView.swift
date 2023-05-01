@@ -11,6 +11,7 @@ import SnapKit
 protocol LoginViewDelegate: AnyObject {
     func loginViewDidTapLoginButton(_ loginView: LoginView)
     func registerButtonTapped(_ loginView: LoginView)
+    func resetPasswordButtonTapped(_ loginView: LoginView)
 }
 
 class LoginView: UIView {
@@ -121,6 +122,7 @@ class LoginView: UIView {
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("비밀번호 재설정", for: .normal)
+        button.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .touchUpInside)
         button.setTitleColor(UIColor.mainDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.backgroundColor = .none
@@ -135,7 +137,7 @@ class LoginView: UIView {
         let stackView = UIStackView(arrangedSubviews: [signInButton, forgotPasswordButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 50
+        stackView.spacing = 30
         return stackView
     }()
     
@@ -163,6 +165,10 @@ class LoginView: UIView {
     
     @objc func registerButtonTapped() {
         delegate?.registerButtonTapped(self)
+    }
+    
+    @objc func resetPasswordButtonTapped() {
+        delegate?.resetPasswordButtonTapped(self)
     }
     
     
