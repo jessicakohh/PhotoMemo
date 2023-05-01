@@ -7,34 +7,35 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     private let loginView = LoginView()
     private let viewModel = LoginViewModel()
-        
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginView.delegate = self
+        configureDelegate()
     }
     
     override func loadView() {
-      view = loginView
-  }
+        view = loginView
+    }
     
     // MARK: - Selectors
     
-
     
     // MARK: - Helpers
-    
+    private func configureDelegate() {
+        loginView.delegate = self
+    }
+}
     
     // MARK: - Layout Extension
-}
 
 extension LoginViewController: LoginViewDelegate {
     

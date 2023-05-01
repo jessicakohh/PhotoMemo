@@ -9,8 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-// 이메일, 비밀번호, 사용자 이름, 프로필 이미지 등을 사용하여 사용자를 등록하거나 로그인
-
+// 로그인에 필요한 정보
 struct AuthCredentials {
     let email: String
     let password: String
@@ -18,6 +17,7 @@ struct AuthCredentials {
     let profileImage: UIImage
 }
 
+// 인증관련 메소드
 struct AuthService {
     static let shared = AuthService()
     
@@ -73,6 +73,4 @@ struct AuthService {
             }
         }
     }
-    
-  
 }

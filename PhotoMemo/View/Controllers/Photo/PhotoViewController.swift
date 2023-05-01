@@ -26,22 +26,22 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     
     // MARK: - Properties
     
-    var photoView = CalendarView()
-    var realmManager = RealmManager()
+    private var photoView = CalendarView()
+    private var realmManager = RealmManager()
     
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    var selectedDate = Date()
-    var totalDates = [String]()
-    var thumbnails = [String:UIImage]()
-    let calendarHelper = CalendarHelper()
+    private var selectedDate = Date()
+    private var totalDates = [String]()
+    private var thumbnails = [String:UIImage]()
+    private let calendarHelper = CalendarHelper()
     
-    let picker = UIImagePickerController()
+    private let picker = UIImagePickerController()
     
-    var currentCalendarIndex: Int = 0
-    var checkIndex = 0
-    var now = ""
-    var yymm = ""
+    private var currentCalendarIndex: Int = 0
+    private var checkIndex = 0
+    private var now = ""
+    private var yymm = ""
     
     
     // MARK: - LifeCycle
@@ -51,8 +51,8 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         super.viewDidLoad()
         
         selectedDate = Date()
+        configureDelegate()
         
-        picker.delegate = self
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
@@ -67,6 +67,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
         
         AuthManager.shared.authenticateUser()
         configureUI()
+        configureCollectionView()
         swipeSetting()
         setMonthView()
     }
@@ -95,16 +96,14 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     
     // MARK: - Helpers
     
-    private func configureUI() {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        
+    private func configureDelegate() {
+        picker.delegate = self
         photoView.delegate = self
-        
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func configureCollectionView() {
         collectionView.backgroundColor = .mainGrey
         collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "calendarCell")
         photoView.addSubview(collectionView)
@@ -114,6 +113,13 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview()
         }
+    }
+    
+    private func configureUI() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
         
         let realm = try! Realm()
         let calendarDataArray = Array(realm.objects(CalendarData.self))

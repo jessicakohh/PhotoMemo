@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+final class ResetPasswordViewController: UIViewController {
     
     // MARK: - Properties
     

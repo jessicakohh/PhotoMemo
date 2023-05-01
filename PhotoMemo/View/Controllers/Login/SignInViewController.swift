@@ -9,22 +9,22 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
     
     // MARK: - Properties
     
-    let signInView = SignInView()
+    private let signInView = SignInView()
     private let viewModel = SignInViewModel()
-    
     private let imagePicker = UIImagePickerController()
-
+    
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signInView.delegate = self
+        configureNavigation()
+        configureDelegate()
     }
     
     override func loadView() {
@@ -34,10 +34,15 @@ class SignInViewController: UIViewController {
     // MARK: - Selectors
     
     
-    
     // MARK: - Helpers
     
+    private func configureNavigation() {
+        navigationController?.navigationBar.tintColor = .mainDarkGrey
+    }
     
+    private func configureDelegate() {
+        signInView.delegate = self
+    }
 }
 
 // MARK: - SingInViewDelegate

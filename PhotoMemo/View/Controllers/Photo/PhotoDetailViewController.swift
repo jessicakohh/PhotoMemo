@@ -11,12 +11,12 @@ import RealmSwift
 final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Properties
+    
     var photoDetailView = PhotoDetailView()
-    var calendarData: CalendarData?
+    private var calendarData: CalendarData?
     private let viewModel = PhotoDetailViewModel()
     private let imagePicker = UIImagePickerController()
-    
-    var realmManager = RealmManager()
+    private var realmManager = RealmManager()
 
 
     // MARK: - LifeCycle
@@ -24,8 +24,7 @@ final class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoDetailView.delegate = self
-
+        configureDelegate()
         configureNavigation()
         configureUI()
     }
@@ -45,6 +44,10 @@ final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Helpers
     
+    private func configureDelegate() {
+        photoDetailView.delegate = self
+    }
+    
     private func configureNavigation() {
         navigationController?.navigationBar.tintColor = .mainDarkGrey
         
@@ -61,7 +64,6 @@ final class PhotoDetailViewController: UIViewController {
         let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         space.width = 10
 
-        
         navigationItem.rightBarButtonItems = [saveBarButtonItem, space, deleteBarButtonItem]
     }
     

@@ -9,6 +9,8 @@ import Firebase
 
 typealias DatabaseCompletion = ((Error?, DatabaseReference) -> Void)
 
+
+// 유저 데이터를 다루는 함수
 struct UserService {
     
     static let shared = UserService()

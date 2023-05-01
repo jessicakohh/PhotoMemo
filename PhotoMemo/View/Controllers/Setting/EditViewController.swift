@@ -11,22 +11,19 @@ final class EditViewController: UIViewController {
     
     // MARK: - Properties
     
-    var editView = EditView()
+    private var editView = EditView()
     private var userModel: UserModel?
-    var viewModel = SettingViewModel()
+    private var viewModel = SettingViewModel()
     private let imagePicker = UIImagePickerController()
     
     // MARK: - LifeCycle
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editView.delegate = self
-        
+        configureDelegate()
         viewModel.fetchUser { [weak self] userModel in
             self?.configureUI()
         }
-        
     }
     
     override func loadView() {
@@ -36,6 +33,10 @@ final class EditViewController: UIViewController {
     // MARK: - Selectors
     
     // MARK: - Helpers
+    
+    private func configureDelegate() {
+        editView.delegate = self
+    }
     
     private func configureUI() {
         DispatchQueue.main.async { [weak self] in
@@ -50,13 +51,12 @@ final class EditViewController: UIViewController {
             }
         }
     }
-    
     private func popViewController() {
         navigationController?.popViewController(animated: true)
     }
-    
-    // MARK: - Layout Extension
 }
+
+    // MARK: - Layout Extension
 
 extension EditViewController: EditViewDelegate {
     func openImagePickerTapped(_ editView: EditView) {
@@ -85,9 +85,6 @@ extension EditViewController: EditViewDelegate {
         }
     }
 }
-
-
-
 
 // MARK: - UIImagePicker
 

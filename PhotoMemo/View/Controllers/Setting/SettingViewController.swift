@@ -14,14 +14,10 @@ final class SettingViewController: UIViewController {
     
     // MARK: - Properties
     
-    var settingView = SettingView()
-    lazy var tableView = settingView.tableView
-    var viewModel = SettingViewModel()
-    
+    private var settingView = SettingView()
+    private lazy var tableView = settingView.tableView
+    private var viewModel = SettingViewModel()
     private var userModel: UserModel?
-    
-    
-    
     
     // MARK: - LifeCycle
     
@@ -34,11 +30,10 @@ final class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureDelegate()
         configureNavigation()
         configureTableView()
-        
-        settingView.delegate = self
-        
     }
     
     override func loadView() {
@@ -53,6 +48,10 @@ final class SettingViewController: UIViewController {
     
     // MARK: - Helpers
     
+    private func configureDelegate() {
+        settingView.delegate = self
+    }
+    
     private func configureUI() {
         DispatchQueue.main.async { [weak self] in
             guard let userModel = self?.viewModel.userModel else { return }
@@ -66,7 +65,6 @@ final class SettingViewController: UIViewController {
             }
         }
     }
-    
     
     private func configureTableView() {
         tableView.dataSource = self
