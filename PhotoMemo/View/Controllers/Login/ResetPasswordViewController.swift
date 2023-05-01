@@ -49,7 +49,7 @@ extension ResetPasswordViewController: ResetPasswordViewDelegate {
               if let error = error {
                   print("Failed to send password reset email: \(error.localizedDescription)")
                   // 에러 메시지를 사용자에게 보여주거나 다른 작업을 수행할 수 있습니다.
-                  resetPasswordView.resultLabel.text = "🧣 입력하신 이메일이 존재하지 않습니다."
+                  resetPasswordView.resultLabel.text = "⚠️ 입력하신 이메일이 존재하지 않습니다."
               } else {
                   print("Password reset email has been sent successfully")
                   resetPasswordView.resultLabel.text = " 💌 암호 재설정 메일이 전송되었습니다."

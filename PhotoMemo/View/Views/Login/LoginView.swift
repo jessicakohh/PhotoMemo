@@ -14,7 +14,7 @@ protocol LoginViewDelegate: AnyObject {
     func resetPasswordButtonTapped(_ loginView: LoginView)
 }
 
-class LoginView: UIView {
+final class LoginView: UIView {
     
     weak var delegate: LoginViewDelegate?
     
@@ -97,9 +97,7 @@ class LoginView: UIView {
     
     lazy var loginCheckedLabel: UILabel = {
         let label = UILabel()
-        label.text = "아이디와 비밀번호를 확인해주세요❗️"
         label.textColor = .darkRed
-        label.isHidden = true
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         return label
     }()

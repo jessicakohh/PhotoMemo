@@ -160,6 +160,13 @@ class SignInView: UIView {
         return stackView
     }()
     
+    lazy var loginCheckedLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .darkRed
+        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        return label
+    }()
+    
     lazy var signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .mainDarkGrey
@@ -220,7 +227,7 @@ class SignInView: UIView {
 extension SignInView: LayoutProtocol {
     
     func setSubViews() {
-        [profileImageView, plusIconImageView, imagePickerButton, allTextFieldStackView, signInButton, openPrivacyPolicyButton]
+        [profileImageView, plusIconImageView, imagePickerButton, allTextFieldStackView, loginCheckedLabel, signInButton, openPrivacyPolicyButton]
             .forEach { self.addSubview($0) }
     }
     
@@ -238,7 +245,7 @@ extension SignInView: LayoutProtocol {
             make.top.equalTo(profileImageView.snp.top).inset(113)
             make.width.height.equalTo(30)
         }
-
+        
         imagePickerButton.snp.makeConstraints { make in
             make.center.equalTo(profileImageView.snp.center)
             make.width.height.equalTo(130)
@@ -271,21 +278,27 @@ extension SignInView: LayoutProtocol {
             make.top.equalTo(profileImageView.snp.bottom).offset(40)
         }
         
-        signInButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(allTextFieldStackView.snp.bottom).offset(30)
-            make.height.equalTo(35)
-            make.width.equalTo(100)
-        }
-        
-        openPrivacyPolicyButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(signInButton.snp.bottom).offset(8)
-            make.width.equalTo(120)
-            make.height.equalTo(20)
+        loginCheckedLabel.snp.makeConstraints { make in
+            loginCheckedLabel.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(allTextFieldStackView.snp.bottom).offset(10)
+            }
+            
+            signInButton.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(loginCheckedLabel.snp.bottom).offset(15)
+                make.height.equalTo(35)
+                make.width.equalTo(100)
+            }
+            
+            openPrivacyPolicyButton.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(signInButton.snp.bottom).offset(8)
+                make.width.equalTo(120)
+                make.height.equalTo(20)
+            }
         }
     }
 }
-
 
 

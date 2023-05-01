@@ -58,9 +58,11 @@ extension LoginViewController: LoginViewDelegate {
               let password = loginView.passwordTextField.text else {
             return
         }
+        
         viewModel.loginUser(email: email, password: password) { error in
             if let error = error {
                 print("로그인 에러:", error.localizedDescription)
+                loginView.loginCheckedLabel.text = "⚠️ 아이디 혹은 비밀번호를 확인해주세요."
             } else {
                 print("뷰모델로그인 성공")
            

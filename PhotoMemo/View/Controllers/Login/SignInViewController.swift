@@ -57,6 +57,7 @@ extension SignInViewController: SignInViewDelegate {
     func joinButtonTapped(_ singInView: SignInView) {
         
         guard let profileImage = signInView.profileImageView.image else {
+            signInView.loginCheckedLabel.text = "⚠️ 비밀번호는 6자리 이상, 프로필 이미지는 반드시 선택해주세요."
             print("DEBUG: Please select a profile image / 프로필 이미지를 선택하십시오")
             return
         }
