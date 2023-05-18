@@ -202,7 +202,6 @@ extension PhotoViewController: UICollectionViewDelegate {
         if thumbnails[now] == nil {
             
             let halfModalViewController = HalfModalViewController()
-            halfModalViewController.presentHalfModal()
             present(halfModalViewController, animated: true)
             
         } else {

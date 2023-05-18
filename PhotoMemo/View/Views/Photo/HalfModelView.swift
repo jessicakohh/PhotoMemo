@@ -7,13 +7,22 @@
 
 import UIKit
 
+protocol HalfModelViewDelegate: AnyObject {
+    func webImageButtonTapped(_ halfModalView: HalfModelView)
+    func albumImageButtonTapped(_ halfModalView: HalfModelView)
+    func photoImageButtonTapped(_ halfModalView: HalfModelView)
+}
+
 final class HalfModelView: UIView {
     
+    weak var delegate: HalfModelViewDelegate?
+
     // MARK: - Properties
     
     lazy var webImageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "webImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(webImageButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -39,6 +48,7 @@ final class HalfModelView: UIView {
     lazy var albumImageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "albumImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(albumImageButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -63,6 +73,7 @@ final class HalfModelView: UIView {
     lazy var photoImageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "photoImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(photoImageButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -111,8 +122,25 @@ final class HalfModelView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Selectors
+    
+    @objc func webImageButtonTapped() {
+        delegate?.webImageButtonTapped(self)
+    }
+    
+    @objc func albumImageButtonTapped() {
+        delegate?.albumImageButtonTapped(self)
+    }
+    
+    @objc func photoImageButtonTapped() {
+        delegate?.photoImageButtonTapped(self)
+    }
+
+
+    
     
     // MARK: - Helpers
+    
     private func configureUI() {
         backgroundColor = .newGrey
         

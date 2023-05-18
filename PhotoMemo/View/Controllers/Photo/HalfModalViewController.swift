@@ -39,20 +39,26 @@ final class HalfModalViewController: UIViewController {
     }
     
     private func configureDelegate() {
-        
+        halfModalView.delegate = self
     }
-    
-    func presentHalfModal() {
-        // 모달을 표시하기 전에 추가적인 설정이 필요하다면 여기에 작성합니다.
-        
-        // 모달 애니메이션과 함께 모달을 표시합니다.
-        halfModalView.transform = CGAffineTransform(translationX: 0, y: halfModalView.bounds.height)
-        UIView.animate(withDuration: 0.3) {
-            self.halfModalView.transform = CGAffineTransform.identity
-        }
-    }
+
 
 }
     
     // MARK: - Layout Extension
 
+extension HalfModalViewController: HalfModelViewDelegate {
+    
+    func webImageButtonTapped(_ halfModalView: HalfModelView) {
+        print("웹 이미지 찾기 버튼")
+    }
+    
+    func albumImageButtonTapped(_ halfModalView: HalfModelView) {
+        print("앨범 버튼")
+    }
+    
+    func photoImageButtonTapped(_ halfModalView: HalfModelView) {
+        print("사진찍기 버튼")
+    }
+ 
+}
