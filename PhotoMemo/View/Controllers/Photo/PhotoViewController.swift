@@ -42,7 +42,7 @@ final class PhotoViewController: UIViewController, CalendarViewDelegate {
     private var checkIndex = 0
     private var now = ""
     private var yymm = ""
-
+    
     
     // MARK: - LifeCycle
     
@@ -200,7 +200,11 @@ extension PhotoViewController: UICollectionViewDelegate {
         guard totalDates[indexPath.item] != "" else { return }
         
         if thumbnails[now] == nil {
-            present(picker, animated: true, completion: nil)
+            
+            let halfModalViewController = HalfModalViewController()
+            halfModalViewController.presentHalfModal()
+            present(halfModalViewController, animated: true)
+            
         } else {
             checkIndex += 1
             let photoDetailVC = PhotoDetailViewController()

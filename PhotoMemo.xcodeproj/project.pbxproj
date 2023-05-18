@@ -50,6 +50,8 @@
 		C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */; };
 		C8B99E7029EEB247007506D0 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E6F29EEB247007506D0 /* CalendarCell.swift */; };
 		C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B99E7329EEB557007506D0 /* CalendarHelper.swift */; };
+		C8D3CFF12A14EC4600DD5FD9 /* HalfModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D3CFF02A14EC4600DD5FD9 /* HalfModalViewController.swift */; };
+		C8D3CFF32A14EC8B00DD5FD9 /* HalfModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D3CFF22A14EC8B00DD5FD9 /* HalfModelView.swift */; };
 		C8DE710D295842DD00C0FA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710C295842DD00C0FA24 /* AppDelegate.swift */; };
 		C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */; };
 		C8DE7111295842DD00C0FA24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE7110295842DD00C0FA24 /* ViewController.swift */; };
@@ -100,6 +102,8 @@
 		C8B99E6629EEB0FC007506D0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		C8B99E6F29EEB247007506D0 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C8B99E7329EEB557007506D0 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		C8D3CFF02A14EC4600DD5FD9 /* HalfModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalViewController.swift; sourceTree = "<group>"; };
+		C8D3CFF22A14EC8B00DD5FD9 /* HalfModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModelView.swift; sourceTree = "<group>"; };
 		C8DE7109295842DD00C0FA24 /* PhotoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DE710C295842DD00C0FA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DE710E295842DD00C0FA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			children = (
 				C81E063E29E8144A00D22514 /* PhotoViewController.swift */,
 				C8F3A1DC29EFE77E00B9AF2C /* PhotoDetailViewController.swift */,
+				C8D3CFF02A14EC4600DD5FD9 /* HalfModalViewController.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			children = (
 				C8B99E6229EE9680007506D0 /* CalendarView.swift */,
 				C8F3A1DE29EFE8C500B9AF2C /* PhotoDetailView.swift */,
+				C8D3CFF22A14EC8B00DD5FD9 /* HalfModelView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				C81905A029F8DE4200610870 /* SignInViewModel.swift in Sources */,
 				C81E064829E9481300D22514 /* SettingView.swift in Sources */,
 				C8DE7128295843C300C0FA24 /* DetailViewController.swift in Sources */,
+				C8D3CFF12A14EC4600DD5FD9 /* HalfModalViewController.swift in Sources */,
 				C8F3A1DD29EFE77E00B9AF2C /* PhotoDetailViewController.swift in Sources */,
 				C8B99E7429EEB557007506D0 /* CalendarHelper.swift in Sources */,
 				C819059C29F80D6A00610870 /* AuthManager.swift in Sources */,
@@ -566,6 +573,7 @@
 				C8B99E6729EEB0FC007506D0 /* PhotoViewModel.swift in Sources */,
 				C8F3A1DF29EFE8C500B9AF2C /* PhotoDetailView.swift in Sources */,
 				C81905A629FA46FB00610870 /* AuthService.swift in Sources */,
+				C8D3CFF32A14EC8B00DD5FD9 /* HalfModelView.swift in Sources */,
 				C8DE712D295845E900C0FA24 /* SideMenuViewController.swift in Sources */,
 				C8DE71332958469A00C0FA24 /* Diary+CoreDataProperties.swift in Sources */,
 				C8DE710F295842DD00C0FA24 /* SceneDelegate.swift in Sources */,
